@@ -1,0 +1,4 @@
+---
+linuxfabrik_monitoring_plugins_dest: /usr/lib64/nagios/plugins
+linuxfabrik_monitoring_plugins_user: nagios
+linuxfabrik_monitoring_plugins_group: nagios

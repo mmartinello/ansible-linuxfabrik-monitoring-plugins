@@ -1,0 +1,52 @@
+---
+- name: Install required packages
+  package:
+    name: "{{ linuxfabrik_monitoring_plugins_required_packages }}"
+    state: present
+
+- name: Install required PIP packages
+  pip:
+    name: "{{ linuxfabrik_monitoring_plugins_required_pip_packages }}"
+    state: present
+
+- name: Download Linuxfabrik Monitoring Plugins
+  get_url:
+    url: "{{ linuxfabrik_monitoring_plugins_url }}"
+    dest: /tmp/linuxfabrik_monitoring_plugins.tar
+    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
+    group: "{{ linuxfabrik_monitoring_plugins_group }}"
+    force: true
+
+- name: Create the temporary directory
+  file:
+    path: /tmp/linuxfabrik_monitoring_plugins
+    state: directory
+    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
+    group: "{{ linuxfabrik_monitoring_plugins_group }}"
+
+- name: Extract the downloaded archive
+  unarchive:
+    src: /tmp/linuxfabrik_monitoring_plugins.tar
+    dest: /tmp/linuxfabrik_monitoring_plugins
+    remote_src: true
+    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
+    group: "{{ linuxfabrik_monitoring_plugins_group }}"
+
+- name: Create the destination directory
+  file:
+    path: "{{ linuxfabrik_monitoring_plugins_dest }}"
+    state: directory
+    recurse: true
+    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
+    group: "{{ linuxfabrik_monitoring_plugins_group }}"    
+
+- name: Copy plugins to the destination directory
+  shell: "cp -a /tmp/linuxfabrik_monitoring_plugins/usr/lib64/nagios/plugins/* {{ linuxfabrik_monitoring_plugins_dest }}/"
+
+- name: Remove the temporary directory
+  shell: rm -rf /tmp/linuxfabrik_monitoring_plugins
+
+- name: Remove the downloaded archive
+  file:
+    path: /tmp/linuxfabrik_monitoring_plugins.tar
+    state: absent

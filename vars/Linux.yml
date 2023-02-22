@@ -1,0 +1,8 @@
+---
+# URL to download the archive from
+linuxfabrik_monitoring_plugins_url: https://download.linuxfabrik.ch/monitoring-plugins/tar/linuxfabrik-monitoring-plugins.tar
+
+# Required PIP packages
+linuxfabrik_monitoring_plugins_required_pip_packages:
+  - smbprotocol
+  - vici
