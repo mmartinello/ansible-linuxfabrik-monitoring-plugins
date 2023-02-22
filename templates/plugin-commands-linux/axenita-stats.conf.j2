@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'axenita-stats' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/axenit
 */
 
 object CheckCommand "_linuxfabrik_axenita_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/axenita-stats" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/axenita-stats" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_axenita_stats" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_axenita_stats_alwaysok$"
+            set_if = "$linuxfabrik_axenita_stats_always_ok$"
             description = "Always returns OK."
         }
         "--url" = {

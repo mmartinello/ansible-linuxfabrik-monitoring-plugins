@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'nodebb-info' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_info" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-info" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/nodebb-info" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_nodebb_info" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_nodebb_info_alwaysok$"
+            set_if = "$linuxfabrik_nodebb_info_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {

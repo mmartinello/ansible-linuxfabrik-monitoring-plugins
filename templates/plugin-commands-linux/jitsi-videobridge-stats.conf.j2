@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'jitsi-videobridge-stats' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/jitsi-
 */
 
 object CheckCommand "_linuxfabrik_jitsi_videobridge_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/jitsi-videobridge-stats" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/jitsi-videobridge-stats" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_jitsi_videobridge_stats" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_jitsi_videobridge_stats_alwaysok$"
+            set_if = "$linuxfabrik_jitsi_videobridge_stats_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {

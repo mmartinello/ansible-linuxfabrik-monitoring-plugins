@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'redis-status' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/redis-
 */
 
 object CheckCommand "_linuxfabrik_redis_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/redis-status" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/redis-status" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_redis_status" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_redis_status_alwaysok$"
+            set_if = "$linuxfabrik_redis_status_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
@@ -32,23 +34,23 @@ object CheckCommand "_linuxfabrik_redis_status" {
             description = "Redis server hostname. Default: 127.0.0.1"
         }
         "--ignore-maxmemory0" = {
-            set_if = "$linuxfabrik_redis_status_ignoremaxmemory0$"
+            set_if = "$linuxfabrik_redis_status_ignore_maxmemory0$"
             description = "Don't warn about redis' maxmemory=0. Default: False"
         }
         "--ignore-overcommit" = {
-            set_if = "$linuxfabrik_redis_status_ignoreovercommit$"
+            set_if = "$linuxfabrik_redis_status_ignore_overcommit$"
             description = "Don't warn about vm.overcommit_memory<>1. Default:False"
         }
         "--ignore-somaxconn" = {
-            set_if = "$linuxfabrik_redis_status_ignoresomaxconn$"
+            set_if = "$linuxfabrik_redis_status_ignore_somaxconn$"
             description = "Don't warn about net.core.somaxconn < net.ipv4.tcp_max_syn_backlog. Default: False"
         }
         "--ignore-sync-partial-err" = {
-            set_if = "$linuxfabrik_redis_status_ignoresyncpartialerr$"
+            set_if = "$linuxfabrik_redis_status_ignore_sync_partial_err$"
             description = "Don't warn about partial sync errors (because if you have an asynchronous replication, a small number of 'denied partial resync requests' might be normal). Default: False"
         }
         "--ignore-thp" = {
-            set_if = "$linuxfabrik_redis_status_ignorethp$"
+            set_if = "$linuxfabrik_redis_status_ignore_thp$"
             description = "Don't warn about transparent huge page setting. Default: False"
         }
         "--password" = {

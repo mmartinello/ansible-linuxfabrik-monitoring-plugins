@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'starface-java-memory-usage' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_linuxfabrik_starface_java_memory_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-java-memory-usage" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/starface-java-memory-usage" ]
 
     arguments = {
         "--help" = {
@@ -20,11 +22,11 @@ object CheckCommand "_linuxfabrik_starface_java_memory_usage" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_starface_java_memory_usage_alwaysok$"
+            set_if = "$linuxfabrik_starface_java_memory_usage_always_ok$"
             description = "Always returns OK."
         }
         "--cache-expire" = {
-            value = "$linuxfabrik_starface_java_memory_usage_cacheexpire$"
+            value = "$linuxfabrik_starface_java_memory_usage_cache_expire$"
             description = "The amount of time after which the cached data expires, in minutes. Default: 1"
         }
         "--critical" = {

@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'top3-processes-which-caused-the-most-io' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/top3-p
 */
 
 object CheckCommand "_linuxfabrik_top3_processes_which_caused_the_most_io" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/top3-processes-which-caused-the-most-io" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/top3-processes-which-caused-the-most-io" ]
 
     arguments = {
         "--help" = {

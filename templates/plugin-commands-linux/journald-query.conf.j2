@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'journald-query' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/journa
 */
 
 object CheckCommand "_linuxfabrik_journald_query" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/journald-query" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/journald-query" ]
 
     arguments = {
         "--help" = {
@@ -20,11 +22,11 @@ object CheckCommand "_linuxfabrik_journald_query" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_journald_query_alwaysok$"
+            set_if = "$linuxfabrik_journald_query_always_ok$"
             description = "Always returns OK."
         }
         "--case-sensitive" = {
-            set_if = "$linuxfabrik_journald_query_casesensitive$"
+            set_if = "$linuxfabrik_journald_query_case_sensitive$"
             description = "journalctl: Make pattern matching case sensitive or case insensitive. Default: None"
         }
         "--facility" = {
@@ -60,7 +62,7 @@ object CheckCommand "_linuxfabrik_journald_query" {
             description = "journalctl: Show messages for the specified systemd unit UNIT|PATTERN. This parameter can be specified multiple times. Default: None"
         }
         "--user-unit" = {
-            value = "$linuxfabrik_journald_query_userunit$"
+            value = "$linuxfabrik_journald_query_user_unit$"
             description = "journalctl: Show messages for the specified user session "
         }
     }

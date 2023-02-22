@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'crypto-policy' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/crypto
 */
 
 object CheckCommand "_linuxfabrik_crypto_policy" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/crypto-policy" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/crypto-policy" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_crypto_policy" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_crypto_policy_alwaysok$"
+            set_if = "$linuxfabrik_crypto_policy_always_ok$"
             description = "Always returns OK."
         }
         "--policy" = {

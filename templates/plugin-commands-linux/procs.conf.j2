@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'procs' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/procs
 */
 
 object CheckCommand "_linuxfabrik_procs" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/procs" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/procs" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_procs" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_procs_alwaysok$"
+            set_if = "$linuxfabrik_procs_always_ok$"
             description = "Always returns OK."
         }
         "--argument" = {
@@ -36,19 +38,19 @@ object CheckCommand "_linuxfabrik_procs" {
             description = "Threshold for the number of processes. Type: None or Range. Default: None"
         }
         "--critical-mem" = {
-            value = "$linuxfabrik_procs_criticalmem$"
+            value = "$linuxfabrik_procs_critical_mem$"
             description = "Threshold for memory usage, in bytes. Type: None or Range. Default: None"
         }
         "--critical-mem-percent" = {
-            value = "$linuxfabrik_procs_criticalmempercent$"
+            value = "$linuxfabrik_procs_critical_mem_percent$"
             description = "Threshold for memory usage, in percent. Type: None or Range. Default: None"
         }
         "--critical-age" = {
-            value = "$linuxfabrik_procs_criticalage$"
+            value = "$linuxfabrik_procs_critical_age$"
             description = "Threshold for age of the process, in seconds. Type: None or Range. Default: None"
         }
         "--no-kthreads" = {
-            set_if = "$linuxfabrik_procs_nokthreads$"
+            set_if = "$linuxfabrik_procs_no_kthreads$"
             description = "Filter: Only scan for non kernel threads (works on Linux only). Default: False"
         }
         "--status" = {
@@ -64,15 +66,15 @@ object CheckCommand "_linuxfabrik_procs" {
             description = "Threshold for the number of processes. Type: None or Range. Default: None"
         }
         "--warning-mem" = {
-            value = "$linuxfabrik_procs_warningmem$"
+            value = "$linuxfabrik_procs_warning_mem$"
             description = "Threshold for memory usage, in bytes. Type: None or Range. Default: None"
         }
         "--warning-mem-percent" = {
-            value = "$linuxfabrik_procs_warningmempercent$"
+            value = "$linuxfabrik_procs_warning_mem_percent$"
             description = "Threshold for memory usage, in percent. Type: None or Range. Default: None"
         }
         "--warning-age" = {
-            value = "$linuxfabrik_procs_warningage$"
+            value = "$linuxfabrik_procs_warning_age$"
             description = "Threshold for age of the process, in seconds. Type: None or Range. Default: None"
         }
     }

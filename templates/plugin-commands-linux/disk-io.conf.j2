@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'disk-io' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/disk-i
 */
 
 object CheckCommand "_linuxfabrik_disk_io" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/disk-io" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/disk-io" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_disk_io" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_disk_io_alwaysok$"
+            set_if = "$linuxfabrik_disk_io_always_ok$"
             description = "Always returns OK."
         }
         "--count" = {

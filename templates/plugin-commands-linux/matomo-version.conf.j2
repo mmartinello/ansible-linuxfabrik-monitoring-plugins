@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'matomo-version' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/matomo
 */
 
 object CheckCommand "_linuxfabrik_matomo_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/matomo-version" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/matomo-version" ]
 
     arguments = {
         "--help" = {
@@ -20,11 +22,11 @@ object CheckCommand "_linuxfabrik_matomo_version" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_matomo_version_alwaysok$"
+            set_if = "$linuxfabrik_matomo_version_always_ok$"
             description = "Always returns OK."
         }
         "--cache-expire" = {
-            value = "$linuxfabrik_matomo_version_cacheexpire$"
+            value = "$linuxfabrik_matomo_version_cache_expire$"
             description = "The amount of time after which the update check cache expires, in hours. Default: 24"
         }
         "--path" = {

@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'pip-updates' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/pip-up
 */
 
 object CheckCommand "_linuxfabrik_pip_updates" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/pip-updates" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/pip-updates" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_pip_updates" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_pip_updates_alwaysok$"
+            set_if = "$linuxfabrik_pip_updates_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {

@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'onlyoffice-stats' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/onlyof
 */
 
 object CheckCommand "_linuxfabrik_onlyoffice_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/onlyoffice-stats" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/onlyoffice-stats" ]
 
     arguments = {
         "--help" = {

@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'haproxy-status' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/haprox
 */
 
 object CheckCommand "_linuxfabrik_haproxy_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/haproxy-status" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/haproxy-status" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_haproxy_status" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_haproxy_status_alwaysok$"
+            set_if = "$linuxfabrik_haproxy_status_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {

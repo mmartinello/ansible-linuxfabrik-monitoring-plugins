@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'restic-snapshots' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/restic
 */
 
 object CheckCommand "_linuxfabrik_restic_snapshots" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/restic-snapshots" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/restic-snapshots" ]
 
     arguments = {
         "--help" = {
@@ -24,7 +26,7 @@ object CheckCommand "_linuxfabrik_restic_snapshots" {
             description = "Set the critical threshold for the time difference to the start of the last backup (in each group) (in hours). Default: None"
         }
         "--group-by" = {
-            value = "$linuxfabrik_restic_snapshots_groupby$"
+            value = "$linuxfabrik_restic_snapshots_group_by$"
             description = "String for grouping snapshots by host,paths,tags. Default: host,tags,paths"
         }
         "--host" = {
@@ -36,7 +38,7 @@ object CheckCommand "_linuxfabrik_restic_snapshots" {
             description = "Only show the last n snapshots for each host and path. Default: 3"
         }
         "--password-file" = {
-            value = "$linuxfabrik_restic_snapshots_passwordfile$"
+            value = "$linuxfabrik_restic_snapshots_password_file$"
             description = "File to read the repository password from."
         }
         "--path" = {

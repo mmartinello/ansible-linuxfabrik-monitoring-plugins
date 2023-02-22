@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'restic-check' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/restic
 */
 
 object CheckCommand "_linuxfabrik_restic_check" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/restic-check" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/restic-check" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_restic_check" {
             description = "show program's version number and exit"
         }
         "--password-file" = {
-            value = "$linuxfabrik_restic_check_passwordfile$"
+            value = "$linuxfabrik_restic_check_password_file$"
             description = "File to read the repository password from"
         }
         "--repo" = {

@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'logfile' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/logfil
 */
 
 object CheckCommand "_linuxfabrik_logfile" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/logfile" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/logfile" ]
 
     arguments = {
         "--help" = {
@@ -20,11 +22,11 @@ object CheckCommand "_linuxfabrik_logfile" {
             description = "show program's version number and exit"
         }
         "--alarm-duration" = {
-            value = "$linuxfabrik_logfile_alarmduration$"
+            value = "$linuxfabrik_logfile_alarm_duration$"
             description = "How long should this check return an alarm on new matches (in minutes)? This is overwritten by --icinga- callback. Default: 60"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_logfile_alwaysok$"
+            set_if = "$linuxfabrik_logfile_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
@@ -32,11 +34,11 @@ object CheckCommand "_linuxfabrik_logfile" {
             description = "Set the critical threshold for the number of found critical matches. Default: 1"
         }
         "--critical-pattern" = {
-            value = "$linuxfabrik_logfile_criticalpattern$"
+            value = "$linuxfabrik_logfile_critical_pattern$"
             description = "Any line containing this pattern will count as a critical."
         }
         "--critical-regex" = {
-            value = "$linuxfabrik_logfile_criticalregex$"
+            value = "$linuxfabrik_logfile_critical_regex$"
             description = "Any line matching this python regex will count as a critical."
         }
         "--filename" = {
@@ -44,35 +46,35 @@ object CheckCommand "_linuxfabrik_logfile" {
             description = "Set the path of the logfile."
         }
         "--icinga-callback" = {
-            set_if = "$linuxfabrik_logfile_icingacallback$"
+            set_if = "$linuxfabrik_logfile_icinga_callback$"
             description = "Get the service acknowledgement from Icinga. This overwrites --alarm-duration. Default: False"
         }
         "--icinga-password" = {
-            value = "$linuxfabrik_logfile_icingapassword$"
+            value = "$linuxfabrik_logfile_icinga_password$"
             description = "Icinga API password."
         }
         "--icinga-service-name" = {
-            value = "$linuxfabrik_logfile_icingaservicename$"
+            value = "$linuxfabrik_logfile_icinga_service_name$"
             description = "Unique name of the service using this check within Icinga. Take it from the `__name` service attribute, for example `icinga-server!my-service-name`."
         }
         "--icinga-url" = {
-            value = "$linuxfabrik_logfile_icingaurl$"
+            value = "$linuxfabrik_logfile_icinga_url$"
             description = "Icinga API URL, for example https://icinga- server:5665."
         }
         "--icinga-username" = {
-            value = "$linuxfabrik_logfile_icingausername$"
+            value = "$linuxfabrik_logfile_icinga_username$"
             description = "Icinga API username."
         }
         "--ignore-pattern" = {
-            value = "$linuxfabrik_logfile_ignorepattern$"
+            value = "$linuxfabrik_logfile_ignore_pattern$"
             description = "Any line containing this pattern will be ignored."
         }
         "--ignore-regex" = {
-            value = "$linuxfabrik_logfile_ignoreregex$"
+            value = "$linuxfabrik_logfile_ignore_regex$"
             description = "Any line matching this python regex will be ignored."
         }
         "--suppress-lines" = {
-            set_if = "$linuxfabrik_logfile_suppresslines$"
+            set_if = "$linuxfabrik_logfile_suppress_lines$"
             description = "Suppress the found lines in the output, only report the number of findings."
         }
         "--warning" = {
@@ -80,11 +82,11 @@ object CheckCommand "_linuxfabrik_logfile" {
             description = "Set the warning threshold for the number of found warning matches. Default: 1"
         }
         "--warning-pattern" = {
-            value = "$linuxfabrik_logfile_warningpattern$"
+            value = "$linuxfabrik_logfile_warning_pattern$"
             description = "Any line containing this pattern will count as a warning."
         }
         "--warning-regex" = {
-            value = "$linuxfabrik_logfile_warningregex$"
+            value = "$linuxfabrik_logfile_warning_regex$"
             description = "Any line matching this python regex will count as a warning."
         }
     }

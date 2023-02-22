@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'ipmi-sel' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ipmi-s
 */
 
 object CheckCommand "_linuxfabrik_ipmi_sel" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/ipmi-sel" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/ipmi-sel" ]
 
     arguments = {
         "--help" = {

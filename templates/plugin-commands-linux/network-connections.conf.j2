@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'network-connections' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/networ
 */
 
 object CheckCommand "_linuxfabrik_network_connections" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/network-connections" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/network-connections" ]
 
     arguments = {
         "--help" = {
@@ -20,12 +22,12 @@ object CheckCommand "_linuxfabrik_network_connections" {
             description = "show program's version number and exit"
         }
         "--conn-status" = {
-            value = "$linuxfabrik_network_connections_connstatus$"
+            value = "$linuxfabrik_network_connections_conn_status$"
             description = "1,fin_wait2,last_ack,listen,none,syn_recv,syn_sent,time_wait} Filter the status of the connections (repeating). Default: None"
             repeat_key = true
         }
         "--conn-type" = {
-            value = "$linuxfabrik_network_connections_conntype$"
+            value = "$linuxfabrik_network_connections_conn_type$"
             description = "6,udp,udp6,unix} Filter the family/type of the connections (repeating). Default: None"
             repeat_key = true
         }

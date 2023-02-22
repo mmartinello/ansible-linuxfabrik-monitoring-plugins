@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'nextcloud-security-scan' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nextcl
 */
 
 object CheckCommand "_linuxfabrik_nextcloud_security_scan" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nextcloud-security-scan" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/nextcloud-security-scan" ]
 
     arguments = {
         "--help" = {

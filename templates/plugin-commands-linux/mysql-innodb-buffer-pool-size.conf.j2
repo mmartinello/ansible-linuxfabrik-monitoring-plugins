@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'mysql-innodb-buffer-pool-size' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_innodb_buffer_pool_size" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-innodb-buffer-pool-size" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/mysql-innodb-buffer-pool-size" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_mysql_innodb_buffer_pool_size" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_mysql_innodb_buffer_pool_size_alwaysok$"
+            set_if = "$linuxfabrik_mysql_innodb_buffer_pool_size_always_ok$"
             description = "Always returns OK."
         }
         "--hostname" = {

@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'mysql-connections' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_connections" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-connections" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/mysql-connections" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_mysql_connections" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_mysql_connections_alwaysok$"
+            set_if = "$linuxfabrik_mysql_connections_always_ok$"
             description = "Always returns OK."
         }
         "--hostname" = {
@@ -28,7 +30,7 @@ object CheckCommand "_linuxfabrik_mysql_connections" {
             description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
         }
         "--ignore-name-resolution" = {
-            set_if = "$linuxfabrik_mysql_connections_ignorenameresolution$"
+            set_if = "$linuxfabrik_mysql_connections_ignore_name_resolution$"
             description = "Do not check if name resolution is active. Default: False"
         }
         "--password" = {

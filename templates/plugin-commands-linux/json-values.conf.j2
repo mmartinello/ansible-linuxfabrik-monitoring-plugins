@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'json-values' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/json-v
 */
 
 object CheckCommand "_linuxfabrik_json_values" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/json-values" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/json-values" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_json_values" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_json_values_alwaysok$"
+            set_if = "$linuxfabrik_json_values_always_ok$"
             description = "Always returns OK."
         }
         "--filename" = {
@@ -32,11 +34,11 @@ object CheckCommand "_linuxfabrik_json_values" {
             description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
         }
         "--message-key" = {
-            value = "$linuxfabrik_json_values_messagekey$"
+            value = "$linuxfabrik_json_values_message_key$"
             description = "Name of the json array key containing the output message. Default: message"
         }
         "--no-proxy" = {
-            set_if = "$linuxfabrik_json_values_noproxy$"
+            set_if = "$linuxfabrik_json_values_no_proxy$"
             description = "Do not use a proxy. Default: False"
         }
         "--password" = {
@@ -44,11 +46,11 @@ object CheckCommand "_linuxfabrik_json_values" {
             description = "SMB Password."
         }
         "--perfdata-key" = {
-            value = "$linuxfabrik_json_values_perfdatakey$"
+            value = "$linuxfabrik_json_values_perfdata_key$"
             description = "Name of the json array key containing the perfdata. Default: perfdata"
         }
         "--state-key" = {
-            value = "$linuxfabrik_json_values_statekey$"
+            value = "$linuxfabrik_json_values_state_key$"
             description = "Name of the json array key containing the state. Default: state"
         }
         "--timeout" = {

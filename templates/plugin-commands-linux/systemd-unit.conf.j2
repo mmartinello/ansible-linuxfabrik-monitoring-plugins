@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'systemd-unit' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/system
 */
 
 object CheckCommand "_linuxfabrik_systemd_unit" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/systemd-unit" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/systemd-unit" ]
 
     arguments = {
         "--help" = {

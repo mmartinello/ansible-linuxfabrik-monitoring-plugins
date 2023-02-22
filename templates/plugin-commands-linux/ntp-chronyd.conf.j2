@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'ntp-chronyd' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ntp-ch
 */
 
 object CheckCommand "_linuxfabrik_ntp_chronyd" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/ntp-chronyd" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/ntp-chronyd" ]
 
     arguments = {
         "--help" = {

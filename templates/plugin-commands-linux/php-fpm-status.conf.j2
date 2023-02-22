@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'php-fpm-status' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-fp
 */
 
 object CheckCommand "_linuxfabrik_php_fpm_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-fpm-status" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/php-fpm-status" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_php_fpm_status" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_php_fpm_status_alwaysok$"
+            set_if = "$linuxfabrik_php_fpm_status_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
@@ -28,11 +30,11 @@ object CheckCommand "_linuxfabrik_php_fpm_status" {
             description = "Set the CRIT threshold for queue usage as a percentage. Default: >= 90"
         }
         "--critical-maxchildren" = {
-            value = "$linuxfabrik_php_fpm_status_criticalmaxchildren$"
+            value = "$linuxfabrik_php_fpm_status_critical_maxchildren$"
             description = "Set the CRIT threshold for the number of times the process limit has been reached. Default: >= 100"
         }
         "--critical-slowreq" = {
-            value = "$linuxfabrik_php_fpm_status_criticalslowreq$"
+            value = "$linuxfabrik_php_fpm_status_critical_slowreq$"
             description = "Set the CRIT threshold for slow requests. Default: >= 100"
         }
         "--test" = {
@@ -48,11 +50,11 @@ object CheckCommand "_linuxfabrik_php_fpm_status" {
             description = "Set the WARN threshold for queue usage as a percentage. Default: >= 80"
         }
         "--warning-maxchildren" = {
-            value = "$linuxfabrik_php_fpm_status_warningmaxchildren$"
+            value = "$linuxfabrik_php_fpm_status_warning_maxchildren$"
             description = "Set the WARN threshold for the number of times the process limit has been reached. Default: >= 1"
         }
         "--warning-slowreq" = {
-            value = "$linuxfabrik_php_fpm_status_warningslowreq$"
+            value = "$linuxfabrik_php_fpm_status_warning_slowreq$"
             description = "Set the WARN threshold for slow requests. Default: >= 1"
         }
     }

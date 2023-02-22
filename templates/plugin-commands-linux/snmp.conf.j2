@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'snmp' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/snmp
 */
 
 object CheckCommand "_linuxfabrik_snmp" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/snmp" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/snmp" ]
 
     arguments = {
         "--help" = {
@@ -28,7 +30,7 @@ object CheckCommand "_linuxfabrik_snmp" {
             description = "The name of a device file containing the SNMP-OIDs, located under `./device-oids`, for example `switch- fs-s3900.csv` or `printer-brother-mfcj5720dw.csv`. Default: any-any-any.csv."
         }
         "--hide-ok" = {
-            set_if = "$linuxfabrik_snmp_hideok$"
+            set_if = "$linuxfabrik_snmp_hide_ok$"
             description = "Don't print OIDs with OK state. Default: False."
         }
         "--hostname" = {
@@ -40,7 +42,7 @@ object CheckCommand "_linuxfabrik_snmp" {
             description = "Load given list of MIBs, for example `+FS-MIB` or `FS- MIB:BROTHER-MIB`. Behaves like the `-m` option of `snmpget`."
         }
         "--mib-dir" = {
-            value = "$linuxfabrik_snmp_mibdir$"
+            value = "$linuxfabrik_snmp_mib_dir$"
             description = "Look in given list of directories for MIBs. Behaves like the `-M` option of `snmpget`. Default: $HOME/.snmp/mibs:/usr/share/snmp/mibs."
         }
         "--snmpversion" = {

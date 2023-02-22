@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'mysql-storage-engines' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_storage_engines" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-storage-engines" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/mysql-storage-engines" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_mysql_storage_engines" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_mysql_storage_engines_alwaysok$"
+            set_if = "$linuxfabrik_mysql_storage_engines_always_ok$"
             description = "Always returns OK."
         }
         "--hostname" = {

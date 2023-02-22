@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'mysql-open-files' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_open_files" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-open-files" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/mysql-open-files" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_mysql_open_files" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_mysql_open_files_alwaysok$"
+            set_if = "$linuxfabrik_mysql_open_files_always_ok$"
             description = "Always returns OK."
         }
         "--hostname" = {

@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'wildfly-gc-status' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_linuxfabrik_wildfly_gc_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-gc-status" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/wildfly-gc-status" ]
 
     arguments = {
         "--help" = {

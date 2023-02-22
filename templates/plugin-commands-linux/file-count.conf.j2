@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'file-count' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-c
 */
 
 object CheckCommand "_linuxfabrik_file_count" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-count" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/file-count" ]
 
     arguments = {
         "--help" = {
@@ -16,7 +18,7 @@ object CheckCommand "_linuxfabrik_file_count" {
             description = "show this help message and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_file_count_alwaysok$"
+            set_if = "$linuxfabrik_file_count_always_ok$"
             description = "Always returns OK."
         }
         "--filename" = {
@@ -44,11 +46,11 @@ object CheckCommand "_linuxfabrik_file_count" {
             description = "SMB Username."
         }
         "--only-dirs" = {
-            set_if = "$linuxfabrik_file_count_onlydirs$"
+            set_if = "$linuxfabrik_file_count_only_dirs$"
             description = "Only consider directories."
         }
         "--only-files" = {
-            set_if = "$linuxfabrik_file_count_onlyfiles$"
+            set_if = "$linuxfabrik_file_count_only_files$"
             description = "Only consider files."
         }
         "--version" = {

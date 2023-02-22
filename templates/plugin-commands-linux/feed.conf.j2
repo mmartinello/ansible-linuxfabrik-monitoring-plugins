@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'feed' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/feed
 */
 
 object CheckCommand "_linuxfabrik_feed" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/feed" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/feed" ]
 
     arguments = {
         "--help" = {
@@ -20,23 +22,23 @@ object CheckCommand "_linuxfabrik_feed" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_feed_alwaysok$"
+            set_if = "$linuxfabrik_feed_always_ok$"
             description = "Always returns OK."
         }
         "--icinga-service-name" = {
-            value = "$linuxfabrik_feed_icingaservicename$"
+            value = "$linuxfabrik_feed_icinga_service_name$"
             description = "Unique name of the service using this check within Icinga. Take it from the `__name` service attribute, for example `icinga-server!my-service-name`."
         }
         "--icinga-password" = {
-            value = "$linuxfabrik_feed_icingapassword$"
+            value = "$linuxfabrik_feed_icinga_password$"
             description = "Icinga API password."
         }
         "--icinga-url" = {
-            value = "$linuxfabrik_feed_icingaurl$"
+            value = "$linuxfabrik_feed_icinga_url$"
             description = "Icinga API URL, for example https://icinga-server:5665"
         }
         "--icinga-username" = {
-            value = "$linuxfabrik_feed_icingausername$"
+            value = "$linuxfabrik_feed_icinga_username$"
             description = "Icinga API username."
         }
         "--insecure" = {
@@ -44,7 +46,7 @@ object CheckCommand "_linuxfabrik_feed" {
             description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
         }
         "--icinga-callback" = {
-            set_if = "$linuxfabrik_feed_icingacallback$"
+            set_if = "$linuxfabrik_feed_icinga_callback$"
             description = "Get the service acknowledgement from Icinga. Default:False"
         }
         "--latest" = {
@@ -52,11 +54,11 @@ object CheckCommand "_linuxfabrik_feed" {
             description = "Return the newest/latest feed item (may be in the future)."
         }
         "--no-proxy" = {
-            set_if = "$linuxfabrik_feed_noproxy$"
+            set_if = "$linuxfabrik_feed_no_proxy$"
             description = "Do not use a proxy. Default: False"
         }
         "--no-summary" = {
-            set_if = "$linuxfabrik_feed_nosummary$"
+            set_if = "$linuxfabrik_feed_no_summary$"
             description = "Do not show the feed item summary. Default: False"
         }
         "--timeout" = {

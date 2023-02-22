@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'fail2ban' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fail2b
 */
 
 object CheckCommand "_linuxfabrik_fail2ban" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fail2ban" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/fail2ban" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_fail2ban" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_fail2ban_alwaysok$"
+            set_if = "$linuxfabrik_fail2ban_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {

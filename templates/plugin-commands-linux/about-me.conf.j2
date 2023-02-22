@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'about-me' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/about-
 */
 
 object CheckCommand "_linuxfabrik_about_me" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/about-me" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/about-me" ]
 
     arguments = {
         "--help" = {

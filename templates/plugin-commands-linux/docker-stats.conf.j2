@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'docker-stats' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/docker
 */
 
 object CheckCommand "_linuxfabrik_docker_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/docker-stats" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/docker-stats" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_docker_stats" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_docker_stats_alwaysok$"
+            set_if = "$linuxfabrik_docker_stats_always_ok$"
             description = "Always returns OK."
         }
         "--count" = {
@@ -28,23 +30,23 @@ object CheckCommand "_linuxfabrik_docker_stats" {
             description = "Number of times the value has to be above the given thresholds. Default: 5"
         }
         "--critical-cpu" = {
-            value = "$linuxfabrik_docker_stats_criticalcpu$"
+            value = "$linuxfabrik_docker_stats_critical_cpu$"
             description = "Set the critical threshold CPU Usage Percentage. Default: 90"
         }
         "--critical-mem" = {
-            value = "$linuxfabrik_docker_stats_criticalmem$"
+            value = "$linuxfabrik_docker_stats_critical_mem$"
             description = "Set the critical threshold Memory Usage Percentage. Default: 95"
         }
         "--full-name" = {
-            set_if = "$linuxfabrik_docker_stats_fullname$"
+            set_if = "$linuxfabrik_docker_stats_full_name$"
             description = "Use full container name, for example `traefik_traefik.2.1idw12p2yqp`. If ommitted, the name will be shortened after the replica number (default behaviour)."
         }
         "--warning-cpu" = {
-            value = "$linuxfabrik_docker_stats_warningcpu$"
+            value = "$linuxfabrik_docker_stats_warning_cpu$"
             description = "Set the warning threshold CPU Usage Percentage. Default: 80"
         }
         "--warning-mem" = {
-            value = "$linuxfabrik_docker_stats_warningmem$"
+            value = "$linuxfabrik_docker_stats_warning_mem$"
             description = "Set the warning threshold Memory Usage Percentage. Default: 90"
         }
     }

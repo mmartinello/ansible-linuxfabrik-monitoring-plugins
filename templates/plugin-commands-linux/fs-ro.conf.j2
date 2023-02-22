@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'fs-ro' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fs-ro
 */
 
 object CheckCommand "_linuxfabrik_fs_ro" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fs-ro" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/fs-ro" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_fs_ro" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_fs_ro_alwaysok$"
+            set_if = "$linuxfabrik_fs_ro_always_ok$"
             description = "Always returns OK."
         }
         "--ignore" = {

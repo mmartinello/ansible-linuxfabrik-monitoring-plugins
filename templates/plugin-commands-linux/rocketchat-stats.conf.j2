@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'rocketchat-stats' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/rocket
 */
 
 object CheckCommand "_linuxfabrik_rocketchat_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/rocketchat-stats" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/rocketchat-stats" ]
 
     arguments = {
         "--help" = {

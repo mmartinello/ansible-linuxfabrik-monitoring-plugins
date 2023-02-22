@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'openvpn-client-list' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/openvp
 */
 
 object CheckCommand "_linuxfabrik_openvpn_client_list" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/openvpn-client-list" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/openvpn-client-list" ]
 
     arguments = {
         "--help" = {

@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'redfish-sel' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/redfis
 */
 
 object CheckCommand "_linuxfabrik_redfish_sel" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/redfish-sel" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/redfish-sel" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_redfish_sel" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_redfish_sel_alwaysok$"
+            set_if = "$linuxfabrik_redfish_sel_always_ok$"
             description = "Always returns OK."
         }
         "--password" = {

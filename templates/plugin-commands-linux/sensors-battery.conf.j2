@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'sensors-battery' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/sensor
 */
 
 object CheckCommand "_linuxfabrik_sensors_battery" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/sensors-battery" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/sensors-battery" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_sensors_battery" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_sensors_battery_alwaysok$"
+            set_if = "$linuxfabrik_sensors_battery_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {

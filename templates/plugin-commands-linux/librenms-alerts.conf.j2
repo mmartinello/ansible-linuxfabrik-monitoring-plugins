@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'librenms-alerts' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/libren
 */
 
 object CheckCommand "_linuxfabrik_librenms_alerts" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/librenms-alerts" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/librenms-alerts" ]
 
     arguments = {
         "--help" = {
@@ -20,20 +22,20 @@ object CheckCommand "_linuxfabrik_librenms_alerts" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_librenms_alerts_alwaysok$"
+            set_if = "$linuxfabrik_librenms_alerts_always_ok$"
             description = "Always returns OK."
         }
         "--device-group" = {
-            value = "$linuxfabrik_librenms_alerts_devicegroup$"
+            value = "$linuxfabrik_librenms_alerts_device_group$"
             description = "Filter by LibreNMS Device Group."
         }
         "--device-hostname" = {
-            value = "$linuxfabrik_librenms_alerts_devicehostname$"
+            value = "$linuxfabrik_librenms_alerts_device_hostname$"
             description = "Filter by LibreNMS Hostname (repeating)."
             repeat_key = true
         }
         "--device-type" = {
-            value = "$linuxfabrik_librenms_alerts_devicetype$"
+            value = "$linuxfabrik_librenms_alerts_device_type$"
             description = "Filter by LibreNMS Device Type (repeating)."
             repeat_key = true
         }
@@ -46,7 +48,7 @@ object CheckCommand "_linuxfabrik_librenms_alerts" {
             description = "Extended reporting."
         }
         "--no-proxy" = {
-            set_if = "$linuxfabrik_librenms_alerts_noproxy$"
+            set_if = "$linuxfabrik_librenms_alerts_no_proxy$"
             description = "Do not use a proxy. Default: False"
         }
         "--timeout" = {

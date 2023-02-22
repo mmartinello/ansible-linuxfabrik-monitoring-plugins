@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'file-age' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-a
 */
 
 object CheckCommand "_linuxfabrik_file_age" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-age" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/file-age" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_file_age" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_file_age_alwaysok$"
+            set_if = "$linuxfabrik_file_age_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
@@ -28,7 +30,7 @@ object CheckCommand "_linuxfabrik_file_age" {
             description = "Set the critical age threshold in seconds. Supports ranges. Default: >= 31536000s (365d)"
         }
         "--critical-count" = {
-            value = "$linuxfabrik_file_age_criticalcount$"
+            value = "$linuxfabrik_file_age_critical_count$"
             description = "Set the critical threshold for the number of critical matches found. Supports ranges. Default: > 0"
         }
         "--filename" = {
@@ -36,11 +38,11 @@ object CheckCommand "_linuxfabrik_file_age" {
             description = "File (or directory) name to check. Supports glob in accordance with https://docs.python.org/2.7/library/glob.html. Beware of using recursive globs. This is mutually exclusive with -u / --url."
         }
         "--only-dirs" = {
-            set_if = "$linuxfabrik_file_age_onlydirs$"
+            set_if = "$linuxfabrik_file_age_only_dirs$"
             description = "Only consider directories."
         }
         "--only-files" = {
-            set_if = "$linuxfabrik_file_age_onlyfiles$"
+            set_if = "$linuxfabrik_file_age_only_files$"
             description = "Only consider files."
         }
         "--password" = {
@@ -52,7 +54,7 @@ object CheckCommand "_linuxfabrik_file_age" {
             description = "SMB: The search string to match against the names of SMB directories or files. This pattern can use '*' as a wildcard for multiple chars and '?' as a wildcard for a single char. Does not support regex patterns. Default: *."
         }
         "--perfdata-mode" = {
-            value = "$linuxfabrik_file_age_perfdatamode$"
+            value = "$linuxfabrik_file_age_perfdata_mode$"
             description = "Set the performance data aggregation mode. Default: None."
         }
         "--timeout" = {
@@ -72,7 +74,7 @@ object CheckCommand "_linuxfabrik_file_age" {
             description = "Set the warning age threshold in seconds. Supports ranges. Default: >= 2592000s (30d)"
         }
         "--warning-count" = {
-            value = "$linuxfabrik_file_age_warningcount$"
+            value = "$linuxfabrik_file_age_warning_count$"
             description = "Set the warning threshold for the number of critical matches found. Supports ranges. Default: > 0"
         }
     }

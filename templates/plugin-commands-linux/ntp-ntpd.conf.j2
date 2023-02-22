@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'ntp-ntpd' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ntp-nt
 */
 
 object CheckCommand "_linuxfabrik_ntp_ntpd" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/ntp-ntpd" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/ntp-ntpd" ]
 
     arguments = {
         "--help" = {

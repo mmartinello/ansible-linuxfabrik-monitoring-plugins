@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'mailq' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mailq
 */
 
 object CheckCommand "_linuxfabrik_mailq" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mailq" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/mailq" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_mailq" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_mailq_alwaysok$"
+            set_if = "$linuxfabrik_mailq_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {

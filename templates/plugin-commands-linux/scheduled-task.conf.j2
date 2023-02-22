@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'scheduled-task' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/schedu
 */
 
 object CheckCommand "_linuxfabrik_scheduled_task" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/scheduled-task" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/scheduled-task" ]
 
     arguments = {
         "--help" = {

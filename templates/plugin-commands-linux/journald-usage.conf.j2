@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'journald-usage' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/journa
 */
 
 object CheckCommand "_linuxfabrik_journald_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/journald-usage" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/journald-usage" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_journald_usage" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_journald_usage_alwaysok$"
+            set_if = "$linuxfabrik_journald_usage_always_ok$"
             description = "Always returns OK."
         }
         "--test" = {

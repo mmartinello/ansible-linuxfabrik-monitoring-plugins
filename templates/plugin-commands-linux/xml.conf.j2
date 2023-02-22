@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'xml' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/xml
 */
 
 object CheckCommand "_linuxfabrik_xml" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/xml" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/xml" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_xml" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_xml_alwaysok$"
+            set_if = "$linuxfabrik_xml_always_ok$"
             description = "Always return OK."
         }
         "--expect" = {
@@ -32,7 +34,7 @@ object CheckCommand "_linuxfabrik_xml" {
             description = "If your XPath expression uses namespace prefixes, you must define them in a prefix mapping. This parameter expects a mapping for the namespace prefix used in the XPath expression to namespace URI (repeatable). For example like so: --namespace='prefix1:https://schemas. xmlsoap.org/prefix1/' --namespace='prefix2:https://sch emas.xmlsoap.org/prefix2/'"
         }
         "--no-proxy" = {
-            set_if = "$linuxfabrik_xml_noproxy$"
+            set_if = "$linuxfabrik_xml_no_proxy$"
             description = "Do not use a proxy. Default: False"
         }
         "--password" = {

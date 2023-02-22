@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'matomo-reporting' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/matomo
 */
 
 object CheckCommand "_linuxfabrik_matomo_reporting" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/matomo-reporting" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/matomo-reporting" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_matomo_reporting" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_matomo_reporting_alwaysok$"
+            set_if = "$linuxfabrik_matomo_reporting_always_ok$"
             description = "Always returns OK."
         }
         "--date" = {
@@ -41,7 +43,7 @@ object CheckCommand "_linuxfabrik_matomo_reporting" {
             repeat_key = true
         }
         "--no-proxy" = {
-            set_if = "$linuxfabrik_matomo_reporting_noproxy$"
+            set_if = "$linuxfabrik_matomo_reporting_no_proxy$"
             description = "Do not use a proxy. Default: False"
         }
         "--password" = {

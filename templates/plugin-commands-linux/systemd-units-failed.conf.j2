@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'systemd-units-failed' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/system
 */
 
 object CheckCommand "_linuxfabrik_systemd_units_failed" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/systemd-units-failed" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/systemd-units-failed" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_systemd_units_failed" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_systemd_units_failed_alwaysok$"
+            set_if = "$linuxfabrik_systemd_units_failed_always_ok$"
             description = "Always returns OK."
         }
         "--ignore" = {

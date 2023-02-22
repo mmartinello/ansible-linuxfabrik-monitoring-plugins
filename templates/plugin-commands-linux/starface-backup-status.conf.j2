@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'starface-backup-status' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_linuxfabrik_starface_backup_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-backup-status" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/starface-backup-status" ]
 
     arguments = {
         "--help" = {
@@ -20,11 +22,11 @@ object CheckCommand "_linuxfabrik_starface_backup_status" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_starface_backup_status_alwaysok$"
+            set_if = "$linuxfabrik_starface_backup_status_always_ok$"
             description = "Always returns OK."
         }
         "--cache-expire" = {
-            value = "$linuxfabrik_starface_backup_status_cacheexpire$"
+            value = "$linuxfabrik_starface_backup_status_cache_expire$"
             description = "The amount of time after which the cached data expires, in minutes. Default: 1"
         }
         "--critical" = {

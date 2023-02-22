@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'mysql-table-cache' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_table_cache" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-table-cache" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/mysql-table-cache" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_mysql_table_cache" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_mysql_table_cache_alwaysok$"
+            set_if = "$linuxfabrik_mysql_table_cache_always_ok$"
             description = "Always returns OK."
         }
         "--hostname" = {

@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'dummy' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/dummy
 */
 
 object CheckCommand "_linuxfabrik_dummy" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/dummy" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/dummy" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_dummy" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_dummy_alwaysok$"
+            set_if = "$linuxfabrik_dummy_always_ok$"
             description = "Always returns OK."
         }
         "--message" = {

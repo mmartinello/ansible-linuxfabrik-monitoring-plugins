@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'getent' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/getent
 */
 
 object CheckCommand "_linuxfabrik_getent" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/getent" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/getent" ]
 
     arguments = {
         "--help" = {

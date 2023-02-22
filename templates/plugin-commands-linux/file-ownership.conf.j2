@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'file-ownership' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-o
 */
 
 object CheckCommand "_linuxfabrik_file_ownership" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-ownership" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/file-ownership" ]
 
     arguments = {
         "--help" = {

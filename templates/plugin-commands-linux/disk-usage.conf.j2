@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'disk-usage' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/disk-u
 */
 
 object CheckCommand "_linuxfabrik_disk_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/disk-usage" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/disk-usage" ]
 
     arguments = {
         "--help" = {
@@ -20,7 +22,7 @@ object CheckCommand "_linuxfabrik_disk_usage" {
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_disk_usage_alwaysok$"
+            set_if = "$linuxfabrik_disk_usage_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {

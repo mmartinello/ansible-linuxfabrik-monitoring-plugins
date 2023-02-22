@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 /*
 Commands and services for 'fs-xfs-stats' check from LinuxFabrik Monitoring Plugin:
 
@@ -8,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fs-xfs
 */
 
 object CheckCommand "_linuxfabrik_fs_xfs_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fs-xfs-stats" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/fs-xfs-stats" ]
 
     arguments = {
         "--help" = {
