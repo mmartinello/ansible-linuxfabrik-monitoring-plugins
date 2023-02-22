@@ -67,6 +67,11 @@
     - ../templates/plugin-commands-linux/*.j2
   notify: Reload Icinga2
 
+- name: Configure sudo
+  template:
+    src: linuxfabrik-sudoers.j2
+    dest: /etc/sudoers.d/linuxfabrik-monitoring-plugins
+
 - name: Include the command definitions destination directory
   lineinfile:
     path: "{{ linuxfabrik_monitoring_plugins_icinga_conf_file }}"
