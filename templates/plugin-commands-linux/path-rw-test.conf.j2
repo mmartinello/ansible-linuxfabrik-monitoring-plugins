@@ -1,0 +1,36 @@
+/*
+Commands and services for 'path-rw-test' check from LinuxFabrik Monitoring Plugin:
+
+Tests whether a file can be written to a specific path and then deleted.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/path-rw-test
+*/
+
+object CheckCommand "_linuxfabrik_path_rw_test" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/path-rw-test" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_path_rw_test_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_path_rw_test_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_path_rw_test_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--path" = {
+            value = "$linuxfabrik_path_rw_test_path$"
+            description = "Path to which the file is to be written and from which it will be deleted (repeating). Default: ['/tmp']"
+            repeat_key = true
+        }
+        "--severity" = {
+            value = "$linuxfabrik_path_rw_test_severity$"
+            description = "Severity for alerting. One of 'warn' or 'crit'. Default: warn"
+        }
+    }
+}

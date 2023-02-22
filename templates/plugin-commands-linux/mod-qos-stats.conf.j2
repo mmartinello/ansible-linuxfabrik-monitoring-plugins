@@ -1,0 +1,35 @@
+/*
+Commands and services for 'mod-qos-stats' check from LinuxFabrik Monitoring Plugin:
+
+information.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mod-qos-stats
+*/
+
+object CheckCommand "_linuxfabrik_mod_qos_stats" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mod-qos-stats" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_mod_qos_stats_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_mod_qos_stats_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_mod_qos_stats_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--test" = {
+            value = "$linuxfabrik_mod_qos_stats_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--url" = {
+            value = "$linuxfabrik_mod_qos_stats_url$"
+            description = "mod_qos Status URL. Default: http://localhost/qos-status"
+        }
+    }
+}

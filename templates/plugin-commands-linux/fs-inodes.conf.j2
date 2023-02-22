@@ -1,0 +1,39 @@
+/*
+Commands and services for 'fs-inodes' check from LinuxFabrik Monitoring Plugin:
+
+Checks the used inode space in percent, default on "/", "/tmp" and "/boot".
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fs-inodes
+*/
+
+object CheckCommand "_linuxfabrik_fs_inodes" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fs-inodes" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_fs_inodes_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_fs_inodes_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_fs_inodes_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_fs_inodes_critical$"
+            description = "Set the critical threshold inode usage percentage. Default: 95"
+        }
+        "--mount" = {
+            value = "$linuxfabrik_fs_inodes_mount$"
+            description = "The mount point. Default: '/, /tmp, /boot'"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_fs_inodes_warning$"
+            description = "Set the warning threshold inode usage percentage. Default: 90"
+        }
+    }
+}

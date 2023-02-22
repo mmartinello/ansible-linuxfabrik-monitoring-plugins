@@ -1,0 +1,67 @@
+/*
+Commands and services for 'journald-query' check from LinuxFabrik Monitoring Plugin:
+
+the journalctl-specific parameters, have a look at `man journalctl`.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/journald-query
+*/
+
+object CheckCommand "_linuxfabrik_journald_query" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/journald-query" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_journald_query_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_journald_query_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_journald_query_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--case-sensitive" = {
+            set_if = "$linuxfabrik_journald_query_casesensitive$"
+            description = "journalctl: Make pattern matching case sensitive or case insensitive. Default: None"
+        }
+        "--facility" = {
+            value = "$linuxfabrik_journald_query_facility$"
+            description = "journalctl: Filter output by syslog facility. Takes a comma-separated list of numbers or facility names. Default: None"
+        }
+        "--grep" = {
+            value = "$linuxfabrik_journald_query_grep$"
+            description = "journalctl: Filter output to entries where the MESSAGE= field matches the specified regular expression. If the pattern is all lowercase, matching is case insensitive. Otherwise, matching is case sensitive. Default: None"
+        }
+        "--identifier" = {
+            value = "$linuxfabrik_journald_query_identifier$"
+            description = "journalctl: Show messages for the specified syslog identifier. Default: None"
+        }
+        "--priority" = {
+            value = "$linuxfabrik_journald_query_priority$"
+            description = "journalctl: Filter output by message priorities or priority ranges. Default: emerg..err"
+        }
+        "--severity" = {
+            value = "$linuxfabrik_journald_query_severity$"
+            description = "Severity for alerts if journalctl returns results. One of 'warn' or 'crit'. Default: warn"
+        }
+        "--since" = {
+            value = "$linuxfabrik_journald_query_since$"
+            description = "journalctl: Start showing entries on or newer than the specified date. Default: >= -24h"
+        }
+        "--test" = {
+            value = "$linuxfabrik_journald_query_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--unit" = {
+            value = "$linuxfabrik_journald_query_unit$"
+            description = "journalctl: Show messages for the specified systemd unit UNIT|PATTERN. This parameter can be specified multiple times. Default: None"
+        }
+        "--user-unit" = {
+            value = "$linuxfabrik_journald_query_userunit$"
+            description = "journalctl: Show messages for the specified user session "
+        }
+    }
+}

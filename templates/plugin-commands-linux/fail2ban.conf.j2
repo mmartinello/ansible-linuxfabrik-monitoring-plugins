@@ -1,0 +1,35 @@
+/*
+Commands and services for 'fail2ban' check from LinuxFabrik Monitoring Plugin:
+
+In fail2ban, checks the amount of banned IP addresses (for a list of jails).
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fail2ban
+*/
+
+object CheckCommand "_linuxfabrik_fail2ban" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fail2ban" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_fail2ban_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_fail2ban_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_fail2ban_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_fail2ban_critical$"
+            description = "Set the critical threshold for banned IPs. Default: 10000"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_fail2ban_warning$"
+            description = "Set the warning threshold for banned IPs. Default: 1000"
+        }
+    }
+}

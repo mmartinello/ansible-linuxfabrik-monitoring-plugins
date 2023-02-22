@@ -1,0 +1,43 @@
+/*
+Commands and services for 'rocketchat-version' check from LinuxFabrik Monitoring Plugin:
+
+with strong password and "view-statistics" permission (only).
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/rocketchat-version
+*/
+
+object CheckCommand "_linuxfabrik_rocketchat_version" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/rocketchat-version" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_rocketchat_version_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_rocketchat_version_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_rocketchat_version_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--cache-expire" = {
+            value = "$linuxfabrik_rocketchat_version_cacheexpire$"
+            description = "The amount of time after which the update check cache expires, in hours. Default: 24"
+        }
+        "--password" = {
+            value = "$linuxfabrik_rocketchat_version_password$"
+            description = "Rocket.Chat API password."
+        }
+        "--url" = {
+            value = "$linuxfabrik_rocketchat_version_url$"
+            description = "Rocket.Chat API URL. Default:http://localhost:3000/api/v1"
+        }
+        "--username" = {
+            value = "$linuxfabrik_rocketchat_version_username$"
+            description = "Rocket.Chat API username. Default: rocket-stats"
+        }
+    }
+}

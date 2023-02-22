@@ -1,0 +1,43 @@
+/*
+Commands and services for 'mysql-innodb-buffer-pool-size' check from LinuxFabrik Monitoring Plugin:
+
+Checks the size of the InnoDB buffer pool in MySQL/MariaDB.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-innodb-buffer-pool-size
+*/
+
+object CheckCommand "_linuxfabrik_mysql_innodb_buffer_pool_size" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-innodb-buffer-pool-size" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_mysql_innodb_buffer_pool_size_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_mysql_innodb_buffer_pool_size_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_mysql_innodb_buffer_pool_size_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_mysql_innodb_buffer_pool_size_hostname$"
+            description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
+        }
+        "--password" = {
+            value = "$linuxfabrik_mysql_innodb_buffer_pool_size_password$"
+            description = "Use the indicated password to authenticate the connection. Default:"
+        }
+        "--port" = {
+            value = "$linuxfabrik_mysql_innodb_buffer_pool_size_port$"
+            description = "MySQL/MariaDB port. Default: 3306"
+        }
+        "--username" = {
+            value = "$linuxfabrik_mysql_innodb_buffer_pool_size_username$"
+            description = "MySQL/MariaDB username. Default: root"
+        }
+    }
+}

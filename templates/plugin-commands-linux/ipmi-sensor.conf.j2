@@ -1,0 +1,51 @@
+/*
+Commands and services for 'ipmi-sensor' check from LinuxFabrik Monitoring Plugin:
+
+Checks IPMI sensor information in detail.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ipmi-sensor
+*/
+
+object CheckCommand "_linuxfabrik_ipmi_sensor" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/ipmi-sensor" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_ipmi_sensor_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_ipmi_sensor_version$"
+            description = "show program's version number and exit"
+        }
+        "--authtype" = {
+            value = "$linuxfabrik_ipmi_sensor_authtype$"
+            description = "2,MD5,OEM} Specify an authentication type to use during IPMIv1.5 lan session activation. Supported types are NONE, PASSWORD, MD2, MD5, or OEM."
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_ipmi_sensor_hostname$"
+            description = "Remote server address, can be IP address or hostname. This option is required for lan and lanplus interfaces."
+        }
+        "--interface" = {
+            value = "$linuxfabrik_ipmi_sensor_interface$"
+            description = "Selects IPMI interface to use. Supported types are 'lan' (= IPMI v1.5) or 'lanplus' (= IPMI v2.0)."
+        }
+        "--password" = {
+            value = "$linuxfabrik_ipmi_sensor_password$"
+            description = "Remote server password."
+        }
+        "--port" = {
+            value = "$linuxfabrik_ipmi_sensor_port$"
+            description = "Remote server UDP port to connect to. Default is 623."
+        }
+        "--privlevel" = {
+            value = "$linuxfabrik_ipmi_sensor_privlevel$"
+            description = "Force session privilege level. Can be CALLBACK, USER, OPERATOR, ADMINISTRATOR. Default is USER."
+        }
+        "--username" = {
+            value = "$linuxfabrik_ipmi_sensor_username$"
+            description = "Remote server username, default is NULL user."
+        }
+    }
+}

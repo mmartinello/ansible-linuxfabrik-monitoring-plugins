@@ -1,0 +1,51 @@
+/*
+Commands and services for 'jitsi-videobridge-status' check from LinuxFabrik Monitoring Plugin:
+
+Checks the Jitsi Videobridge health state.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/jitsi-videobridge-status
+*/
+
+object CheckCommand "_linuxfabrik_jitsi_videobridge_status" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/jitsi-videobridge-status" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_jitsi_videobridge_status_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_jitsi_videobridge_status_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_jitsi_videobridge_status_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--password" = {
+            value = "$linuxfabrik_jitsi_videobridge_status_password$"
+            description = "Jitsi API password."
+        }
+        "--severity" = {
+            value = "$linuxfabrik_jitsi_videobridge_status_severity$"
+            description = "Severity for alerting. One of 'warn' or 'crit'. Default: warn"
+        }
+        "--test" = {
+            value = "$linuxfabrik_jitsi_videobridge_status_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_jitsi_videobridge_status_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--url" = {
+            value = "$linuxfabrik_jitsi_videobridge_status_url$"
+            description = "Jitsi API URL. Default: http://localhost:8080"
+        }
+        "--username" = {
+            value = "$linuxfabrik_jitsi_videobridge_status_username$"
+            description = "Jitsi API username. Default: None"
+        }
+    }
+}

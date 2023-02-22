@@ -1,0 +1,55 @@
+/*
+Commands and services for 'jitsi-videobridge-stats' check from LinuxFabrik Monitoring Plugin:
+
+of performance data.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/jitsi-videobridge-stats
+*/
+
+object CheckCommand "_linuxfabrik_jitsi_videobridge_stats" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/jitsi-videobridge-stats" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_jitsi_videobridge_stats_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_jitsi_videobridge_stats_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_jitsi_videobridge_stats_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_jitsi_videobridge_stats_critical$"
+            description = "Set the CRIT threshold for the number of participants. Default: >= 100"
+        }
+        "--password" = {
+            value = "$linuxfabrik_jitsi_videobridge_stats_password$"
+            description = "Jitsi API password."
+        }
+        "--test" = {
+            value = "$linuxfabrik_jitsi_videobridge_stats_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_jitsi_videobridge_stats_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--url" = {
+            value = "$linuxfabrik_jitsi_videobridge_stats_url$"
+            description = "Jitsi API URL. Default: http://localhost:8080"
+        }
+        "--username" = {
+            value = "$linuxfabrik_jitsi_videobridge_stats_username$"
+            description = "Jitsi API username. Default: None"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_jitsi_videobridge_stats_warning$"
+            description = "Set the WARN threshold for the number of participants. Default: >= 25"
+        }
+    }
+}

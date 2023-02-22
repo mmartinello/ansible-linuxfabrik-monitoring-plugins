@@ -1,0 +1,68 @@
+/*
+Commands and services for 'wildfly-xa-datasource-stats' check from LinuxFabrik Monitoring Plugin:
+
+Returns metrics about XA Datasources of a Wildfly/JBossAS over HTTP.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfly-xa-datasource-stats
+*/
+
+object CheckCommand "_linuxfabrik_wildfly_xa_datasource_stats" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-xa-datasource-stats" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_wildfly_xa_datasource_stats_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_wildfly_xa_datasource_stats_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_wildfly_xa_datasource_stats_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_wildfly_xa_datasource_stats_critical$"
+            description = "Set the critical threshold."
+        }
+        "--datasource" = {
+            value = "$linuxfabrik_wildfly_xa_datasource_stats_datasource$"
+            description = "The name of a specific datasource (repeating). Default: None"
+            repeat_key = true
+        }
+        "--instance" = {
+            value = "$linuxfabrik_wildfly_xa_datasource_stats_instance$"
+            description = "The instance (server-config) to check if running in domain mode."
+        }
+        "--mode" = {
+            value = "$linuxfabrik_wildfly_xa_datasource_stats_mode$"
+            description = "The mode the server is running."
+        }
+        "--node" = {
+            value = "$linuxfabrik_wildfly_xa_datasource_stats_node$"
+            description = "The node (host) if running in domain mode."
+        }
+        "--password" = {
+            value = "$linuxfabrik_wildfly_xa_datasource_stats_password$"
+            description = "WildFly API password."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_wildfly_xa_datasource_stats_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--url" = {
+            value = "$linuxfabrik_wildfly_xa_datasource_stats_url$"
+            description = "WildFly API URL. Default: http://localhost:9990"
+        }
+        "--username" = {
+            value = "$linuxfabrik_wildfly_xa_datasource_stats_username$"
+            description = "WildFly API username. Default: wildfly-monitoring"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_wildfly_xa_datasource_stats_warning$"
+            description = "Set the warning threshold."
+        }
+    }
+}

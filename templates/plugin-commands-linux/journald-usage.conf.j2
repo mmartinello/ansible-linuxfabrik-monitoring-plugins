@@ -1,0 +1,35 @@
+/*
+Commands and services for 'journald-usage' check from LinuxFabrik Monitoring Plugin:
+
+fact the sum of the disk usage of all archived and active journal files).
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/journald-usage
+*/
+
+object CheckCommand "_linuxfabrik_journald_usage" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/journald-usage" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_journald_usage_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_journald_usage_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_journald_usage_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--test" = {
+            value = "$linuxfabrik_journald_usage_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--warning" = {
+            value = "$linuxfabrik_journald_usage_warning$"
+            description = "Set the WARN threshold in MiB. Default: >= 500"
+        }
+    }
+}

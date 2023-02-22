@@ -1,0 +1,35 @@
+/*
+Commands and services for 'sensors-battery' check from LinuxFabrik Monitoring Plugin:
+
+can't be determined OK is returned.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/sensors-battery
+*/
+
+object CheckCommand "_linuxfabrik_sensors_battery" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/sensors-battery" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_sensors_battery_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_sensors_battery_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_sensors_battery_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_sensors_battery_critical$"
+            description = "Set the critical threshold for battery power left as a percentage. Default: 5"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_sensors_battery_warning$"
+            description = "Set the warning threshold for battery power left as a percentage. Default: 20"
+        }
+    }
+}

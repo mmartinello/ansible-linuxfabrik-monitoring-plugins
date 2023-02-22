@@ -1,0 +1,39 @@
+/*
+Commands and services for 'strongswan-connections' check from LinuxFabrik Monitoring Plugin:
+
+of the VICI interface is strongSwan/swanctl.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/strongswan-connections
+*/
+
+object CheckCommand "_linuxfabrik_strongswan_connections" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/strongswan-connections" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_strongswan_connections_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_strongswan_connections_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_strongswan_connections_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--lengthy" = {
+            set_if = "$linuxfabrik_strongswan_connections_lengthy$"
+            description = "Extended reporting."
+        }
+        "--socket" = {
+            value = "$linuxfabrik_strongswan_connections_socket$"
+            description = "Path to Versatile IKE Control Interface (VICI) Socket. Default: /var/run/charon.vici"
+        }
+        "--test" = {
+            value = "$linuxfabrik_strongswan_connections_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to-stderr- file,expected-retc'."
+        }
+    }
+}

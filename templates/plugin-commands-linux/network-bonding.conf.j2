@@ -1,0 +1,31 @@
+/*
+Commands and services for 'network-bonding' check from LinuxFabrik Monitoring Plugin:
+
+bandwidth and providing redundancy.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/network-bonding
+*/
+
+object CheckCommand "_linuxfabrik_network_bonding" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/network-bonding" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_network_bonding_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_network_bonding_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_network_bonding_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--test" = {
+            value = "$linuxfabrik_network_bonding_test$"
+            description = "For unit tests. Needs 'path-to-bonding-file'."
+        }
+    }
+}

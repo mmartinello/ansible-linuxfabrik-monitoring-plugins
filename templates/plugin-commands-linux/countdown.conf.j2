@@ -1,0 +1,32 @@
+/*
+Commands and services for 'countdown' check from LinuxFabrik Monitoring Plugin:
+
+Warns before an expiration date is scheduled to occur.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/countdown
+*/
+
+object CheckCommand "_linuxfabrik_countdown" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/countdown" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_countdown_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_countdown_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_countdown_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--input" = {
+            value = "$linuxfabrik_countdown_input$"
+            description = "'Display Name 1, yyyy-mm-dd, warn, crit' (repeating)"
+            repeat_key = true
+        }
+    }
+}

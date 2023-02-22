@@ -1,0 +1,35 @@
+/*
+Commands and services for 'keycloak-version' check from LinuxFabrik Monitoring Plugin:
+
+This plugin lets you track if server updates are available.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/keycloak-version
+*/
+
+object CheckCommand "_linuxfabrik_keycloak_version" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/keycloak-version" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_keycloak_version_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_keycloak_version_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_keycloak_version_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--cache-expire" = {
+            value = "$linuxfabrik_keycloak_version_cacheexpire$"
+            description = "The amount of time after which the update check cache expires, in hours. Default: 24"
+        }
+        "--path" = {
+            value = "$linuxfabrik_keycloak_version_path$"
+            description = "Local path to your Keycloak installation. Default:/opt/keycloak"
+        }
+    }
+}

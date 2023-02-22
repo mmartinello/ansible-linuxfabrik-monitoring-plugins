@@ -1,0 +1,43 @@
+/*
+Commands and services for 'nextcloud-stats' check from LinuxFabrik Monitoring Plugin:
+
+server.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nextcloud-stats
+*/
+
+object CheckCommand "_linuxfabrik_nextcloud_stats" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nextcloud-stats" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_nextcloud_stats_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_nextcloud_stats_version$"
+            description = "show program's version number and exit"
+        }
+        "--insecure" = {
+            set_if = "$linuxfabrik_nextcloud_stats_insecure$"
+            description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
+        }
+        "--no-proxy" = {
+            set_if = "$linuxfabrik_nextcloud_stats_noproxy$"
+            description = "Do not use a proxy. Default: False"
+        }
+        "--password" = {
+            value = "$linuxfabrik_nextcloud_stats_password$"
+            description = "Nextcloud API password."
+        }
+        "--url" = {
+            value = "$linuxfabrik_nextcloud_stats_url$"
+            description = "Nextcloud API URL. Default: http://localhost/nextcloud/ocs/v2.php/apps/serverinfo/api/v1/info"
+        }
+        "--username" = {
+            value = "$linuxfabrik_nextcloud_stats_username$"
+            description = "Nextcloud API username. Default: admin"
+        }
+    }
+}

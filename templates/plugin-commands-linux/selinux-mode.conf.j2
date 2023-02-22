@@ -1,0 +1,31 @@
+/*
+Commands and services for 'selinux-mode' check from LinuxFabrik Monitoring Plugin:
+
+warning on a non-match.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/selinux-mode
+*/
+
+object CheckCommand "_linuxfabrik_selinux_mode" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/selinux-mode" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_selinux_mode_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_selinux_mode_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_selinux_mode_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--mode" = {
+            value = "$linuxfabrik_selinux_mode_mode$"
+            description = "The expected SELinux mode, one of 'enforcing', 'permissive' or 'disabled' (case-insensitive). Default: enforcing"
+        }
+    }
+}

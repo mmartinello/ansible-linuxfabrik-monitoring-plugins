@@ -1,0 +1,55 @@
+/*
+Commands and services for 'fortios-memory-usage' check from LinuxFabrik Monitoring Plugin:
+
+given thresholds.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortios-memory-usage
+*/
+
+object CheckCommand "_linuxfabrik_fortios_memory_usage" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-memory-usage" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_fortios_memory_usage_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_fortios_memory_usage_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_fortios_memory_usage_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_fortios_memory_usage_critical$"
+            description = "Set the critical threshold for memory usage (in percent). Default: 88"
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_fortios_memory_usage_hostname$"
+            description = "FortiOS-based Appliance address, optional including port ('192.168.1.1:443')."
+        }
+        "--insecure" = {
+            set_if = "$linuxfabrik_fortios_memory_usage_insecure$"
+            description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
+        }
+        "--no-proxy" = {
+            set_if = "$linuxfabrik_fortios_memory_usage_noproxy$"
+            description = "Do not use a proxy. Default: False"
+        }
+        "--password" = {
+            value = "$linuxfabrik_fortios_memory_usage_password$"
+            description = "FortiOS REST API Single Access Token."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_fortios_memory_usage_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_fortios_memory_usage_warning$"
+            description = "Set the warning threshold for memory usage (in percent). Default: 82"
+        }
+    }
+}

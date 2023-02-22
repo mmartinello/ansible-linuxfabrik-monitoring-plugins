@@ -1,0 +1,43 @@
+/*
+Commands and services for 'php-fpm-ping' check from LinuxFabrik Monitoring Plugin:
+
+Fetches the ping monitoring page of PHP-FPM.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-fpm-ping
+*/
+
+object CheckCommand "_linuxfabrik_php_fpm_ping" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-fpm-ping" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_php_fpm_ping_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_php_fpm_ping_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_php_fpm_ping_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--response" = {
+            value = "$linuxfabrik_php_fpm_ping_response$"
+            description = "Expected PHP-FPM Ping response. Default: pong"
+        }
+        "--severity" = {
+            value = "$linuxfabrik_php_fpm_ping_severity$"
+            description = "Severity for alerting. One of 'warn' or 'crit'. Default: warn"
+        }
+        "--test" = {
+            value = "$linuxfabrik_php_fpm_ping_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--url" = {
+            value = "$linuxfabrik_php_fpm_ping_url$"
+            description = "PHP-FPM Ping URL. Default: http://localhost/fpm-ping"
+        }
+    }
+}

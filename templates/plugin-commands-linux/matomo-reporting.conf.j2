@@ -1,0 +1,64 @@
+/*
+Commands and services for 'matomo-reporting' check from LinuxFabrik Monitoring Plugin:
+
+one or several websites and for any given date and period.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/matomo-reporting
+*/
+
+object CheckCommand "_linuxfabrik_matomo_reporting" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/matomo-reporting" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_matomo_reporting_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_matomo_reporting_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_matomo_reporting_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--date" = {
+            value = "$linuxfabrik_matomo_reporting_date$"
+            description = "REST API date, for example 'date=last10' or 'date='today'. Default: today"
+        }
+        "--idsite" = {
+            value = "$linuxfabrik_matomo_reporting_idsite$"
+            description = "REST API idSite, for example 'idsite=1', 'idsite=1,4,5' or 'idsite=all'. Default: 1"
+        }
+        "--insecure" = {
+            set_if = "$linuxfabrik_matomo_reporting_insecure$"
+            description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
+        }
+        "--metric" = {
+            value = "$linuxfabrik_matomo_reporting_metric$"
+            description = "Filter the output and optionally check against thresholds or ranges, for example '--metric nb_visits,100:,50:' (repeating, csv, works with ranges). Default: []"
+            repeat_key = true
+        }
+        "--no-proxy" = {
+            set_if = "$linuxfabrik_matomo_reporting_noproxy$"
+            description = "Do not use a proxy. Default: False"
+        }
+        "--password" = {
+            value = "$linuxfabrik_matomo_reporting_password$"
+            description = "REST API Access Token. Default: anonymous"
+        }
+        "--period" = {
+            value = "$linuxfabrik_matomo_reporting_period$"
+            description = "REST API period, for example 'period=range' or 'period=day'. Default: day"
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_matomo_reporting_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--url" = {
+            value = "$linuxfabrik_matomo_reporting_url$"
+            description = "Matomo URL. Default: https://demo.matomo.org"
+        }
+    }
+}

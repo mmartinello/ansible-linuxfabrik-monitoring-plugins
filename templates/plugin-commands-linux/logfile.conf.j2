@@ -1,0 +1,91 @@
+/*
+Commands and services for 'logfile' check from LinuxFabrik Monitoring Plugin:
+
+findings.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/logfile
+*/
+
+object CheckCommand "_linuxfabrik_logfile" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/logfile" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_logfile_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_logfile_version$"
+            description = "show program's version number and exit"
+        }
+        "--alarm-duration" = {
+            value = "$linuxfabrik_logfile_alarmduration$"
+            description = "How long should this check return an alarm on new matches (in minutes)? This is overwritten by --icinga- callback. Default: 60"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_logfile_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_logfile_critical$"
+            description = "Set the critical threshold for the number of found critical matches. Default: 1"
+        }
+        "--critical-pattern" = {
+            value = "$linuxfabrik_logfile_criticalpattern$"
+            description = "Any line containing this pattern will count as a critical."
+        }
+        "--critical-regex" = {
+            value = "$linuxfabrik_logfile_criticalregex$"
+            description = "Any line matching this python regex will count as a critical."
+        }
+        "--filename" = {
+            value = "$linuxfabrik_logfile_filename$"
+            description = "Set the path of the logfile."
+        }
+        "--icinga-callback" = {
+            set_if = "$linuxfabrik_logfile_icingacallback$"
+            description = "Get the service acknowledgement from Icinga. This overwrites --alarm-duration. Default: False"
+        }
+        "--icinga-password" = {
+            value = "$linuxfabrik_logfile_icingapassword$"
+            description = "Icinga API password."
+        }
+        "--icinga-service-name" = {
+            value = "$linuxfabrik_logfile_icingaservicename$"
+            description = "Unique name of the service using this check within Icinga. Take it from the `__name` service attribute, for example `icinga-server!my-service-name`."
+        }
+        "--icinga-url" = {
+            value = "$linuxfabrik_logfile_icingaurl$"
+            description = "Icinga API URL, for example https://icinga- server:5665."
+        }
+        "--icinga-username" = {
+            value = "$linuxfabrik_logfile_icingausername$"
+            description = "Icinga API username."
+        }
+        "--ignore-pattern" = {
+            value = "$linuxfabrik_logfile_ignorepattern$"
+            description = "Any line containing this pattern will be ignored."
+        }
+        "--ignore-regex" = {
+            value = "$linuxfabrik_logfile_ignoreregex$"
+            description = "Any line matching this python regex will be ignored."
+        }
+        "--suppress-lines" = {
+            set_if = "$linuxfabrik_logfile_suppresslines$"
+            description = "Suppress the found lines in the output, only report the number of findings."
+        }
+        "--warning" = {
+            value = "$linuxfabrik_logfile_warning$"
+            description = "Set the warning threshold for the number of found warning matches. Default: 1"
+        }
+        "--warning-pattern" = {
+            value = "$linuxfabrik_logfile_warningpattern$"
+            description = "Any line containing this pattern will count as a warning."
+        }
+        "--warning-regex" = {
+            value = "$linuxfabrik_logfile_warningregex$"
+            description = "Any line matching this python regex will count as a warning."
+        }
+    }
+}

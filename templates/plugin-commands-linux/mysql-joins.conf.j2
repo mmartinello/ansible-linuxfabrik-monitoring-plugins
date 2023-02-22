@@ -1,0 +1,43 @@
+/*
+Commands and services for 'mysql-joins' check from LinuxFabrik Monitoring Plugin:
+
+Checks if many joins per day without indexes were executed on MySQL/MariaDB.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-joins
+*/
+
+object CheckCommand "_linuxfabrik_mysql_joins" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-joins" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_mysql_joins_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_mysql_joins_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_mysql_joins_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_mysql_joins_hostname$"
+            description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
+        }
+        "--password" = {
+            value = "$linuxfabrik_mysql_joins_password$"
+            description = "Use the indicated password to authenticate the connection. Default:"
+        }
+        "--port" = {
+            value = "$linuxfabrik_mysql_joins_port$"
+            description = "MySQL/MariaDB port. Default: 3306"
+        }
+        "--username" = {
+            value = "$linuxfabrik_mysql_joins_username$"
+            description = "MySQL/MariaDB username. Default: root"
+        }
+    }
+}

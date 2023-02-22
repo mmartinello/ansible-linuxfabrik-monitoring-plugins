@@ -1,0 +1,27 @@
+/*
+Commands and services for 'about-me' check from LinuxFabrik Monitoring Plugin:
+
+Reports a quick overview about the host dimensions and installed software.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/about-me
+*/
+
+object CheckCommand "_linuxfabrik_about_me" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/about-me" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_about_me_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_about_me_version$"
+            description = "show program's version number and exit"
+        }
+        "--tags" = {
+            set_if = "$linuxfabrik_about_me_tags$"
+            description = "Just get a list of tags to apply in Icinga Director (Linuxfabrik Basket Config)."
+        }
+    }
+}

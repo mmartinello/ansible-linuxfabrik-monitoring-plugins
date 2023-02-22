@@ -1,4 +1,10 @@
 ---
-linuxfabrik_monitoring_plugins_dest: /usr/lib64/nagios/plugins
+linuxfabrik_monitoring_plugins_dest_path: /usr/lib64/nagios/plugins/linuxfabrik
 linuxfabrik_monitoring_plugins_user: nagios
 linuxfabrik_monitoring_plugins_group: nagios
+
+# Command definitions destination directory
+linuxfabrik_monitoring_plugins_commands_dest_path: /usr/share/icinga2/include/linuxfabrik
+
+# File in which include the command definitions destination directory
+linuxfabrik_monitoring_plugins_icinga_conf_file: /etc/icinga2/icinga2.conf

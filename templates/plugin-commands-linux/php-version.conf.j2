@@ -1,0 +1,31 @@
+/*
+Commands and services for 'php-version' check from LinuxFabrik Monitoring Plugin:
+
+current/installed version of PHP, the check calls ``php --version``.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-version
+*/
+
+object CheckCommand "_linuxfabrik_php_version" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-version" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_php_version_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_php_version_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_php_version_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--cache-expire" = {
+            value = "$linuxfabrik_php_version_cacheexpire$"
+            description = "The amount of time after which the update check cache expires, in hours. Default: 24"
+        }
+    }
+}

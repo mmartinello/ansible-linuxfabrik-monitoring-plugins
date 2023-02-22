@@ -1,0 +1,43 @@
+/*
+Commands and services for 'nginx-status' check from LinuxFabrik Monitoring Plugin:
+
+This check provides NGINX basic status information.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nginx-status
+*/
+
+object CheckCommand "_linuxfabrik_nginx_status" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nginx-status" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_nginx_status_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_nginx_status_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_nginx_status_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_nginx_status_critical$"
+            description = "Set the CRIT threshold for the number of active connections. Default: >= 486"
+        }
+        "--url" = {
+            value = "$linuxfabrik_nginx_status_url$"
+            description = "NGINX Server Status URL. Default:http://localhost/server-status"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_nginx_status_warning$"
+            description = "Set the WARN threshold for the number of active connections. Default: >= 460"
+        }
+        "--test" = {
+            value = "$linuxfabrik_nginx_status_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+    }
+}

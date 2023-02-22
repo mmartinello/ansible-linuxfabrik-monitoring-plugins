@@ -1,0 +1,31 @@
+/*
+Commands and services for 'rpm-lastactivity' check from LinuxFabrik Monitoring Plugin:
+
+install/update.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/rpm-lastactivity
+*/
+
+object CheckCommand "_linuxfabrik_rpm_lastactivity" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/rpm-lastactivity" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_rpm_lastactivity_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_rpm_lastactivity_version$"
+            description = "show program's version number and exit"
+        }
+        "--critical" = {
+            value = "$linuxfabrik_rpm_lastactivity_critical$"
+            description = "Set the critical threshold (in days). Default: 365"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_rpm_lastactivity_warning$"
+            description = "Set the warning threshold (in days). Default: 90"
+        }
+    }
+}

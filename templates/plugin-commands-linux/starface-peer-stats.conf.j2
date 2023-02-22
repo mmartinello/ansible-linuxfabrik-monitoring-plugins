@@ -1,0 +1,47 @@
+/*
+Commands and services for 'starface-peer-stats' check from LinuxFabrik Monitoring Plugin:
+
+the data again and overload the PBX.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starface-peer-stats
+*/
+
+object CheckCommand "_linuxfabrik_starface_peer_stats" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-peer-stats" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_starface_peer_stats_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_starface_peer_stats_version$"
+            description = "show program's version number and exit"
+        }
+        "--cache-expire" = {
+            value = "$linuxfabrik_starface_peer_stats_cacheexpire$"
+            description = "The amount of time after which the cached data expires, in minutes. Default: 1"
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_starface_peer_stats_hostname$"
+            description = "Starface PBX address, can be IP address or hostname. Default: localhost"
+        }
+        "--port" = {
+            value = "$linuxfabrik_starface_peer_stats_port$"
+            description = "Starface PBX monitoring port. Default: 6556"
+        }
+        "--test" = {
+            value = "$linuxfabrik_starface_peer_stats_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_starface_peer_stats_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--6" = {
+            set_if = "$linuxfabrik_starface_peer_stats_6$"
+            description = "Use IPv6."
+        }
+    }
+}

@@ -1,0 +1,31 @@
+/*
+Commands and services for 'systemd-timedate-status' check from LinuxFabrik Monitoring Plugin:
+
+time synchronization is active.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/systemd-timedate-status
+*/
+
+object CheckCommand "_linuxfabrik_systemd_timedate_status" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/systemd-timedate-status" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_systemd_timedate_status_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_systemd_timedate_status_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_systemd_timedate_status_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--test" = {
+            value = "$linuxfabrik_systemd_timedate_status_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to-stderr- file,expected-retc'."
+        }
+    }
+}

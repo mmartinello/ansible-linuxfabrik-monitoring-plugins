@@ -1,0 +1,23 @@
+/*
+Commands and services for 'top3-processes-which-caused-the-most-io' check from LinuxFabrik Monitoring Plugin:
+
+Displays the top 3 processes which cause the most IO.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/top3-processes-which-caused-the-most-io
+*/
+
+object CheckCommand "_linuxfabrik_top3_processes_which_caused_the_most_io" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/top3-processes-which-caused-the-most-io" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_top3_processes_which_caused_the_most_io_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_top3_processes_which_caused_the_most_io_version$"
+            description = "show program's version number and exit"
+        }
+    }
+}

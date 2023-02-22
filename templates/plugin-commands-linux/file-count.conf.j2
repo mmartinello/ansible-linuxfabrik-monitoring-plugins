@@ -1,0 +1,71 @@
+/*
+Commands and services for 'file-count' check from LinuxFabrik Monitoring Plugin:
+
+Checks the number of matching files.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-count
+*/
+
+object CheckCommand "_linuxfabrik_file_count" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-count" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_file_count_help$"
+            description = "show this help message and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_file_count_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--filename" = {
+            value = "$linuxfabrik_file_count_filename$"
+            description = "File (or directory) name to check. Supports glob in accordance with https://docs.python.org/2.7/library/glob.html. Beware of using recursive globs. This is mutually exclusive with -u / --url."
+        }
+        "--url" = {
+            value = "$linuxfabrik_file_count_url$"
+            description = "Set the url of the file (or directory) to check, starting with 'smb://'. This is mutually exclusive with --filename."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_file_count_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--password" = {
+            value = "$linuxfabrik_file_count_password$"
+            description = "SMB Password."
+        }
+        "--pattern" = {
+            value = "$linuxfabrik_file_count_pattern$"
+            description = "The search string to match against the names of SMB directories or files. This pattern can use '*' as a wildcard for multiple chars and '?' as a wildcard for a single char. Does not support regex patterns. Default: *."
+        }
+        "--username" = {
+            value = "$linuxfabrik_file_count_username$"
+            description = "SMB Username."
+        }
+        "--only-dirs" = {
+            set_if = "$linuxfabrik_file_count_onlydirs$"
+            description = "Only consider directories."
+        }
+        "--only-files" = {
+            set_if = "$linuxfabrik_file_count_onlyfiles$"
+            description = "Only consider files."
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_file_count_version$"
+            description = "show program's version number and exit"
+        }
+        "--critical" = {
+            value = "$linuxfabrik_file_count_critical$"
+            description = "Set the critical number of files. Supports ranges."
+        }
+        "--warning" = {
+            value = "$linuxfabrik_file_count_warning$"
+            description = "Set the warning number of files. Supports ranges."
+        }
+        "--timerange" = {
+            value = "$linuxfabrik_file_count_timerange$"
+            description = "Set the timerange (seconds) in which the files should be considered. Supports ranges."
+        }
+    }
+}

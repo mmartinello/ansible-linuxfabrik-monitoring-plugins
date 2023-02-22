@@ -1,0 +1,31 @@
+/*
+Commands and services for 'tuned-profile' check from LinuxFabrik Monitoring Plugin:
+
+on a non-match.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/tuned-profile
+*/
+
+object CheckCommand "_linuxfabrik_tuned_profile" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/tuned-profile" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_tuned_profile_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_tuned_profile_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_tuned_profile_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--profile" = {
+            value = "$linuxfabrik_tuned_profile_profile$"
+            description = "The expected tuned profile (full name), for example 'virtual-guest' (case-insensitive). Default: virtual- guest"
+        }
+    }
+}

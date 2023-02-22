@@ -1,0 +1,36 @@
+/*
+Commands and services for 'systemd-units-failed' check from LinuxFabrik Monitoring Plugin:
+
+Warns on any failed systemd units.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/systemd-units-failed
+*/
+
+object CheckCommand "_linuxfabrik_systemd_units_failed" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/systemd-units-failed" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_systemd_units_failed_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_systemd_units_failed_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_systemd_units_failed_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--ignore" = {
+            value = "$linuxfabrik_systemd_units_failed_ignore$"
+            description = "Ignore a unit, for example 'dhcpd.service' (repeating). Supports glob according to https://docs.python.org/3/library/fnmatch.html. Default: []"
+            repeat_key = true
+        }
+        "--test" = {
+            value = "$linuxfabrik_systemd_units_failed_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to-stderr- file,expected-retc'."
+        }
+    }
+}

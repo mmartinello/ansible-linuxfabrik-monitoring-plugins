@@ -1,0 +1,31 @@
+/*
+Commands and services for 'docker-info' check from LinuxFabrik Monitoring Plugin:
+
+Displays system-wide docker information.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/docker-info
+*/
+
+object CheckCommand "_linuxfabrik_docker_info" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/docker-info" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_docker_info_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_docker_info_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_docker_info_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--test" = {
+            value = "$linuxfabrik_docker_info_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to-stderr- file,expected-retc'."
+        }
+    }
+}

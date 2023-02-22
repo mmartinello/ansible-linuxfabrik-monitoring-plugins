@@ -1,0 +1,31 @@
+/*
+Commands and services for 'mydumper-version' check from LinuxFabrik Monitoring Plugin:
+
+This plugin lets you track if mydumper updates are available.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mydumper-version
+*/
+
+object CheckCommand "_linuxfabrik_mydumper_version" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mydumper-version" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_mydumper_version_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_mydumper_version_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_mydumper_version_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--cache-expire" = {
+            value = "$linuxfabrik_mydumper_version_cacheexpire$"
+            description = "The amount of time after which the update check cache expires, in hours. Default: 24"
+        }
+    }
+}

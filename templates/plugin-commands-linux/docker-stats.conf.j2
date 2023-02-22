@@ -1,0 +1,51 @@
+/*
+Commands and services for 'docker-stats' check from LinuxFabrik Monitoring Plugin:
+
+command.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/docker-stats
+*/
+
+object CheckCommand "_linuxfabrik_docker_stats" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/docker-stats" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_docker_stats_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_docker_stats_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_docker_stats_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--count" = {
+            value = "$linuxfabrik_docker_stats_count$"
+            description = "Number of times the value has to be above the given thresholds. Default: 5"
+        }
+        "--critical-cpu" = {
+            value = "$linuxfabrik_docker_stats_criticalcpu$"
+            description = "Set the critical threshold CPU Usage Percentage. Default: 90"
+        }
+        "--critical-mem" = {
+            value = "$linuxfabrik_docker_stats_criticalmem$"
+            description = "Set the critical threshold Memory Usage Percentage. Default: 95"
+        }
+        "--full-name" = {
+            set_if = "$linuxfabrik_docker_stats_fullname$"
+            description = "Use full container name, for example `traefik_traefik.2.1idw12p2yqp`. If ommitted, the name will be shortened after the replica number (default behaviour)."
+        }
+        "--warning-cpu" = {
+            value = "$linuxfabrik_docker_stats_warningcpu$"
+            description = "Set the warning threshold CPU Usage Percentage. Default: 80"
+        }
+        "--warning-mem" = {
+            value = "$linuxfabrik_docker_stats_warningmem$"
+            description = "Set the warning threshold Memory Usage Percentage. Default: 90"
+        }
+    }
+}

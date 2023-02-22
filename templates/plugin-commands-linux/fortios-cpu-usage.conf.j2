@@ -1,0 +1,59 @@
+/*
+Commands and services for 'fortios-cpu-usage' check from LinuxFabrik Monitoring Plugin:
+
+values (or their defaults) are used.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortios-cpu-usage
+*/
+
+object CheckCommand "_linuxfabrik_fortios_cpu_usage" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-cpu-usage" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_fortios_cpu_usage_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_fortios_cpu_usage_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_fortios_cpu_usage_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--count" = {
+            value = "$linuxfabrik_fortios_cpu_usage_count$"
+            description = "Number of times the value has to be above the given thresholds. Default: 5"
+        }
+        "--critical" = {
+            value = "$linuxfabrik_fortios_cpu_usage_critical$"
+            description = "Set the critical threshold CPU Usage Percentage. Default: 90"
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_fortios_cpu_usage_hostname$"
+            description = "FortiOS-based Appliance address, optional including port ('192.168.1.1:443')."
+        }
+        "--insecure" = {
+            set_if = "$linuxfabrik_fortios_cpu_usage_insecure$"
+            description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
+        }
+        "--no-proxy" = {
+            set_if = "$linuxfabrik_fortios_cpu_usage_noproxy$"
+            description = "Do not use a proxy. Default: False"
+        }
+        "--password" = {
+            value = "$linuxfabrik_fortios_cpu_usage_password$"
+            description = "FortiOS REST API Single Access Token."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_fortios_cpu_usage_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_fortios_cpu_usage_warning$"
+            description = "Set the warning threshold CPU Usage Percentage. Default: 80"
+        }
+    }
+}

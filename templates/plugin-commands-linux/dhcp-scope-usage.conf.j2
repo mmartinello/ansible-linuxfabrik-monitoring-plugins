@@ -1,0 +1,63 @@
+/*
+Commands and services for 'dhcp-scope-usage' check from LinuxFabrik Monitoring Plugin:
+
+Checks the IPv4 scope usage for a Windows DHCP server service.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/dhcp-scope-usage
+*/
+
+object CheckCommand "_linuxfabrik_dhcp_scope_usage" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/dhcp-scope-usage" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_dhcp_scope_usage_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_dhcp_scope_usage_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_dhcp_scope_usage_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_dhcp_scope_usage_critical$"
+            description = "Set the CRIT threshold as a percentage. Default: >= 90"
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_dhcp_scope_usage_hostname$"
+            description = "Specifies the DNS name, or IPv4 or IPv6 address, of the target computer that runs the DHCP server service. Default: localhost"
+        }
+        "--test" = {
+            value = "$linuxfabrik_dhcp_scope_usage_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--warning" = {
+            value = "$linuxfabrik_dhcp_scope_usage_warning$"
+            description = "Set the WARN threshold as a percentage. Default: >= 80"
+        }
+        "--winrm-domain" = {
+            value = "$linuxfabrik_dhcp_scope_usage_winrmdomain$"
+            description = "WinRM Domain Name. Default: None"
+        }
+        "--winrm-hostname" = {
+            value = "$linuxfabrik_dhcp_scope_usage_winrmhostname$"
+            description = "Target Windows computer on which the Windows commands are to be executed. Default: None"
+        }
+        "--winrm-password" = {
+            value = "$linuxfabrik_dhcp_scope_usage_winrmpassword$"
+            description = "WinRM Account Password. Default: None"
+        }
+        "--winrm-transport" = {
+            value = "$linuxfabrik_dhcp_scope_usage_winrmtransport$"
+            description = "WinRM transport type. Default: ntlm"
+        }
+        "--winrm-username" = {
+            value = "$linuxfabrik_dhcp_scope_usage_winrmusername$"
+            description = "WinRM Account Name. Default: None"
+        }
+    }
+}

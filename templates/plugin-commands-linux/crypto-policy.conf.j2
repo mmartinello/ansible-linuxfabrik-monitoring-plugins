@@ -1,0 +1,31 @@
+/*
+Commands and services for 'crypto-policy' check from LinuxFabrik Monitoring Plugin:
+
+on a non-match.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/crypto-policy
+*/
+
+object CheckCommand "_linuxfabrik_crypto_policy" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/crypto-policy" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_crypto_policy_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_crypto_policy_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_crypto_policy_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--policy" = {
+            value = "$linuxfabrik_crypto_policy_policy$"
+            description = "The expected crypto policy (full name), for example 'FUTURE' (case-insensitive). Default: DEFAULT"
+        }
+    }
+}

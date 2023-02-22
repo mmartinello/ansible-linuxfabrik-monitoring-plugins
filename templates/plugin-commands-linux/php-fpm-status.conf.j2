@@ -1,0 +1,59 @@
+/*
+Commands and services for 'php-fpm-status' check from LinuxFabrik Monitoring Plugin:
+
+that is being served).
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-fpm-status
+*/
+
+object CheckCommand "_linuxfabrik_php_fpm_status" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-fpm-status" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_php_fpm_status_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_php_fpm_status_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_php_fpm_status_alwaysok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_php_fpm_status_critical$"
+            description = "Set the CRIT threshold for queue usage as a percentage. Default: >= 90"
+        }
+        "--critical-maxchildren" = {
+            value = "$linuxfabrik_php_fpm_status_criticalmaxchildren$"
+            description = "Set the CRIT threshold for the number of times the process limit has been reached. Default: >= 100"
+        }
+        "--critical-slowreq" = {
+            value = "$linuxfabrik_php_fpm_status_criticalslowreq$"
+            description = "Set the CRIT threshold for slow requests. Default: >= 100"
+        }
+        "--test" = {
+            value = "$linuxfabrik_php_fpm_status_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--url" = {
+            value = "$linuxfabrik_php_fpm_status_url$"
+            description = "PHP-FPM Status URL. Default: http://localhost/fpm-status"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_php_fpm_status_warning$"
+            description = "Set the WARN threshold for queue usage as a percentage. Default: >= 80"
+        }
+        "--warning-maxchildren" = {
+            value = "$linuxfabrik_php_fpm_status_warningmaxchildren$"
+            description = "Set the WARN threshold for the number of times the process limit has been reached. Default: >= 1"
+        }
+        "--warning-slowreq" = {
+            value = "$linuxfabrik_php_fpm_status_warningslowreq$"
+            description = "Set the WARN threshold for slow requests. Default: >= 1"
+        }
+    }
+}
