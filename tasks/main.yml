@@ -15,4 +15,8 @@
       paths:
         - vars
 
+- include_tasks: check_installed.yml
+  when: not linuxfabrik_monitoring_plugins_reinstall
+
 - include_tasks: install.yml
+  when: not linuxfabrik_monitoring_plugins_installed

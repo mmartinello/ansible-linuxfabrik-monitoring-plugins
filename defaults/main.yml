@@ -1,5 +1,8 @@
 ---
+# Plugins destination path
 linuxfabrik_monitoring_plugins_dest_path: /usr/lib64/nagios/plugins/linuxfabrik
+
+# Plugins user and group owners
 linuxfabrik_monitoring_plugins_user: nagios
 linuxfabrik_monitoring_plugins_group: nagios
 
@@ -8,3 +11,9 @@ linuxfabrik_monitoring_plugins_commands_dest_path: /usr/share/icinga2/include/li
 
 # File in which include the command definitions destination directory
 linuxfabrik_monitoring_plugins_icinga_conf_file: /etc/icinga2/icinga2.conf
+
+# Linuxfabrik Monitoring Plugins installed: if true do not (re)install
+linuxfabrik_monitoring_plugins_installed: false
+
+# Reinstall Linuxfabrik Monitoring Plugins
+linuxfabrik_monitoring_plugins_reinstall: false

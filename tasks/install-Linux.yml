@@ -79,3 +79,8 @@
     line: 'include_recursive "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}"'
     state: present
   notify: Reload Icinga2
+
+- name: Create the installed status file
+  file:
+    path: "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik-monitoring-plugins.installed"
+    state: touch
