@@ -17,3 +17,9 @@ linuxfabrik_monitoring_plugins_installed: false
 
 # Reinstall Linuxfabrik Monitoring Plugins
 linuxfabrik_monitoring_plugins_reinstall: false
+
+# Install icons
+linuxfabrik_monitoring_plugins_icons_install: false
+
+# Icingaweb2 icons destination directory
+linuxfabrik_monitoring_plugins_icingaweb2_icons_dir_path: /usr/share/icingaweb2/public/img/icons/

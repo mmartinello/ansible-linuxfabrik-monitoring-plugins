@@ -20,3 +20,6 @@
 
 - include_tasks: install.yml
   when: not linuxfabrik_monitoring_plugins_installed
+
+- include_tasks: icons.yml
+  when: linuxfabrik_monitoring_plugins_icons_install
