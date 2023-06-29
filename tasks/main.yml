@@ -1,25 +1,28 @@
 ---
 - name: Gather OS system specific variables
-  include_vars: "{{ ansible_system }}.yml"
+  ansible.builtin.include_vars: "{{ ansible_system }}.yml"
 
 - name: Gather Distribution specific variables
-  include_vars: "{{ lookup('first_found', params) }}"
+  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
   vars:
     params:
       files:
-        - "{{ ansible_system}}-{{ ansible_os_family }}-{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
-        - "{{ ansible_system}}-{{ ansible_os_family }}-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-        - "{{ ansible_system}}-{{ ansible_os_family }}-{{ ansible_distribution }}.yml"
-        - "{{ ansible_system}}-{{ ansible_os_family }}.yml"
+        - "{{ ansible_system }}-{{ ansible_os_family }}-{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+        - "{{ ansible_system }}-{{ ansible_os_family }}-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_system }}-{{ ansible_os_family }}-{{ ansible_distribution }}.yml"
+        - "{{ ansible_system }}-{{ ansible_os_family }}.yml"
         - "default.yml"
       paths:
         - vars
 
-- include_tasks: check_installed.yml
+- name: Check if LinuxFabrik Monitoring Plugins are already installed
+  ansible.builtin.include_tasks: check_installed.yml
   when: not linuxfabrik_monitoring_plugins_reinstall
 
-- include_tasks: install.yml
+- name: Install LinuxFabrik Monitoring Plugins
+  ansible.builtin.include_tasks: install.yml
   when: not linuxfabrik_monitoring_plugins_installed
 
-- include_tasks: icons.yml
+- name: Install plugin icons
+  ansible.builtin.include_tasks: icons.yml
   when: linuxfabrik_monitoring_plugins_icons_install

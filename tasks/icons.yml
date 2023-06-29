@@ -1,34 +1,40 @@
 ---
 - name: Download Linuxfabrik Monitoring Plugins Icons
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ linuxfabrik_monitoring_plugins_icons_url }}"
     dest: /tmp/linuxfabrik_monitoring_plugins_icons.tar
     owner: "{{ linuxfabrik_monitoring_plugins_user }}"
     group: "{{ linuxfabrik_monitoring_plugins_group }}"
+    mode: '0600'
     force: true
 
 - name: Create the temporary directory
-  file:
+  ansible.builtin.file:
     path: /tmp/linuxfabrik_monitoring_plugins_icons
     state: directory
     owner: "{{ linuxfabrik_monitoring_plugins_user }}"
     group: "{{ linuxfabrik_monitoring_plugins_group }}"
+    mode: '0600'
 
 - name: Extract the downloaded archive
-  unarchive:
+  ansible.builtin.unarchive:
     src: /tmp/linuxfabrik_monitoring_plugins_icons.tar
     dest: /tmp/linuxfabrik_monitoring_plugins_icons
     remote_src: true
     owner: "{{ linuxfabrik_monitoring_plugins_user }}"
-    group: "{{ linuxfabrik_monitoring_plugins_group }}" 
+    group: "{{ linuxfabrik_monitoring_plugins_group }}"
 
 - name: Copy icons
-  shell: "cp -a /tmp/linuxfabrik_monitoring_plugins_icons/* {{ linuxfabrik_monitoring_plugins_icingaweb2_icons_dir_path }}/"
+  ansible.builtin.shell: "cp -a /tmp/linuxfabrik_monitoring_plugins_icons/* {{ linuxfabrik_monitoring_plugins_icingaweb2_icons_dir_path }}/"
+  register: _output
+  changed_when: _output.rc == 0
 
 - name: Remove the temporary directory
-  shell: rm -rf /tmp/linuxfabrik_monitoring_plugins_icons
+  ansible.builtin.command: rm -rf /tmp/linuxfabrik_monitoring_plugins_icons
+  register: _output
+  changed_when: _output.rc == 0
 
 - name: Remove the downloaded archive
-  file:
+  ansible.builtin.file:
     path: /tmp/linuxfabrik_monitoring_plugins_icons.tar
     state: absent
