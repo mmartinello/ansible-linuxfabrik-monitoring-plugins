@@ -1,4 +1,6 @@
 ---
 linuxfabrik_monitoring_plugins_required_packages:
+  - needrestart
+  - python3-pip
   - python3-bs4
   - python3-pymysql

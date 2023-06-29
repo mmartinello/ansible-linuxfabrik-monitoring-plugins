@@ -1,6 +1,6 @@
 ---
 # URL to download the archive from
-linuxfabrik_monitoring_plugins_url: https://download.linuxfabrik.ch/monitoring-plugins/tar/linuxfabrik-monitoring-plugins.tar
+linuxfabrik_monitoring_plugins_url: https://download.linuxfabrik.ch/monitoring-plugins/tar/linuxfabrik-monitoring-plugins-2022072001.tar
 
 # Required PIP packages
 linuxfabrik_monitoring_plugins_required_pip_packages:

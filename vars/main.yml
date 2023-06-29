@@ -1,2 +1,2 @@
 ---
-# vars file for ansible-linuxfabrik-monitoring-plugins
+linuxfabrik_monitoring_plugins_icons_url: https://download.linuxfabrik.ch/monitoring-plugins/icons/icons.tar.gz

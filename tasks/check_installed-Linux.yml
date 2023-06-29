@@ -1,7 +1,7 @@
 ---
 - name: Check for the installed status file
   stat:
-    path: "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik-monitoring-plugins.installed"
+    path: /etc/icinga2/.linuxfabrik-monitoring-plugins.installed
   register: installed_status_file
 
 - set_fact:
