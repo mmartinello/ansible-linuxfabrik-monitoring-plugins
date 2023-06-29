@@ -10,53 +10,53 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/libren
 */
 
 object CheckCommand "_linuxfabrik_librenms_health" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/librenms-health" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/librenms-health" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_librenms_health_help$"
+            set_if = "$librenms_health_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_librenms_health_version$"
+            set_if = "$librenms_health_version$"
             description = "show program's version number and exit"
         }
         "--device-group" = {
-            value = "$linuxfabrik_librenms_health_device_group$"
+            value = "$librenms_health_device_group$"
             description = "Filter by LibreNMS Device Group."
         }
         "--device-hostname" = {
-            value = "$linuxfabrik_librenms_health_device_hostname$"
+            value = "$librenms_health_device_hostname$"
             description = "Filter by LibreNMS Hostname (repeating)."
             repeat_key = true
         }
         "--device-type" = {
-            value = "$linuxfabrik_librenms_health_device_type$"
+            value = "$librenms_health_device_type$"
             description = "Filter by LibreNMS Device Type (repeating)."
             repeat_key = true
         }
         "--insecure" = {
-            set_if = "$linuxfabrik_librenms_health_insecure$"
+            set_if = "$librenms_health_insecure$"
             description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
         }
         "--lengthy" = {
-            set_if = "$linuxfabrik_librenms_health_lengthy$"
+            set_if = "$librenms_health_lengthy$"
             description = "Extended reporting."
         }
         "--no-proxy" = {
-            set_if = "$linuxfabrik_librenms_health_no_proxy$"
+            set_if = "$librenms_health_no_proxy$"
             description = "Do not use a proxy. Default: False"
         }
         "--timeout" = {
-            value = "$linuxfabrik_librenms_health_timeout$"
+            value = "$librenms_health_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--token" = {
-            value = "$linuxfabrik_librenms_health_token$"
+            value = "$librenms_health_token$"
             description = "LibreNMS API token"
         }
         "--url" = {
-            value = "$linuxfabrik_librenms_health_url$"
+            value = "$librenms_health_url$"
             description = "LibreNMS API URL. Default: http://localhost"
         }
     }

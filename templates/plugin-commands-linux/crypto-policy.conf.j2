@@ -10,23 +10,23 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/crypto
 */
 
 object CheckCommand "_linuxfabrik_crypto_policy" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/crypto-policy" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/crypto-policy" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_crypto_policy_help$"
+            set_if = "$crypto_policy_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_crypto_policy_version$"
+            set_if = "$crypto_policy_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_crypto_policy_always_ok$"
+            set_if = "$crypto_policy_always_ok$"
             description = "Always returns OK."
         }
         "--policy" = {
-            value = "$linuxfabrik_crypto_policy_policy$"
+            value = "$crypto_policy_policy$"
             description = "The expected crypto policy (full name), for example 'FUTURE' (case-insensitive). Default: DEFAULT"
         }
     }

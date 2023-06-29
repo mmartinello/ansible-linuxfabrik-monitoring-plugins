@@ -10,27 +10,27 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/onlyof
 */
 
 object CheckCommand "_linuxfabrik_onlyoffice_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/onlyoffice-stats" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/onlyoffice-stats" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_onlyoffice_stats_help$"
+            set_if = "$onlyoffice_stats_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_onlyoffice_stats_version$"
+            set_if = "$onlyoffice_stats_version$"
             description = "show program's version number and exit"
         }
         "--test" = {
-            value = "$linuxfabrik_onlyoffice_stats_test$"
+            value = "$onlyoffice_stats_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--timeout" = {
-            value = "$linuxfabrik_onlyoffice_stats_timeout$"
+            value = "$onlyoffice_stats_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--url" = {
-            value = "$linuxfabrik_onlyoffice_stats_url$"
+            value = "$onlyoffice_stats_url$"
             description = "OnlyOffice API URL. Default: http://localhost"
         }
     }

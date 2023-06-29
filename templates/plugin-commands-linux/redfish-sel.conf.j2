@@ -10,31 +10,31 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/redfis
 */
 
 object CheckCommand "_linuxfabrik_redfish_sel" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/redfish-sel" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/redfish-sel" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_redfish_sel_help$"
+            set_if = "$redfish_sel_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_redfish_sel_version$"
+            set_if = "$redfish_sel_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_redfish_sel_always_ok$"
+            set_if = "$redfish_sel_always_ok$"
             description = "Always returns OK."
         }
         "--password" = {
-            value = "$linuxfabrik_redfish_sel_password$"
+            value = "$redfish_sel_password$"
             description = "Redfish API password."
         }
         "--url" = {
-            value = "$linuxfabrik_redfish_sel_url$"
+            value = "$redfish_sel_url$"
             description = "Redfish API URL. Default: https://localhost:5000"
         }
         "--username" = {
-            value = "$linuxfabrik_redfish_sel_username$"
+            value = "$redfish_sel_username$"
             description = "Redfish API username."
         }
     }

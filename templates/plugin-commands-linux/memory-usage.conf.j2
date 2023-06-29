@@ -10,27 +10,27 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/memory
 */
 
 object CheckCommand "_linuxfabrik_memory_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/memory-usage" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/memory-usage" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_memory_usage_help$"
+            set_if = "$memory_usage_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_memory_usage_version$"
+            set_if = "$memory_usage_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_memory_usage_always_ok$"
+            set_if = "$memory_usage_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_memory_usage_critical$"
+            value = "$memory_usage_critical$"
             description = "Set the critical threshold for memory usage (in percent). Default: 95"
         }
         "--warning" = {
-            value = "$linuxfabrik_memory_usage_warning$"
+            value = "$memory_usage_warning$"
             description = "Set the warning threshold for memory usage (in percent). Default: 90"
         }
     }

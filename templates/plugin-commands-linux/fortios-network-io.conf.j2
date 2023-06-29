@@ -10,51 +10,51 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_linuxfabrik_fortios_network_io" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/fortios-network-io" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-network-io" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_fortios_network_io_help$"
+            set_if = "$fortios_network_io_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_fortios_network_io_version$"
+            set_if = "$fortios_network_io_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_fortios_network_io_always_ok$"
+            set_if = "$fortios_network_io_always_ok$"
             description = "Always returns OK."
         }
         "--count" = {
-            value = "$linuxfabrik_fortios_network_io_count$"
+            value = "$fortios_network_io_count$"
             description = "Number of times the value has to be above the given thresholds. Default: 5"
         }
         "--critical" = {
-            value = "$linuxfabrik_fortios_network_io_critical$"
+            value = "$fortios_network_io_critical$"
             description = "Set the critical threshold for link saturation for <count> checks, in bps. Default: 900000000"
         }
         "--hostname" = {
-            value = "$linuxfabrik_fortios_network_io_hostname$"
+            value = "$fortios_network_io_hostname$"
             description = "FortiOS-based Appliance address, optional including port ('192.168.1.1:443')."
         }
         "--insecure" = {
-            set_if = "$linuxfabrik_fortios_network_io_insecure$"
+            set_if = "$fortios_network_io_insecure$"
             description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
         }
         "--no-proxy" = {
-            set_if = "$linuxfabrik_fortios_network_io_no_proxy$"
+            set_if = "$fortios_network_io_no_proxy$"
             description = "Do not use a proxy. Default: False"
         }
         "--password" = {
-            value = "$linuxfabrik_fortios_network_io_password$"
+            value = "$fortios_network_io_password$"
             description = "FortiOS REST API Single Access Token."
         }
         "--timeout" = {
-            value = "$linuxfabrik_fortios_network_io_timeout$"
+            value = "$fortios_network_io_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--warning" = {
-            value = "$linuxfabrik_fortios_network_io_warning$"
+            value = "$fortios_network_io_warning$"
             description = "Set the warning threshold for link saturation for <count> checks, in bps. Default: 800000000"
         }
     }

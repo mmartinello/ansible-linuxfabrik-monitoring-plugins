@@ -10,47 +10,47 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_linuxfabrik_wildfly_memory_pool_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/wildfly-memory-pool-usage" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-memory-pool-usage" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_wildfly_memory_pool_usage_help$"
+            set_if = "$wildfly_memory_pool_usage_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_wildfly_memory_pool_usage_version$"
+            set_if = "$wildfly_memory_pool_usage_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_wildfly_memory_pool_usage_always_ok$"
+            set_if = "$wildfly_memory_pool_usage_always_ok$"
             description = "Always returns OK."
         }
         "--instance" = {
-            value = "$linuxfabrik_wildfly_memory_pool_usage_instance$"
+            value = "$wildfly_memory_pool_usage_instance$"
             description = "The instance (server-config) to check if running in domain mode."
         }
         "--mode" = {
-            value = "$linuxfabrik_wildfly_memory_pool_usage_mode$"
+            value = "$wildfly_memory_pool_usage_mode$"
             description = "The mode the server is running."
         }
         "--node" = {
-            value = "$linuxfabrik_wildfly_memory_pool_usage_node$"
+            value = "$wildfly_memory_pool_usage_node$"
             description = "The node (host) if running in domain mode."
         }
         "--password" = {
-            value = "$linuxfabrik_wildfly_memory_pool_usage_password$"
+            value = "$wildfly_memory_pool_usage_password$"
             description = "WildFly API password."
         }
         "--timeout" = {
-            value = "$linuxfabrik_wildfly_memory_pool_usage_timeout$"
+            value = "$wildfly_memory_pool_usage_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--url" = {
-            value = "$linuxfabrik_wildfly_memory_pool_usage_url$"
+            value = "$wildfly_memory_pool_usage_url$"
             description = "WildFly API URL. Default: http://localhost:9990"
         }
         "--username" = {
-            value = "$linuxfabrik_wildfly_memory_pool_usage_username$"
+            value = "$wildfly_memory_pool_usage_username$"
             description = "WildFly API username. Default: wildfly-monitoring"
         }
     }

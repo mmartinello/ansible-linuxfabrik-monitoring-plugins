@@ -10,35 +10,35 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_sorts" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/mysql-sorts" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-sorts" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_mysql_sorts_help$"
+            set_if = "$mysql_sorts_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_mysql_sorts_version$"
+            set_if = "$mysql_sorts_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_mysql_sorts_always_ok$"
+            set_if = "$mysql_sorts_always_ok$"
             description = "Always returns OK."
         }
         "--hostname" = {
-            value = "$linuxfabrik_mysql_sorts_hostname$"
+            value = "$mysql_sorts_hostname$"
             description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
         }
         "--password" = {
-            value = "$linuxfabrik_mysql_sorts_password$"
+            value = "$mysql_sorts_password$"
             description = "Use the indicated password to authenticate the connection. Default:"
         }
         "--port" = {
-            value = "$linuxfabrik_mysql_sorts_port$"
+            value = "$mysql_sorts_port$"
             description = "MySQL/MariaDB port. Default: 3306"
         }
         "--username" = {
-            value = "$linuxfabrik_mysql_sorts_username$"
+            value = "$mysql_sorts_username$"
             description = "MySQL/MariaDB username. Default: root"
         }
     }

@@ -10,19 +10,19 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/kvm-vm
 */
 
 object CheckCommand "_linuxfabrik_kvm_vm" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/kvm-vm" ]
+    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/kvm-vm" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_kvm_vm_help$"
+            set_if = "$kvm_vm_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_kvm_vm_version$"
+            set_if = "$kvm_vm_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_kvm_vm_always_ok$"
+            set_if = "$kvm_vm_always_ok$"
             description = "Always returns OK."
         }
     }

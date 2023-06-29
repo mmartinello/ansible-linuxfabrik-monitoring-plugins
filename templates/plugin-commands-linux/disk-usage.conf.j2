@@ -10,32 +10,32 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/disk-u
 */
 
 object CheckCommand "_linuxfabrik_disk_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/disk-usage" ]
+    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/disk-usage" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_disk_usage_help$"
+            set_if = "$disk_usage_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_disk_usage_version$"
+            set_if = "$disk_usage_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_disk_usage_always_ok$"
+            set_if = "$disk_usage_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_disk_usage_critical$"
+            value = "$disk_usage_critical$"
             description = "Set the critical threshold partition usage percentage. Default: 95"
         }
         "--ignore" = {
-            value = "$linuxfabrik_disk_usage_ignore$"
+            value = "$disk_usage_ignore$"
             description = "Mountpoint to be ignored (repeating). The mountpoint is ignored if it starts with the specified value. Example: '/boot' ignores '/boot' as well as '/boot/efi'. On Windows, use drive letters without backslash ('Y:' or 'Y'). Default: []"
             repeat_key = true
         }
         "--warning" = {
-            value = "$linuxfabrik_disk_usage_warning$"
+            value = "$disk_usage_warning$"
             description = "Set the warning threshold partition usage percentage. Default: 90"
         }
     }

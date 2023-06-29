@@ -10,45 +10,45 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-st
 */
 
 object CheckCommand "_linuxfabrik_php_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/php-status" ]
+    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-status" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_php_status_help$"
+            set_if = "$php_status_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_php_status_version$"
+            set_if = "$php_status_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_php_status_always_ok$"
+            set_if = "$php_status_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_php_status_critical$"
+            value = "$php_status_critical$"
             description = "Set the CRIT threshold for Opcache usage as a percentage. Default: >= None"
         }
         "--config" = {
-            value = "$linuxfabrik_php_status_config$"
+            value = "$php_status_config$"
             description = "'key=value' pairs to check (startswith), for example `--config 'memory_limit=128M'` (repeating)"
             repeat_key = true
         }
         "--dev" = {
-            set_if = "$linuxfabrik_php_status_dev$"
+            set_if = "$php_status_dev$"
             description = "Be more tolerant in development environments: Allow `display_errors=On` and `display_startup_errors=On`."
         }
         "--module" = {
-            value = "$linuxfabrik_php_status_module$"
+            value = "$php_status_module$"
             description = "'modulename' to check (startswith), for example `--module json --module mbstring` (repeating)"
             repeat_key = true
         }
         "--url" = {
-            value = "$linuxfabrik_php_status_url$"
+            value = "$php_status_url$"
             description = "URL to optional PHP `monitoring.php` script. Default:http://localhost/monitoring.php"
         }
         "--warning" = {
-            value = "$linuxfabrik_php_status_warning$"
+            value = "$php_status_warning$"
             description = "Set the WARN threshold for Opcache usage as a percentage. Default: >= 90"
         }
     }

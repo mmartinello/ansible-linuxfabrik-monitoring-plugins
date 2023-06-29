@@ -10,35 +10,35 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_temp_tables" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/mysql-temp-tables" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-temp-tables" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_mysql_temp_tables_help$"
+            set_if = "$mysql_temp_tables_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_mysql_temp_tables_version$"
+            set_if = "$mysql_temp_tables_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_mysql_temp_tables_always_ok$"
+            set_if = "$mysql_temp_tables_always_ok$"
             description = "Always returns OK."
         }
         "--hostname" = {
-            value = "$linuxfabrik_mysql_temp_tables_hostname$"
+            value = "$mysql_temp_tables_hostname$"
             description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
         }
         "--password" = {
-            value = "$linuxfabrik_mysql_temp_tables_password$"
+            value = "$mysql_temp_tables_password$"
             description = "Use the indicated password to authenticate the connection. Default:"
         }
         "--port" = {
-            value = "$linuxfabrik_mysql_temp_tables_port$"
+            value = "$mysql_temp_tables_port$"
             description = "MySQL/MariaDB port. Default: 3306"
         }
         "--username" = {
-            value = "$linuxfabrik_mysql_temp_tables_username$"
+            value = "$mysql_temp_tables_username$"
             description = "MySQL/MariaDB username. Default: root"
         }
     }

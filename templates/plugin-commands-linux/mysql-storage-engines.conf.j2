@@ -10,39 +10,39 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_storage_engines" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/mysql-storage-engines" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-storage-engines" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_mysql_storage_engines_help$"
+            set_if = "$mysql_storage_engines_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_mysql_storage_engines_version$"
+            set_if = "$mysql_storage_engines_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_mysql_storage_engines_always_ok$"
+            set_if = "$mysql_storage_engines_always_ok$"
             description = "Always returns OK."
         }
         "--hostname" = {
-            value = "$linuxfabrik_mysql_storage_engines_hostname$"
+            value = "$mysql_storage_engines_hostname$"
             description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
         }
         "--password" = {
-            value = "$linuxfabrik_mysql_storage_engines_password$"
+            value = "$mysql_storage_engines_password$"
             description = "Use the indicated password to authenticate the connection. Default:"
         }
         "--port" = {
-            value = "$linuxfabrik_mysql_storage_engines_port$"
+            value = "$mysql_storage_engines_port$"
             description = "MySQL/MariaDB port. Default: 3306"
         }
         "--timeout" = {
-            value = "$linuxfabrik_mysql_storage_engines_timeout$"
+            value = "$mysql_storage_engines_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--username" = {
-            value = "$linuxfabrik_mysql_storage_engines_username$"
+            value = "$mysql_storage_engines_username$"
             description = "MySQL/MariaDB username. Default: root"
         }
     }

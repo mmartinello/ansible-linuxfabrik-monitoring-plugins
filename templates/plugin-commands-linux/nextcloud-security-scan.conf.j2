@@ -10,27 +10,27 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nextcl
 */
 
 object CheckCommand "_linuxfabrik_nextcloud_security_scan" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/nextcloud-security-scan" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nextcloud-security-scan" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_nextcloud_security_scan_help$"
+            set_if = "$nextcloud_security_scan_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_nextcloud_security_scan_version$"
+            set_if = "$nextcloud_security_scan_version$"
             description = "show program's version number and exit"
         }
         "--timeout" = {
-            value = "$linuxfabrik_nextcloud_security_scan_timeout$"
+            value = "$nextcloud_security_scan_timeout$"
             description = "Network timeout in seconds. Default: 7 (seconds)"
         }
         "--trigger" = {
-            value = "$linuxfabrik_nextcloud_security_scan_trigger$"
+            value = "$nextcloud_security_scan_trigger$"
             description = "Trigger re-scan of the Nextcloud server if result on scan.nextcloud.com is older than n days. Default: 14 (days)"
         }
         "--url" = {
-            value = "$linuxfabrik_nextcloud_security_scan_url$"
+            value = "$nextcloud_security_scan_url$"
             description = "Nextcloud API URL, for example 'cloud.linuxfabrik.io'."
         }
     }

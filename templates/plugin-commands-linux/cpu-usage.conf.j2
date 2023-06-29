@@ -10,31 +10,31 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/cpu-us
 */
 
 object CheckCommand "_linuxfabrik_cpu_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/cpu-usage" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/cpu-usage" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_cpu_usage_help$"
+            set_if = "$cpu_usage_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_cpu_usage_version$"
+            set_if = "$cpu_usage_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_cpu_usage_always_ok$"
+            set_if = "$cpu_usage_always_ok$"
             description = "Always returns OK."
         }
         "--count" = {
-            value = "$linuxfabrik_cpu_usage_count$"
+            value = "$cpu_usage_count$"
             description = "Number of times the value has to be above the given thresholds. Default: 5"
         }
         "--critical" = {
-            value = "$linuxfabrik_cpu_usage_critical$"
+            value = "$cpu_usage_critical$"
             description = "Set the critical threshold CPU Usage Percentage. Default: 90"
         }
         "--warning" = {
-            value = "$linuxfabrik_cpu_usage_warning$"
+            value = "$cpu_usage_warning$"
             description = "Set the warning threshold CPU Usage Percentage. Default: 80"
         }
     }

@@ -10,67 +10,67 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/redis-
 */
 
 object CheckCommand "_linuxfabrik_redis_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/redis-status" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/redis-status" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_redis_status_help$"
+            set_if = "$redis_status_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_redis_status_version$"
+            set_if = "$redis_status_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_redis_status_always_ok$"
+            set_if = "$redis_status_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_redis_status_critical$"
+            value = "$redis_status_critical$"
             description = "Set the CRIT threshold as a percentage. Default: >= None"
         }
         "--hostname" = {
-            value = "$linuxfabrik_redis_status_hostname$"
+            value = "$redis_status_hostname$"
             description = "Redis server hostname. Default: 127.0.0.1"
         }
         "--ignore-maxmemory0" = {
-            set_if = "$linuxfabrik_redis_status_ignore_maxmemory0$"
+            set_if = "$redis_status_ignore_maxmemory0$"
             description = "Don't warn about redis' maxmemory=0. Default: False"
         }
         "--ignore-overcommit" = {
-            set_if = "$linuxfabrik_redis_status_ignore_overcommit$"
+            set_if = "$redis_status_ignore_overcommit$"
             description = "Don't warn about vm.overcommit_memory<>1. Default:False"
         }
         "--ignore-somaxconn" = {
-            set_if = "$linuxfabrik_redis_status_ignore_somaxconn$"
+            set_if = "$redis_status_ignore_somaxconn$"
             description = "Don't warn about net.core.somaxconn < net.ipv4.tcp_max_syn_backlog. Default: False"
         }
         "--ignore-sync-partial-err" = {
-            set_if = "$linuxfabrik_redis_status_ignore_sync_partial_err$"
+            set_if = "$redis_status_ignore_sync_partial_err$"
             description = "Don't warn about partial sync errors (because if you have an asynchronous replication, a small number of 'denied partial resync requests' might be normal). Default: False"
         }
         "--ignore-thp" = {
-            set_if = "$linuxfabrik_redis_status_ignore_thp$"
+            set_if = "$redis_status_ignore_thp$"
             description = "Don't warn about transparent huge page setting. Default: False"
         }
         "--password" = {
-            value = "$linuxfabrik_redis_status_password$"
+            value = "$redis_status_password$"
             description = "Password to use when connecting to the redis server."
         }
         "--port" = {
-            value = "$linuxfabrik_redis_status_port$"
+            value = "$redis_status_port$"
             description = "Redis server port. Default: 6379"
         }
         "--socket" = {
-            value = "$linuxfabrik_redis_status_socket$"
+            value = "$redis_status_socket$"
             description = "Redis server socket (overrides hostname and port)."
         }
         "--test" = {
-            value = "$linuxfabrik_redis_status_test$"
+            value = "$redis_status_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--warning" = {
-            value = "$linuxfabrik_redis_status_warning$"
+            value = "$redis_status_warning$"
             description = "Set the WARN threshold as a percentage. Default: >= 90"
         }
     }

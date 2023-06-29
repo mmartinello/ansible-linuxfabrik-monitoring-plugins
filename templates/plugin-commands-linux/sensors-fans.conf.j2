@@ -10,27 +10,27 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/sensor
 */
 
 object CheckCommand "_linuxfabrik_sensors_fans" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/sensors-fans" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/sensors-fans" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_sensors_fans_help$"
+            set_if = "$sensors_fans_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_sensors_fans_version$"
+            set_if = "$sensors_fans_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_sensors_fans_always_ok$"
+            set_if = "$sensors_fans_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_sensors_fans_critical$"
+            value = "$sensors_fans_critical$"
             description = "Set the critical threshold for fan speed in RPM. Default: 20000"
         }
         "--warning" = {
-            value = "$linuxfabrik_sensors_fans_warning$"
+            value = "$sensors_fans_warning$"
             description = "Set the warning threshold for fan speed in RPM. Default: 10000"
         }
     }

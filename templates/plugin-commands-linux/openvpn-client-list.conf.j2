@@ -10,31 +10,31 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/openvp
 */
 
 object CheckCommand "_linuxfabrik_openvpn_client_list" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/openvpn-client-list" ]
+    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/openvpn-client-list" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_openvpn_client_list_help$"
+            set_if = "$openvpn_client_list_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_openvpn_client_list_version$"
+            set_if = "$openvpn_client_list_version$"
             description = "show program's version number and exit"
         }
         "--critical" = {
-            value = "$linuxfabrik_openvpn_client_list_critical$"
+            value = "$openvpn_client_list_critical$"
             description = "Set the critical threshold for the number of connected clients. Default: None"
         }
         "--filename" = {
-            value = "$linuxfabrik_openvpn_client_list_filename$"
+            value = "$openvpn_client_list_filename$"
             description = "Set the path of the log filename. Default: /var/log/openvpn-status.log"
         }
         "--test" = {
-            value = "$linuxfabrik_openvpn_client_list_test$"
+            value = "$openvpn_client_list_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--warning" = {
-            value = "$linuxfabrik_openvpn_client_list_warning$"
+            value = "$openvpn_client_list_warning$"
             description = "Set the warning threshold for the number of connected clients. Default: None"
         }
     }

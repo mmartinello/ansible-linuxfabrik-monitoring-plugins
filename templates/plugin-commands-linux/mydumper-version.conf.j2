@@ -10,23 +10,23 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mydump
 */
 
 object CheckCommand "_linuxfabrik_mydumper_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/mydumper-version" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mydumper-version" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_mydumper_version_help$"
+            set_if = "$mydumper_version_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_mydumper_version_version$"
+            set_if = "$mydumper_version_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_mydumper_version_always_ok$"
+            set_if = "$mydumper_version_always_ok$"
             description = "Always returns OK."
         }
         "--cache-expire" = {
-            value = "$linuxfabrik_mydumper_version_cache_expire$"
+            value = "$mydumper_version_cache_expire$"
             description = "The amount of time after which the update check cache expires, in hours. Default: 24"
         }
     }

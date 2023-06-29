@@ -10,47 +10,47 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_info" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/nodebb-info" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-info" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_nodebb_info_help$"
+            set_if = "$nodebb_info_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_nodebb_info_version$"
+            set_if = "$nodebb_info_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_nodebb_info_always_ok$"
+            set_if = "$nodebb_info_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_nodebb_info_critical$"
+            value = "$nodebb_info_critical$"
             description = "Set the CRIT threshold as a percentage. Default: >= 95"
         }
         "--insecure" = {
-            set_if = "$linuxfabrik_nodebb_info_insecure$"
+            set_if = "$nodebb_info_insecure$"
             description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
         }
         "--test" = {
-            value = "$linuxfabrik_nodebb_info_test$"
+            value = "$nodebb_info_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--timeout" = {
-            value = "$linuxfabrik_nodebb_info_timeout$"
+            value = "$nodebb_info_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--token" = {
-            value = "$linuxfabrik_nodebb_info_token$"
+            value = "$nodebb_info_token$"
             description = "NodeBB API Bearer token."
         }
         "--url" = {
-            value = "$linuxfabrik_nodebb_info_url$"
+            value = "$nodebb_info_url$"
             description = "NodeBB API URL. Default: http://localhost:4567/forum"
         }
         "--warning" = {
-            value = "$linuxfabrik_nodebb_info_warning$"
+            value = "$nodebb_info_warning$"
             description = "Set the WARN threshold as a percentage. Default: >= 90"
         }
     }

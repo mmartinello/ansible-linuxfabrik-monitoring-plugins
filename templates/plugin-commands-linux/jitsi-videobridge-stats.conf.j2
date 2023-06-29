@@ -10,47 +10,47 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/jitsi-
 */
 
 object CheckCommand "_linuxfabrik_jitsi_videobridge_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/jitsi-videobridge-stats" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/jitsi-videobridge-stats" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_jitsi_videobridge_stats_help$"
+            set_if = "$jitsi_videobridge_stats_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_jitsi_videobridge_stats_version$"
+            set_if = "$jitsi_videobridge_stats_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_jitsi_videobridge_stats_always_ok$"
+            set_if = "$jitsi_videobridge_stats_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_jitsi_videobridge_stats_critical$"
+            value = "$jitsi_videobridge_stats_critical$"
             description = "Set the CRIT threshold for the number of participants. Default: >= 100"
         }
         "--password" = {
-            value = "$linuxfabrik_jitsi_videobridge_stats_password$"
+            value = "$jitsi_videobridge_stats_password$"
             description = "Jitsi API password."
         }
         "--test" = {
-            value = "$linuxfabrik_jitsi_videobridge_stats_test$"
+            value = "$jitsi_videobridge_stats_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--timeout" = {
-            value = "$linuxfabrik_jitsi_videobridge_stats_timeout$"
+            value = "$jitsi_videobridge_stats_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--url" = {
-            value = "$linuxfabrik_jitsi_videobridge_stats_url$"
+            value = "$jitsi_videobridge_stats_url$"
             description = "Jitsi API URL. Default: http://localhost:8080"
         }
         "--username" = {
-            value = "$linuxfabrik_jitsi_videobridge_stats_username$"
+            value = "$jitsi_videobridge_stats_username$"
             description = "Jitsi API username. Default: None"
         }
         "--warning" = {
-            value = "$linuxfabrik_jitsi_videobridge_stats_warning$"
+            value = "$jitsi_videobridge_stats_warning$"
             description = "Set the WARN threshold for the number of participants. Default: >= 25"
         }
     }

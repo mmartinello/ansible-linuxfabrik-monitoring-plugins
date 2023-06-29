@@ -10,35 +10,35 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_table_locks" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/mysql-table-locks" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-table-locks" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_mysql_table_locks_help$"
+            set_if = "$mysql_table_locks_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_mysql_table_locks_version$"
+            set_if = "$mysql_table_locks_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_mysql_table_locks_always_ok$"
+            set_if = "$mysql_table_locks_always_ok$"
             description = "Always returns OK."
         }
         "--hostname" = {
-            value = "$linuxfabrik_mysql_table_locks_hostname$"
+            value = "$mysql_table_locks_hostname$"
             description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
         }
         "--password" = {
-            value = "$linuxfabrik_mysql_table_locks_password$"
+            value = "$mysql_table_locks_password$"
             description = "Use the indicated password to authenticate the connection. Default:"
         }
         "--port" = {
-            value = "$linuxfabrik_mysql_table_locks_port$"
+            value = "$mysql_table_locks_port$"
             description = "MySQL/MariaDB port. Default: 3306"
         }
         "--username" = {
-            value = "$linuxfabrik_mysql_table_locks_username$"
+            value = "$mysql_table_locks_username$"
             description = "MySQL/MariaDB username. Default: root"
         }
     }

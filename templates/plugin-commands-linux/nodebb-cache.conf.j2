@@ -10,51 +10,51 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_cache" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/nodebb-cache" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-cache" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_nodebb_cache_help$"
+            set_if = "$nodebb_cache_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_nodebb_cache_version$"
+            set_if = "$nodebb_cache_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_nodebb_cache_always_ok$"
+            set_if = "$nodebb_cache_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_nodebb_cache_critical$"
+            value = "$nodebb_cache_critical$"
             description = "Set the CRIT threshold as a percentage. Default: >= 90"
         }
         "--insecure" = {
-            set_if = "$linuxfabrik_nodebb_cache_insecure$"
+            set_if = "$nodebb_cache_insecure$"
             description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
         }
         "--severity" = {
-            value = "$linuxfabrik_nodebb_cache_severity$"
+            value = "$nodebb_cache_severity$"
             description = "Severity for alerts that do not depend on thresholds. One of 'warn' or 'crit'. Default: warn"
         }
         "--test" = {
-            value = "$linuxfabrik_nodebb_cache_test$"
+            value = "$nodebb_cache_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--timeout" = {
-            value = "$linuxfabrik_nodebb_cache_timeout$"
+            value = "$nodebb_cache_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--token" = {
-            value = "$linuxfabrik_nodebb_cache_token$"
+            value = "$nodebb_cache_token$"
             description = "NodeBB API Bearer token."
         }
         "--url" = {
-            value = "$linuxfabrik_nodebb_cache_url$"
+            value = "$nodebb_cache_url$"
             description = "NodeBB API URL. Default: http://localhost:4567/forum"
         }
         "--warning" = {
-            value = "$linuxfabrik_nodebb_cache_warning$"
+            value = "$nodebb_cache_warning$"
             description = "Set the WARN threshold as a percentage. Default: >= 80"
         }
     }

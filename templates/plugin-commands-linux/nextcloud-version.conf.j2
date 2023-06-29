@@ -10,23 +10,23 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nextcl
 */
 
 object CheckCommand "_linuxfabrik_nextcloud_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/nextcloud-version" ]
+    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/nextcloud-version" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_nextcloud_version_help$"
+            set_if = "$nextcloud_version_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_nextcloud_version_version$"
+            set_if = "$nextcloud_version_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_nextcloud_version_always_ok$"
+            set_if = "$nextcloud_version_always_ok$"
             description = "Always returns OK."
         }
         "--path" = {
-            value = "$linuxfabrik_nextcloud_version_path$"
+            value = "$nextcloud_version_path$"
             description = "Local path to your Nextcloud installation, typically within your Webserver's Document Root. Default: /var/www/html/nextcloud"
         }
     }

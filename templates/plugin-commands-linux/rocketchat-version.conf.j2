@@ -10,35 +10,35 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/rocket
 */
 
 object CheckCommand "_linuxfabrik_rocketchat_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/rocketchat-version" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/rocketchat-version" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_rocketchat_version_help$"
+            set_if = "$rocketchat_version_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_rocketchat_version_version$"
+            set_if = "$rocketchat_version_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_rocketchat_version_always_ok$"
+            set_if = "$rocketchat_version_always_ok$"
             description = "Always returns OK."
         }
         "--cache-expire" = {
-            value = "$linuxfabrik_rocketchat_version_cache_expire$"
+            value = "$rocketchat_version_cache_expire$"
             description = "The amount of time after which the update check cache expires, in hours. Default: 24"
         }
         "--password" = {
-            value = "$linuxfabrik_rocketchat_version_password$"
+            value = "$rocketchat_version_password$"
             description = "Rocket.Chat API password."
         }
         "--url" = {
-            value = "$linuxfabrik_rocketchat_version_url$"
+            value = "$rocketchat_version_url$"
             description = "Rocket.Chat API URL. Default:http://localhost:3000/api/v1"
         }
         "--username" = {
-            value = "$linuxfabrik_rocketchat_version_username$"
+            value = "$rocketchat_version_username$"
             description = "Rocket.Chat API username. Default: rocket-stats"
         }
     }

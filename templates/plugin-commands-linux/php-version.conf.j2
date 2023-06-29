@@ -10,23 +10,23 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-ve
 */
 
 object CheckCommand "_linuxfabrik_php_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/php-version" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-version" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_php_version_help$"
+            set_if = "$php_version_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_php_version_version$"
+            set_if = "$php_version_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_php_version_always_ok$"
+            set_if = "$php_version_always_ok$"
             description = "Always returns OK."
         }
         "--cache-expire" = {
-            value = "$linuxfabrik_php_version_cache_expire$"
+            value = "$php_version_cache_expire$"
             description = "The amount of time after which the update check cache expires, in hours. Default: 24"
         }
     }

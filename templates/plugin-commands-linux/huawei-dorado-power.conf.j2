@@ -10,55 +10,55 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_linuxfabrik_huawei_dorado_power" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/huawei-dorado-power" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-power" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_huawei_dorado_power_help$"
+            set_if = "$huawei_dorado_power_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_huawei_dorado_power_version$"
+            set_if = "$huawei_dorado_power_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_huawei_dorado_power_always_ok$"
+            set_if = "$huawei_dorado_power_always_ok$"
             description = "Always returns OK."
         }
         "--cache-expire" = {
-            value = "$linuxfabrik_huawei_dorado_power_cache_expire$"
+            value = "$huawei_dorado_power_cache_expire$"
             description = "The amount of time after which the credential cache expires, in minutes. Default: 15"
         }
         "--device-id" = {
-            value = "$linuxfabrik_huawei_dorado_power_device_id$"
+            value = "$huawei_dorado_power_device_id$"
             description = "Huawei OceanStor Dorado API Device ID."
         }
         "--no-proxy" = {
-            set_if = "$linuxfabrik_huawei_dorado_power_no_proxy$"
+            set_if = "$huawei_dorado_power_no_proxy$"
             description = "Do not use a proxy. Default: False"
         }
         "--password" = {
-            value = "$linuxfabrik_huawei_dorado_power_password$"
+            value = "$huawei_dorado_power_password$"
             description = "Huawei OceanStor Dorado API Password."
         }
         "--scope" = {
-            value = "$linuxfabrik_huawei_dorado_power_scope$"
+            value = "$huawei_dorado_power_scope$"
             description = "Huawei OceanStor Dorado API Scope."
         }
         "--test" = {
-            value = "$linuxfabrik_huawei_dorado_power_test$"
+            value = "$huawei_dorado_power_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--timeout" = {
-            value = "$linuxfabrik_huawei_dorado_power_timeout$"
+            value = "$huawei_dorado_power_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--url" = {
-            value = "$linuxfabrik_huawei_dorado_power_url$"
+            value = "$huawei_dorado_power_url$"
             description = "Huawei OceanStor Dorado API URL."
         }
         "--username" = {
-            value = "$linuxfabrik_huawei_dorado_power_username$"
+            value = "$huawei_dorado_power_username$"
             description = "Huawei OceanStor Dorado API Username."
         }
     }

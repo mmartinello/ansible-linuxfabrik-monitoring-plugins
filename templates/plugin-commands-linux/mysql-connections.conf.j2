@@ -10,43 +10,43 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_connections" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/mysql-connections" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-connections" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_mysql_connections_help$"
+            set_if = "$mysql_connections_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_mysql_connections_version$"
+            set_if = "$mysql_connections_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_mysql_connections_always_ok$"
+            set_if = "$mysql_connections_always_ok$"
             description = "Always returns OK."
         }
         "--hostname" = {
-            value = "$linuxfabrik_mysql_connections_hostname$"
+            value = "$mysql_connections_hostname$"
             description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
         }
         "--ignore-name-resolution" = {
-            set_if = "$linuxfabrik_mysql_connections_ignore_name_resolution$"
+            set_if = "$mysql_connections_ignore_name_resolution$"
             description = "Do not check if name resolution is active. Default: False"
         }
         "--password" = {
-            value = "$linuxfabrik_mysql_connections_password$"
+            value = "$mysql_connections_password$"
             description = "Use the indicated password to authenticate the connection. Default:"
         }
         "--port" = {
-            value = "$linuxfabrik_mysql_connections_port$"
+            value = "$mysql_connections_port$"
             description = "MySQL/MariaDB port. Default: 3306"
         }
         "--timeout" = {
-            value = "$linuxfabrik_mysql_connections_timeout$"
+            value = "$mysql_connections_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--username" = {
-            value = "$linuxfabrik_mysql_connections_username$"
+            value = "$mysql_connections_username$"
             description = "MySQL/MariaDB username. Default: root"
         }
     }

@@ -10,43 +10,43 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/restic
 */
 
 object CheckCommand "_linuxfabrik_restic_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/restic-stats" ]
+    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/restic-stats" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_restic_stats_help$"
+            set_if = "$restic_stats_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_restic_stats_version$"
+            set_if = "$restic_stats_version$"
             description = "show program's version number and exit"
         }
         "--host" = {
-            value = "$linuxfabrik_restic_stats_host$"
+            value = "$restic_stats_host$"
             description = "Only consider snapshots for this host (can be specified multiple times)."
         }
         "--mode" = {
-            value = "$linuxfabrik_restic_stats_mode$"
+            value = "$restic_stats_mode$"
             description = "-size,files-by-contents,blobs-per-file,raw-data} Counting mode. Default: restore-size"
         }
         "--password-file" = {
-            value = "$linuxfabrik_restic_stats_password_file$"
+            value = "$restic_stats_password_file$"
             description = "File to read the repository password from"
         }
         "--path" = {
-            value = "$linuxfabrik_restic_stats_path$"
+            value = "$restic_stats_path$"
             description = "Only consider snapshots for this path (can be specified multiple times)."
         }
         "--repo" = {
-            value = "$linuxfabrik_restic_stats_repo$"
+            value = "$restic_stats_repo$"
             description = "Repository location"
         }
         "--tag" = {
-            value = "$linuxfabrik_restic_stats_tag$"
+            value = "$restic_stats_tag$"
             description = "Only consider snapshots which include this taglist in the format `tag[,tag,...]` (can be specified multiple times)."
         }
         "--test" = {
-            value = "$linuxfabrik_restic_stats_test$"
+            value = "$restic_stats_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
     }

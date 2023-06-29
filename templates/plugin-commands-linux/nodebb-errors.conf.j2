@@ -10,43 +10,43 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_errors" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/nodebb-errors" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-errors" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_nodebb_errors_help$"
+            set_if = "$nodebb_errors_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_nodebb_errors_version$"
+            set_if = "$nodebb_errors_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_nodebb_errors_always_ok$"
+            set_if = "$nodebb_errors_always_ok$"
             description = "Always returns OK."
         }
         "--insecure" = {
-            set_if = "$linuxfabrik_nodebb_errors_insecure$"
+            set_if = "$nodebb_errors_insecure$"
             description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
         }
         "--severity" = {
-            value = "$linuxfabrik_nodebb_errors_severity$"
+            value = "$nodebb_errors_severity$"
             description = "Severity for alerts that do not depend on thresholds. One of 'warn' or 'crit'. Default: warn"
         }
         "--test" = {
-            value = "$linuxfabrik_nodebb_errors_test$"
+            value = "$nodebb_errors_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--timeout" = {
-            value = "$linuxfabrik_nodebb_errors_timeout$"
+            value = "$nodebb_errors_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--token" = {
-            value = "$linuxfabrik_nodebb_errors_token$"
+            value = "$nodebb_errors_token$"
             description = "NodeBB API Bearer token."
         }
         "--url" = {
-            value = "$linuxfabrik_nodebb_errors_url$"
+            value = "$nodebb_errors_url$"
             description = "NodeBB API URL. Default: http://localhost:4567/forum"
         }
     }

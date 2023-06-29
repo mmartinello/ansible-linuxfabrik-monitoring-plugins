@@ -10,19 +10,19 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-o
 */
 
 object CheckCommand "_linuxfabrik_file_ownership" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/file-ownership" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-ownership" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_file_ownership_help$"
+            set_if = "$file_ownership_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_file_ownership_version$"
+            set_if = "$file_ownership_version$"
             description = "show program's version number and exit"
         }
         "--filename" = {
-            value = "$linuxfabrik_file_ownership_filename$"
+            value = "$file_ownership_filename$"
             description = "File to be checked, in the format `owner:group,path` (repeatable)."
         }
     }

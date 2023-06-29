@@ -10,83 +10,83 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/diacos
 */
 
 object CheckCommand "_linuxfabrik_diacos" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/diacos" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/diacos" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_diacos_help$"
+            set_if = "$diacos_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_diacos_version$"
+            set_if = "$diacos_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_diacos_always_ok$"
+            set_if = "$diacos_always_ok$"
             description = "Always return OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_diacos_critical$"
+            value = "$diacos_critical$"
             description = "Critical threshold for duration of login+search+logout. Default: 6000 (ms)"
         }
         "--login-computer" = {
-            value = "$linuxfabrik_diacos_login_computer$"
+            value = "$diacos_login_computer$"
             description = "user.Login argument COMPUTER. Default: Brower_APP"
         }
         "--login-ip" = {
-            value = "$linuxfabrik_diacos_login_ip$"
+            value = "$diacos_login_ip$"
             description = "user.Login argument IP. Default: 127.0.0.1"
         }
         "--login-licence" = {
-            value = "$linuxfabrik_diacos_login_licence$"
+            value = "$diacos_login_licence$"
             description = "user.Login argument LICENCE (required)"
         }
         "--login-name" = {
-            value = "$linuxfabrik_diacos_login_name$"
+            value = "$diacos_login_name$"
             description = "user.Login argument NAME (required)"
         }
         "--no-proxy" = {
-            set_if = "$linuxfabrik_diacos_no_proxy$"
+            set_if = "$diacos_no_proxy$"
             description = "Do not use a proxy. Default: False"
         }
         "--search-concept-filter" = {
-            value = "$linuxfabrik_diacos_search_concept_filter$"
+            value = "$diacos_search_concept_filter$"
             description = "classification.SearchDiagnoses argument CONCEPT_FILTER. Default: %25R239%3BC%3BD99.99"
         }
         "--search-country" = {
-            value = "$linuxfabrik_diacos_search_country$"
+            value = "$diacos_search_country$"
             description = "classification.SearchDiagnoses argument COUNTRY. Default: CH"
         }
         "--search-format" = {
-            value = "$linuxfabrik_diacos_search_format$"
+            value = "$diacos_search_format$"
             description = "classification.SearchDiagnoses argument FORMAT. Default: %25T0%25C%3F%25I%25R"
         }
         "--search-searchtext" = {
-            value = "$linuxfabrik_diacos_search_searchtext$"
+            value = "$diacos_search_searchtext$"
             description = "classification.SearchDiagnoses argument SEARCHTEXT. Default: Haut"
         }
         "--search-sort-mode" = {
-            value = "$linuxfabrik_diacos_search_sort_mode$"
+            value = "$diacos_search_sort_mode$"
             description = "classification.SearchDiagnoses argument SORT_MODE. Default: %25T"
         }
         "--search-year" = {
-            value = "$linuxfabrik_diacos_search_year$"
+            value = "$diacos_search_year$"
             description = "classification.SearchDiagnoses argument YEAR. Default:2020"
         }
         "--test" = {
-            value = "$linuxfabrik_diacos_test$"
+            value = "$diacos_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--timeout" = {
-            value = "$linuxfabrik_diacos_timeout$"
+            value = "$diacos_timeout$"
             description = "Network timeout in seconds. Default: 7 (seconds)"
         }
         "--url" = {
-            value = "$linuxfabrik_diacos_url$"
+            value = "$diacos_url$"
             description = "ID DIACOS URL. Default: http://localhost:9999"
         }
         "--warning" = {
-            value = "$linuxfabrik_diacos_warning$"
+            value = "$diacos_warning$"
             description = "Warning threshold for duration of login+search+logout. Default: 3000 (ms)"
         }
     }

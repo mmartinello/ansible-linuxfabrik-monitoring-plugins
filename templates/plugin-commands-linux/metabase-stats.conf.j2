@@ -10,39 +10,39 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/metaba
 */
 
 object CheckCommand "_linuxfabrik_metabase_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/metabase-stats" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/metabase-stats" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_metabase_stats_help$"
+            set_if = "$metabase_stats_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_metabase_stats_version$"
+            set_if = "$metabase_stats_version$"
             description = "show program's version number and exit"
         }
         "--cache-expire" = {
-            value = "$linuxfabrik_metabase_stats_cache_expire$"
+            value = "$metabase_stats_cache_expire$"
             description = "The amount of time after which the credential cache expires, in hours. Default: 335"
         }
         "--critical" = {
-            value = "$linuxfabrik_metabase_stats_critical$"
+            value = "$metabase_stats_critical$"
             description = "Set the CRIT threshold as a percentage. Default: >= 90"
         }
         "--password" = {
-            value = "$linuxfabrik_metabase_stats_password$"
+            value = "$metabase_stats_password$"
             description = "Metabase API password."
         }
         "--url" = {
-            value = "$linuxfabrik_metabase_stats_url$"
+            value = "$metabase_stats_url$"
             description = "Metabase API URL. Default: http://localhost:3000"
         }
         "--username" = {
-            value = "$linuxfabrik_metabase_stats_username$"
+            value = "$metabase_stats_username$"
             description = "Metabase API username. Default: metabase-admin"
         }
         "--warning" = {
-            value = "$linuxfabrik_metabase_stats_warning$"
+            value = "$metabase_stats_warning$"
             description = "Set the WARN threshold as a percentage. Default: >= 80"
         }
     }

@@ -10,59 +10,59 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/json-v
 */
 
 object CheckCommand "_linuxfabrik_json_values" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/json-values" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/json-values" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_json_values_help$"
+            set_if = "$json_values_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_json_values_version$"
+            set_if = "$json_values_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_json_values_always_ok$"
+            set_if = "$json_values_always_ok$"
             description = "Always returns OK."
         }
         "--filename" = {
-            value = "$linuxfabrik_json_values_filename$"
+            value = "$json_values_filename$"
             description = "Set the url of the json file. This is mutually exclusive with -u / --url."
         }
         "--insecure" = {
-            set_if = "$linuxfabrik_json_values_insecure$"
+            set_if = "$json_values_insecure$"
             description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
         }
         "--message-key" = {
-            value = "$linuxfabrik_json_values_message_key$"
+            value = "$json_values_message_key$"
             description = "Name of the json array key containing the output message. Default: message"
         }
         "--no-proxy" = {
-            set_if = "$linuxfabrik_json_values_no_proxy$"
+            set_if = "$json_values_no_proxy$"
             description = "Do not use a proxy. Default: False"
         }
         "--password" = {
-            value = "$linuxfabrik_json_values_password$"
+            value = "$json_values_password$"
             description = "SMB Password."
         }
         "--perfdata-key" = {
-            value = "$linuxfabrik_json_values_perfdata_key$"
+            value = "$json_values_perfdata_key$"
             description = "Name of the json array key containing the perfdata. Default: perfdata"
         }
         "--state-key" = {
-            value = "$linuxfabrik_json_values_state_key$"
+            value = "$json_values_state_key$"
             description = "Name of the json array key containing the state. Default: state"
         }
         "--timeout" = {
-            value = "$linuxfabrik_json_values_timeout$"
+            value = "$json_values_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--url" = {
-            value = "$linuxfabrik_json_values_url$"
+            value = "$json_values_url$"
             description = "Set the url of the json file, either starting with 'http://', 'https://' or 'smb://'. This is mutually exclusive with --filename."
         }
         "--username" = {
-            value = "$linuxfabrik_json_values_username$"
+            value = "$json_values_username$"
             description = "SMB Username."
         }
     }

@@ -10,19 +10,19 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/sensor
 */
 
 object CheckCommand "_linuxfabrik_sensors_temperatures" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/sensors-temperatures" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/sensors-temperatures" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_sensors_temperatures_help$"
+            set_if = "$sensors_temperatures_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_sensors_temperatures_version$"
+            set_if = "$sensors_temperatures_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_sensors_temperatures_always_ok$"
+            set_if = "$sensors_temperatures_always_ok$"
             description = "Always returns OK."
         }
     }

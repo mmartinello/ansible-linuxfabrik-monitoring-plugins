@@ -10,55 +10,55 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/dhcp-s
 */
 
 object CheckCommand "_linuxfabrik_dhcp_scope_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/dhcp-scope-usage" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/dhcp-scope-usage" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_dhcp_scope_usage_help$"
+            set_if = "$dhcp_scope_usage_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_dhcp_scope_usage_version$"
+            set_if = "$dhcp_scope_usage_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_dhcp_scope_usage_always_ok$"
+            set_if = "$dhcp_scope_usage_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_dhcp_scope_usage_critical$"
+            value = "$dhcp_scope_usage_critical$"
             description = "Set the CRIT threshold as a percentage. Default: >= 90"
         }
         "--hostname" = {
-            value = "$linuxfabrik_dhcp_scope_usage_hostname$"
+            value = "$dhcp_scope_usage_hostname$"
             description = "Specifies the DNS name, or IPv4 or IPv6 address, of the target computer that runs the DHCP server service. Default: localhost"
         }
         "--test" = {
-            value = "$linuxfabrik_dhcp_scope_usage_test$"
+            value = "$dhcp_scope_usage_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--warning" = {
-            value = "$linuxfabrik_dhcp_scope_usage_warning$"
+            value = "$dhcp_scope_usage_warning$"
             description = "Set the WARN threshold as a percentage. Default: >= 80"
         }
         "--winrm-domain" = {
-            value = "$linuxfabrik_dhcp_scope_usage_winrm_domain$"
+            value = "$dhcp_scope_usage_winrm_domain$"
             description = "WinRM Domain Name. Default: None"
         }
         "--winrm-hostname" = {
-            value = "$linuxfabrik_dhcp_scope_usage_winrm_hostname$"
+            value = "$dhcp_scope_usage_winrm_hostname$"
             description = "Target Windows computer on which the Windows commands are to be executed. Default: None"
         }
         "--winrm-password" = {
-            value = "$linuxfabrik_dhcp_scope_usage_winrm_password$"
+            value = "$dhcp_scope_usage_winrm_password$"
             description = "WinRM Account Password. Default: None"
         }
         "--winrm-transport" = {
-            value = "$linuxfabrik_dhcp_scope_usage_winrm_transport$"
+            value = "$dhcp_scope_usage_winrm_transport$"
             description = "WinRM transport type. Default: ntlm"
         }
         "--winrm-username" = {
-            value = "$linuxfabrik_dhcp_scope_usage_winrm_username$"
+            value = "$dhcp_scope_usage_winrm_username$"
             description = "WinRM Account Name. Default: None"
         }
     }

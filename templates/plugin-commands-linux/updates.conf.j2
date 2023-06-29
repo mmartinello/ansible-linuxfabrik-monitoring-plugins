@@ -10,27 +10,27 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/update
 */
 
 object CheckCommand "_linuxfabrik_updates" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/updates" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/updates" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_updates_help$"
+            set_if = "$updates_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_updates_version$"
+            set_if = "$updates_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_updates_always_ok$"
+            set_if = "$updates_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_updates_critical$"
+            value = "$updates_critical$"
             description = "Set the critical threshold for the number of pending updates. Default: 50"
         }
         "--warning" = {
-            value = "$linuxfabrik_updates_warning$"
+            value = "$updates_warning$"
             description = "Set the warning threshold for the number of pending updates. Default: 2"
         }
     }

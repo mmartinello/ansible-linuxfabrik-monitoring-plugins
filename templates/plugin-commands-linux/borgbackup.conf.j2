@@ -10,23 +10,23 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/borgba
 */
 
 object CheckCommand "_linuxfabrik_borgbackup" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/borgbackup" ]
+    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/borgbackup" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_borgbackup_help$"
+            set_if = "$borgbackup_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_borgbackup_version$"
+            set_if = "$borgbackup_version$"
             description = "show program's version number and exit"
         }
         "--critical" = {
-            value = "$linuxfabrik_borgbackup_critical$"
+            value = "$borgbackup_critical$"
             description = "Set the critical threshold for the time difference to the start of the last backup (in hours). Default: None"
         }
         "--warning" = {
-            value = "$linuxfabrik_borgbackup_warning$"
+            value = "$borgbackup_warning$"
             description = "Set the warning threshold for the time difference to the start of the last backup (in hours). Default: 24"
         }
     }

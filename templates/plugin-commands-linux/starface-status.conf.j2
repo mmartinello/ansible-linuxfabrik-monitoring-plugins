@@ -10,51 +10,51 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_linuxfabrik_starface_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/starface-status" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-status" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_starface_status_help$"
+            set_if = "$starface_status_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_starface_status_version$"
+            set_if = "$starface_status_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_starface_status_always_ok$"
+            set_if = "$starface_status_always_ok$"
             description = "Always returns OK."
         }
         "--cache-expire" = {
-            value = "$linuxfabrik_starface_status_cache_expire$"
+            value = "$starface_status_cache_expire$"
             description = "The amount of time after which the cached data expires, in minutes. Default: 1"
         }
         "--critical" = {
-            value = "$linuxfabrik_starface_status_critical$"
+            value = "$starface_status_critical$"
             description = "Set the critical threshold (percentage). Default: 90"
         }
         "--hostname" = {
-            value = "$linuxfabrik_starface_status_hostname$"
+            value = "$starface_status_hostname$"
             description = "Starface PBX address, can be IP address or hostname. Default: localhost"
         }
         "--port" = {
-            value = "$linuxfabrik_starface_status_port$"
+            value = "$starface_status_port$"
             description = "Starface PBX monitoring port. Default: 6556"
         }
         "--test" = {
-            value = "$linuxfabrik_starface_status_test$"
+            value = "$starface_status_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--timeout" = {
-            value = "$linuxfabrik_starface_status_timeout$"
+            value = "$starface_status_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--warning" = {
-            value = "$linuxfabrik_starface_status_warning$"
+            value = "$starface_status_warning$"
             description = "Set the warning threshold (percentage). Default: 80"
         }
         "--6" = {
-            set_if = "$linuxfabrik_starface_status_6$"
+            set_if = "$starface_status_6$"
             description = "Use IPv6."
         }
     }

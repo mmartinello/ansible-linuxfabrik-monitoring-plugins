@@ -10,39 +10,39 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/dns
 */
 
 object CheckCommand "_linuxfabrik_dns" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/dns" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/dns" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_dns_help$"
+            set_if = "$dns_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_dns_version$"
+            set_if = "$dns_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_dns_always_ok$"
+            set_if = "$dns_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_dns_critical$"
+            value = "$dns_critical$"
             description = "Return critical if elapsed time in ms exceeds value. Default: None"
         }
         "--hostname" = {
-            value = "$linuxfabrik_dns_hostname$"
+            value = "$dns_hostname$"
             description = "The host or ip address to check. Default: localhost"
         }
         "--port" = {
-            value = "$linuxfabrik_dns_port$"
+            value = "$dns_port$"
             description = "The port number. Default: 53"
         }
         "--type" = {
-            value = "$linuxfabrik_dns_type$"
+            value = "$dns_type$"
             description = "6,tcp,tcp6} Connection type. Can be optionally specified in order to narrow the list of addresses returned."
         }
         "--warning" = {
-            value = "$linuxfabrik_dns_warning$"
+            value = "$dns_warning$"
             description = "Return warning if elapsed time in ms exceeds value. Default: None"
         }
     }

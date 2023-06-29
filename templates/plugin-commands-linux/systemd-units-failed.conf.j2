@@ -10,28 +10,28 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/system
 */
 
 object CheckCommand "_linuxfabrik_systemd_units_failed" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/systemd-units-failed" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/systemd-units-failed" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_systemd_units_failed_help$"
+            set_if = "$systemd_units_failed_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_systemd_units_failed_version$"
+            set_if = "$systemd_units_failed_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_systemd_units_failed_always_ok$"
+            set_if = "$systemd_units_failed_always_ok$"
             description = "Always returns OK."
         }
         "--ignore" = {
-            value = "$linuxfabrik_systemd_units_failed_ignore$"
+            value = "$systemd_units_failed_ignore$"
             description = "Ignore a unit, for example 'dhcpd.service' (repeating). Supports glob according to https://docs.python.org/3/library/fnmatch.html. Default: []"
             repeat_key = true
         }
         "--test" = {
-            value = "$linuxfabrik_systemd_units_failed_test$"
+            value = "$systemd_units_failed_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to-stderr- file,expected-retc'."
         }
     }

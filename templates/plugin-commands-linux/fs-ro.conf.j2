@@ -10,27 +10,27 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fs-ro
 */
 
 object CheckCommand "_linuxfabrik_fs_ro" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/fs-ro" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fs-ro" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_fs_ro_help$"
+            set_if = "$fs_ro_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_fs_ro_version$"
+            set_if = "$fs_ro_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_fs_ro_always_ok$"
+            set_if = "$fs_ro_always_ok$"
             description = "Always returns OK."
         }
         "--ignore" = {
-            value = "$linuxfabrik_fs_ro_ignore$"
+            value = "$fs_ro_ignore$"
             description = "Mount point that should be ignored (repeatable). For example, if you provide `/sys/fs`, all mount points starting with `/sys/fs` will be ignored. Default: ['/proc', '/snap', '/sys/fs']"
         }
         "--test" = {
-            value = "$linuxfabrik_fs_ro_test$"
+            value = "$fs_ro_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to-stderr- file,expected-retc'."
         }
     }

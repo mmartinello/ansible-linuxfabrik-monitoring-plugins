@@ -10,28 +10,28 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/path-r
 */
 
 object CheckCommand "_linuxfabrik_path_rw_test" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/path-rw-test" ]
+    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/path-rw-test" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_path_rw_test_help$"
+            set_if = "$path_rw_test_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_path_rw_test_version$"
+            set_if = "$path_rw_test_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_path_rw_test_always_ok$"
+            set_if = "$path_rw_test_always_ok$"
             description = "Always returns OK."
         }
         "--path" = {
-            value = "$linuxfabrik_path_rw_test_path$"
+            value = "$path_rw_test_path$"
             description = "Path to which the file is to be written and from which it will be deleted (repeating). Default: ['/tmp']"
             repeat_key = true
         }
         "--severity" = {
-            value = "$linuxfabrik_path_rw_test_severity$"
+            value = "$path_rw_test_severity$"
             description = "Severity for alerting. One of 'warn' or 'crit'. Default: warn"
         }
     }

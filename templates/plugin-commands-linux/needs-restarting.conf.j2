@@ -10,15 +10,15 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/needs-
 */
 
 object CheckCommand "_linuxfabrik_needs_restarting" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/needs-restarting" ]
+    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/needs-restarting" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_needs_restarting_help$"
+            set_if = "$needs_restarting_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_needs_restarting_version$"
+            set_if = "$needs_restarting_version$"
             description = "show program's version number and exit"
         }
     }

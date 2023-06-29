@@ -10,19 +10,19 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/about-
 */
 
 object CheckCommand "_linuxfabrik_about_me" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/about-me" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/about-me" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_about_me_help$"
+            set_if = "$about_me_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_about_me_version$"
+            set_if = "$about_me_version$"
             description = "show program's version number and exit"
         }
         "--tags" = {
-            set_if = "$linuxfabrik_about_me_tags$"
+            set_if = "$about_me_tags$"
             description = "Just get a list of tags to apply in Icinga Director (Linuxfabrik Basket Config)."
         }
     }

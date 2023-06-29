@@ -10,31 +10,31 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/apache
 */
 
 object CheckCommand "_linuxfabrik_apache_httpd_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/apache-httpd-status" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/apache-httpd-status" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_apache_httpd_status_help$"
+            set_if = "$apache_httpd_status_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_apache_httpd_status_version$"
+            set_if = "$apache_httpd_status_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_apache_httpd_status_always_ok$"
+            set_if = "$apache_httpd_status_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_apache_httpd_status_critical$"
+            value = "$apache_httpd_status_critical$"
             description = "Set the CRIT threshold for the number of workers processing requests in percent. Default: >= 95"
         }
         "--url" = {
-            value = "$linuxfabrik_apache_httpd_status_url$"
+            value = "$apache_httpd_status_url$"
             description = "Apache Server Status URL. Default: http://localhost/server-status"
         }
         "--warning" = {
-            value = "$linuxfabrik_apache_httpd_status_warning$"
+            value = "$apache_httpd_status_warning$"
             description = "Set the WARN threshold for the number of workers processing requests in percent. Default: >= 80"
         }
     }

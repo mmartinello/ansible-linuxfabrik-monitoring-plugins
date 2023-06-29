@@ -10,27 +10,27 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/uptime
 */
 
 object CheckCommand "_linuxfabrik_uptime" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/uptime" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/uptime" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_uptime_help$"
+            set_if = "$uptime_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_uptime_version$"
+            set_if = "$uptime_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_uptime_always_ok$"
+            set_if = "$uptime_always_ok$"
             description = "Always returns OK."
         }
         "--critical" = {
-            value = "$linuxfabrik_uptime_critical$"
+            value = "$uptime_critical$"
             description = "Set the critical threshold for uptime in days. Default: 366"
         }
         "--warning" = {
-            value = "$linuxfabrik_uptime_warning$"
+            value = "$uptime_warning$"
             description = "Set the warning threshold for uptime in days. Default: 180"
         }
     }

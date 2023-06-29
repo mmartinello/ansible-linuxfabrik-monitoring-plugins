@@ -10,39 +10,39 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/sap-op
 */
 
 object CheckCommand "_linuxfabrik_sap_open_concur_com" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/sap-open-concur-com" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/sap-open-concur-com" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_sap_open_concur_com_help$"
+            set_if = "$sap_open_concur_com_help$"
             description = "show this help message and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_sap_open_concur_com_always_ok$"
+            set_if = "$sap_open_concur_com_always_ok$"
             description = "Always returns OK."
         }
         "--version" = {
-            set_if = "$linuxfabrik_sap_open_concur_com_version$"
+            set_if = "$sap_open_concur_com_version$"
             description = "show program's version number and exit"
         }
         "--datacenter" = {
-            value = "$linuxfabrik_sap_open_concur_com_datacenter$"
+            value = "$sap_open_concur_com_datacenter$"
             description = "Datacenter to query. Default: emea"
         }
         "--no-proxy" = {
-            set_if = "$linuxfabrik_sap_open_concur_com_no_proxy$"
+            set_if = "$sap_open_concur_com_no_proxy$"
             description = "Do not use a proxy. Default: False"
         }
         "--service" = {
-            value = "$linuxfabrik_sap_open_concur_com_service$"
+            value = "$sap_open_concur_com_service$"
             description = "Service to check. One of 'Analysis/Intelligence', 'Compleat (TMC Services)', 'Expense', 'Imaging', 'Invoice', 'Mobile', 'Request', 'Travel', or simply 'All'. Check https://open.concur.com to see which service is available for which data center. Default: All"
         }
         "--timeout" = {
-            value = "$linuxfabrik_sap_open_concur_com_timeout$"
+            value = "$sap_open_concur_com_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--utc-offset" = {
-            value = "$linuxfabrik_sap_open_concur_com_utc_offset$"
+            value = "$sap_open_concur_com_utc_offset$"
             description = "UTC offset. Default: +0200"
         }
     }

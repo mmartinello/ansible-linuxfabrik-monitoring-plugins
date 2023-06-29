@@ -10,27 +10,27 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/rocket
 */
 
 object CheckCommand "_linuxfabrik_rocketchat_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/rocketchat-stats" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/rocketchat-stats" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_rocketchat_stats_help$"
+            set_if = "$rocketchat_stats_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_rocketchat_stats_version$"
+            set_if = "$rocketchat_stats_version$"
             description = "show program's version number and exit"
         }
         "--password" = {
-            value = "$linuxfabrik_rocketchat_stats_password$"
+            value = "$rocketchat_stats_password$"
             description = "Rocket.Chat API password."
         }
         "--url" = {
-            value = "$linuxfabrik_rocketchat_stats_url$"
+            value = "$rocketchat_stats_url$"
             description = "Rocket.Chat API URL. Default:http://localhost:3000/api/v1"
         }
         "--username" = {
-            value = "$linuxfabrik_rocketchat_stats_username$"
+            value = "$rocketchat_stats_username$"
             description = "Rocket.Chat API username. Default: rocket-stats"
         }
     }

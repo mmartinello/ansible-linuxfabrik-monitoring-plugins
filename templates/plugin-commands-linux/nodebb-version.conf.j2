@@ -10,39 +10,39 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/nodebb-version" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-version" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_nodebb_version_help$"
+            set_if = "$nodebb_version_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_nodebb_version_version$"
+            set_if = "$nodebb_version_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_nodebb_version_always_ok$"
+            set_if = "$nodebb_version_always_ok$"
             description = "Always returns OK."
         }
         "--insecure" = {
-            set_if = "$linuxfabrik_nodebb_version_insecure$"
+            set_if = "$nodebb_version_insecure$"
             description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
         }
         "--test" = {
-            value = "$linuxfabrik_nodebb_version_test$"
+            value = "$nodebb_version_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--timeout" = {
-            value = "$linuxfabrik_nodebb_version_timeout$"
+            value = "$nodebb_version_timeout$"
             description = "Network timeout in seconds. Default: 3 (seconds)"
         }
         "--token" = {
-            value = "$linuxfabrik_nodebb_version_token$"
+            value = "$nodebb_version_token$"
             description = "NodeBB API Bearer token."
         }
         "--url" = {
-            value = "$linuxfabrik_nodebb_version_url$"
+            value = "$nodebb_version_url$"
             description = "NodeBB API URL. Default: http://localhost:4567/forum"
         }
     }

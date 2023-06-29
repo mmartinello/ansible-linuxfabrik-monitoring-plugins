@@ -10,27 +10,27 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/infoma
 */
 
 object CheckCommand "_linuxfabrik_infomaniak_events" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/infomaniak-events" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/infomaniak-events" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_infomaniak_events_help$"
+            set_if = "$infomaniak_events_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_infomaniak_events_version$"
+            set_if = "$infomaniak_events_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_infomaniak_events_always_ok$"
+            set_if = "$infomaniak_events_always_ok$"
             description = "Always returns OK."
         }
         "--token" = {
-            value = "$linuxfabrik_infomaniak_events_token$"
+            value = "$infomaniak_events_token$"
             description = "Infomaniak API token"
         }
         "--test" = {
-            value = "$linuxfabrik_infomaniak_events_test$"
+            value = "$infomaniak_events_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to-stderr- file,expected-retc'."
         }
     }

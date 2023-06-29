@@ -10,27 +10,27 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ntp-ch
 */
 
 object CheckCommand "_linuxfabrik_ntp_chronyd" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/ntp-chronyd" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/ntp-chronyd" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_ntp_chronyd_help$"
+            set_if = "$ntp_chronyd_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_ntp_chronyd_version$"
+            set_if = "$ntp_chronyd_version$"
             description = "show program's version number and exit"
         }
         "--critical" = {
-            value = "$linuxfabrik_ntp_chronyd_critical$"
+            value = "$ntp_chronyd_critical$"
             description = "Set the critical threshold for the ntp time offset, in ms. Default: 86400000ms"
         }
         "--test" = {
-            value = "$linuxfabrik_ntp_chronyd_test$"
+            value = "$ntp_chronyd_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--warning" = {
-            value = "$linuxfabrik_ntp_chronyd_warning$"
+            value = "$ntp_chronyd_warning$"
             description = "Set the warning threshold for the ntp time offset, in ms. Default: 800ms"
         }
     }

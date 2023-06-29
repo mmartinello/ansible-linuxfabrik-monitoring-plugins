@@ -10,31 +10,31 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ping
 */
 
 object CheckCommand "_linuxfabrik_ping" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/ping" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/ping" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_ping_help$"
+            set_if = "$ping_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_ping_version$"
+            set_if = "$ping_version$"
             description = "show program's version number and exit"
         }
         "--count" = {
-            value = "$linuxfabrik_ping_count$"
+            value = "$ping_count$"
             description = "Stop after sending count ECHO_REQUEST packets. Default: 5"
         }
         "--hostname" = {
-            value = "$linuxfabrik_ping_hostname$"
+            value = "$ping_hostname$"
             description = "The ping destination. Default: 127.0.0.1"
         }
         "--interval" = {
-            value = "$linuxfabrik_ping_interval$"
+            value = "$ping_interval$"
             description = "Wait interval seconds between sending each packet. Default: 0.2"
         }
         "--timeout" = {
-            value = "$linuxfabrik_ping_timeout$"
+            value = "$ping_timeout$"
             description = "Specify a timeout, in seconds, before ping exits regardless of how many packets have been sent or received. Default: 5"
         }
     }

@@ -10,27 +10,27 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/journa
 */
 
 object CheckCommand "_linuxfabrik_journald_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/linuxfabrik/journald-usage" ]
+    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/journald-usage" ]
 
     arguments = {
         "--help" = {
-            set_if = "$linuxfabrik_journald_usage_help$"
+            set_if = "$journald_usage_help$"
             description = "show this help message and exit"
         }
         "--version" = {
-            set_if = "$linuxfabrik_journald_usage_version$"
+            set_if = "$journald_usage_version$"
             description = "show program's version number and exit"
         }
         "--always-ok" = {
-            set_if = "$linuxfabrik_journald_usage_always_ok$"
+            set_if = "$journald_usage_always_ok$"
             description = "Always returns OK."
         }
         "--test" = {
-            value = "$linuxfabrik_journald_usage_test$"
+            value = "$journald_usage_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
         "--warning" = {
-            value = "$linuxfabrik_journald_usage_warning$"
+            value = "$journald_usage_warning$"
             description = "Set the WARN threshold in MiB. Default: >= 500"
         }
     }
