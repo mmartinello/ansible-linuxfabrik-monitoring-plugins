@@ -9,6 +9,9 @@ linuxfabrik_monitoring_plugins_group: nagios
 # Command definitions destination directory
 linuxfabrik_monitoring_plugins_commands_dest_path: /usr/share/icinga2/include/linuxfabrik
 
+# Include the command definitions destination directory
+linuxfabrik_monitoring_plugins_commands_include: true
+
 # File in which include the command definitions destination directory
 linuxfabrik_monitoring_plugins_icinga_conf_file: /etc/icinga2/icinga2.conf
 
