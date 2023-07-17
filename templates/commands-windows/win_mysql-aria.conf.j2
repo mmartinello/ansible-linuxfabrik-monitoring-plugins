@@ -1,0 +1,47 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'mysql-aria' check from LinuxFabrik Monitoring Plugin:
+
+Checks some metrics of the Aria Storage Engine in MySQL/MariaDB.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-aria
+*/
+
+object CheckCommand "_win_linuxfabrik_mysql_aria" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-aria.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_mysql_aria_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_mysql_aria_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_mysql_aria_always_ok$"
+            description = "Always returns OK."
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_mysql_aria_hostname$"
+            description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
+        }
+        "--password" = {
+            value = "$linuxfabrik_mysql_aria_password$"
+            description = "Use the indicated password to authenticate the connection."
+        }
+        "--port" = {
+            value = "$linuxfabrik_mysql_aria_port$"
+            description = "MySQL/MariaDB port. Default: 3306"
+        }
+        "--username" = {
+            value = "$linuxfabrik_mysql_aria_username$"
+            description = "MySQL/MariaDB username."
+        }
+    }
+}

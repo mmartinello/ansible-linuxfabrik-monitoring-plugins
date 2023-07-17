@@ -1,0 +1,63 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'file-size' check from LinuxFabrik Monitoring Plugin:
+
+Checks the size for a file or directory, in bytes.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-size
+*/
+
+object CheckCommand "_win_linuxfabrik_file_size" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-size.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_file_size_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_file_size_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_file_size_always_ok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_file_size_critical$"
+            description = "Set the critical size threshold in bytes. Default: >= 1073741824 (1G)"
+        }
+        "--filename" = {
+            value = "$linuxfabrik_file_size_filename$"
+            description = "File (or directory) name to check. Supports glob in accordance with https://docs.python.org/2.7/library/glob.html. Beware of using recursive globs. This is mutually exclusive with -u / --url."
+        }
+        "--pattern" = {
+            value = "$linuxfabrik_file_size_pattern$"
+            description = "The search string to match against the names of SMB directories or files. This pattern can use '*' as a wildcard for multiple chars and '?' as a wildcard for a single char. Does not support regex patterns. Default: *."
+        }
+        "--password" = {
+            value = "$linuxfabrik_file_size_password$"
+            description = "SMB Password."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_file_size_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--url" = {
+            value = "$linuxfabrik_file_size_url$"
+            description = "Set the url of the file (or directory) to check, starting with 'smb://'. This is mutually exclusive with --filename."
+        }
+        "--username" = {
+            value = "$linuxfabrik_file_size_username$"
+            description = "SMB Username."
+        }
+        "--warning" = {
+            value = "$linuxfabrik_file_size_warning$"
+            description = "Set the warning size threshold in bytes. Default: >= 26214400 (100M)"
+        }
+    }
+}

@@ -1,0 +1,67 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'huawei-dorado-enclosure' check from LinuxFabrik Monitoring Plugin:
+
+system via the REST Interface, using the ``/enclosure`` endpoint.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei-dorado-enclosure
+*/
+
+object CheckCommand "_win_linuxfabrik_huawei_dorado_enclosure" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-enclosure.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_huawei_dorado_enclosure_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_huawei_dorado_enclosure_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_huawei_dorado_enclosure_always_ok$"
+            description = "Always returns OK."
+        }
+        "--cache-expire" = {
+            value = "$linuxfabrik_huawei_dorado_enclosure_cache_expire$"
+            description = "The amount of time after which the credential cache expires, in minutes. Default: 15"
+        }
+        "--device-id" = {
+            value = "$linuxfabrik_huawei_dorado_enclosure_device_id$"
+            description = "Huawei OceanStor Dorado API Device ID."
+        }
+        "--no-proxy" = {
+            set_if = "$linuxfabrik_huawei_dorado_enclosure_no_proxy$"
+            description = "Do not use a proxy. Default: False"
+        }
+        "--password" = {
+            value = "$linuxfabrik_huawei_dorado_enclosure_password$"
+            description = "Huawei OceanStor Dorado API Password."
+        }
+        "--scope" = {
+            value = "$linuxfabrik_huawei_dorado_enclosure_scope$"
+            description = "Huawei OceanStor Dorado API Scope."
+        }
+        "--test" = {
+            value = "$linuxfabrik_huawei_dorado_enclosure_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_huawei_dorado_enclosure_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--url" = {
+            value = "$linuxfabrik_huawei_dorado_enclosure_url$"
+            description = "Huawei OceanStor Dorado API URL."
+        }
+        "--username" = {
+            value = "$linuxfabrik_huawei_dorado_enclosure_username$"
+            description = "Huawei OceanStor Dorado API Username."
+        }
+    }
+}

@@ -1,0 +1,47 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'nodebb-events' check from LinuxFabrik Monitoring Plugin:
+
+Get NodeBB event log.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb-events
+*/
+
+object CheckCommand "_win_linuxfabrik_nodebb_events" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-events.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_nodebb_events_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_nodebb_events_version$"
+            description = "show program's version number and exit"
+        }
+        "--insecure" = {
+            set_if = "$linuxfabrik_nodebb_events_insecure$"
+            description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
+        }
+        "--test" = {
+            value = "$linuxfabrik_nodebb_events_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_nodebb_events_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--token" = {
+            value = "$linuxfabrik_nodebb_events_token$"
+            description = "NodeBB API Bearer token."
+        }
+        "--url" = {
+            value = "$linuxfabrik_nodebb_events_url$"
+            description = "NodeBB API URL. Default: http://localhost:4567/forum"
+        }
+    }
+}

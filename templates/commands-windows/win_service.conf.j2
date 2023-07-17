@@ -1,0 +1,52 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'service' check from LinuxFabrik Monitoring Plugin:
+
+host with almost the same name, for example.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/service
+*/
+
+object CheckCommand "_win_linuxfabrik_service" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/service.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_service_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_service_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_service_always_ok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_service_critical$"
+            description = "Set the CRIT threshold. Accepts ranges. Default: 'None'"
+        }
+        "--service" = {
+            value = "$linuxfabrik_service_service$"
+            description = "Name of the service. Supports Python Regular Expressions (regex)."
+        }
+        "--starttype" = {
+            value = "$linuxfabrik_service_starttype$"
+            description = "Expected service start type. Default: automatic"
+        }
+        "--status" = {
+            value = "$linuxfabrik_service_status$"
+            description = "At least one expected service status (repeating). Default: running"
+            repeat_key = true
+        }
+        "--warning" = {
+            value = "$linuxfabrik_service_warning$"
+            description = "Set the WARN threshold. Accepts ranges. Default: '1:'"
+        }
+    }
+}

@@ -1,0 +1,67 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'wildfly-thread-usage' check from LinuxFabrik Monitoring Plugin:
+
+Checks the thread utilization of a Wildfly/JBossAS over HTTP.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfly-thread-usage
+*/
+
+object CheckCommand "_win_linuxfabrik_wildfly_thread_usage" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-thread-usage.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_wildfly_thread_usage_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_wildfly_thread_usage_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_wildfly_thread_usage_always_ok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_wildfly_thread_usage_critical$"
+            description = "Set the critical threshold."
+        }
+        "--instance" = {
+            value = "$linuxfabrik_wildfly_thread_usage_instance$"
+            description = "The instance (server-config) to check if running in domain mode."
+        }
+        "--mode" = {
+            value = "$linuxfabrik_wildfly_thread_usage_mode$"
+            description = "The mode the server is running."
+        }
+        "--node" = {
+            value = "$linuxfabrik_wildfly_thread_usage_node$"
+            description = "The node (host) if running in domain mode."
+        }
+        "--password" = {
+            value = "$linuxfabrik_wildfly_thread_usage_password$"
+            description = "WildFly API password."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_wildfly_thread_usage_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--url" = {
+            value = "$linuxfabrik_wildfly_thread_usage_url$"
+            description = "WildFly API URL. Default: http://localhost:9990"
+        }
+        "--username" = {
+            value = "$linuxfabrik_wildfly_thread_usage_username$"
+            description = "WildFly API username. Default: wildfly-admin"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_wildfly_thread_usage_warning$"
+            description = "Set the warning threshold."
+        }
+    }
+}

@@ -1,0 +1,39 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'restic-check' check from LinuxFabrik Monitoring Plugin:
+
+Check the restic repository for errors.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/restic-check
+*/
+
+object CheckCommand "_win_linuxfabrik_restic_check" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/restic-check.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_restic_check_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_restic_check_version$"
+            description = "show program's version number and exit"
+        }
+        "--password-file" = {
+            value = "$linuxfabrik_restic_check_password_file$"
+            description = "File to read the repository password from"
+        }
+        "--repo" = {
+            value = "$linuxfabrik_restic_check_repo$"
+            description = "Repository location"
+        }
+        "--test" = {
+            value = "$linuxfabrik_restic_check_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+    }
+}

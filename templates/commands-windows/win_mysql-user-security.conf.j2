@@ -1,0 +1,51 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'mysql-user-security' check from LinuxFabrik Monitoring Plugin:
+
+Check user's security in MySQL/MariaDB.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-user-security
+*/
+
+object CheckCommand "_win_linuxfabrik_mysql_user_security" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-user-security.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_mysql_user_security_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_mysql_user_security_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_mysql_user_security_always_ok$"
+            description = "Always returns OK."
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_mysql_user_security_hostname$"
+            description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
+        }
+        "--password" = {
+            value = "$linuxfabrik_mysql_user_security_password$"
+            description = "Use the indicated password to authenticate the connection. Default:"
+        }
+        "--port" = {
+            value = "$linuxfabrik_mysql_user_security_port$"
+            description = "MySQL/MariaDB port. Default: 3306"
+        }
+        "--severity" = {
+            value = "$linuxfabrik_mysql_user_security_severity$"
+            description = "Severity for alerts that do not depend on thresholds. One of 'warn' or 'crit'. Default: warn"
+        }
+        "--username" = {
+            value = "$linuxfabrik_mysql_user_security_username$"
+            description = "MySQL/MariaDB username. Default: root"
+        }
+    }
+}

@@ -1,0 +1,63 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'qts-temperatures' check from LinuxFabrik Monitoring Plugin:
+
+Returns the current temperatures from QNAP Appliances running QTS via API.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-temperatures
+*/
+
+object CheckCommand "_win_linuxfabrik_qts_temperatures" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-temperatures.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_qts_temperatures_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_qts_temperatures_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_qts_temperatures_always_ok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_qts_temperatures_critical$"
+            description = "Set the critical threshold for the sytem and CPU temperature. Default: 80"
+        }
+        "--insecure" = {
+            set_if = "$linuxfabrik_qts_temperatures_insecure$"
+            description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
+        }
+        "--no-proxy" = {
+            set_if = "$linuxfabrik_qts_temperatures_no_proxy$"
+            description = "Do not use a proxy. Default: False"
+        }
+        "--password" = {
+            value = "$linuxfabrik_qts_temperatures_password$"
+            description = "QTS Password."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_qts_temperatures_timeout$"
+            description = "Network timeout in seconds. Default: 6 (seconds)"
+        }
+        "--url" = {
+            value = "$linuxfabrik_qts_temperatures_url$"
+            description = "QTS-based Appliance URL, for example https://192.168.1.1:8080."
+        }
+        "--username" = {
+            value = "$linuxfabrik_qts_temperatures_username$"
+            description = "QTS User. Default: admin"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_qts_temperatures_warning$"
+            description = "Set the warning threshold for the sytem and CPU temperature. Default: 70"
+        }
+    }
+}

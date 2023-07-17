@@ -1,0 +1,67 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'restic-snapshots' check from LinuxFabrik Monitoring Plugin:
+
+Check the age of the newest restic repository snapshot.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/restic-snapshots
+*/
+
+object CheckCommand "_win_linuxfabrik_restic_snapshots" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/restic-snapshots.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_restic_snapshots_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_restic_snapshots_version$"
+            description = "show program's version number and exit"
+        }
+        "--critical" = {
+            value = "$linuxfabrik_restic_snapshots_critical$"
+            description = "Set the critical threshold for the time difference to the start of the last backup (in each group) (in hours). Default: None"
+        }
+        "--group-by" = {
+            value = "$linuxfabrik_restic_snapshots_group_by$"
+            description = "String for grouping snapshots by host,paths,tags. Default: host,tags,paths"
+        }
+        "--host" = {
+            value = "$linuxfabrik_restic_snapshots_host$"
+            description = "Only consider snapshots for this host (can be specified multiple times)."
+        }
+        "--latest" = {
+            value = "$linuxfabrik_restic_snapshots_latest$"
+            description = "Only show the last n snapshots for each host and path. Default: 3"
+        }
+        "--password-file" = {
+            value = "$linuxfabrik_restic_snapshots_password_file$"
+            description = "File to read the repository password from."
+        }
+        "--path" = {
+            value = "$linuxfabrik_restic_snapshots_path$"
+            description = "Only consider snapshots for this path (can be specified multiple times)."
+        }
+        "--repo" = {
+            value = "$linuxfabrik_restic_snapshots_repo$"
+            description = "Repository location"
+        }
+        "--tag" = {
+            value = "$linuxfabrik_restic_snapshots_tag$"
+            description = "Only consider snapshots which include this taglist in the format `tag[,tag,...]` (can be specified multiple times)."
+        }
+        "--test" = {
+            value = "$linuxfabrik_restic_snapshots_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--warning" = {
+            value = "$linuxfabrik_restic_snapshots_warning$"
+            description = "Set the warning threshold for the time difference to the start of the last backup (in each group) (in hours). Default: 24"
+        }
+    }
+}

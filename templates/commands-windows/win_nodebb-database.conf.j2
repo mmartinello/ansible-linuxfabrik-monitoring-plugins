@@ -1,0 +1,63 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'nodebb-database' check from LinuxFabrik Monitoring Plugin:
+
+Get NodeBB database information.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb-database
+*/
+
+object CheckCommand "_win_linuxfabrik_nodebb_database" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-database.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_nodebb_database_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_nodebb_database_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_nodebb_database_always_ok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_nodebb_database_critical$"
+            description = "Set the CRIT threshold as a percentage. Default: >= 95"
+        }
+        "--insecure" = {
+            set_if = "$linuxfabrik_nodebb_database_insecure$"
+            description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
+        }
+        "--severity" = {
+            value = "$linuxfabrik_nodebb_database_severity$"
+            description = "Severity for alerts that do not depend on thresholds. One of 'warn' or 'crit'. Default: warn"
+        }
+        "--test" = {
+            value = "$linuxfabrik_nodebb_database_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_nodebb_database_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--token" = {
+            value = "$linuxfabrik_nodebb_database_token$"
+            description = "NodeBB API Bearer token."
+        }
+        "--url" = {
+            value = "$linuxfabrik_nodebb_database_url$"
+            description = "NodeBB API URL. Default: http://localhost:4567/forum"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_nodebb_database_warning$"
+            description = "Set the WARN threshold as a percentage. Default: >= 90"
+        }
+    }
+}

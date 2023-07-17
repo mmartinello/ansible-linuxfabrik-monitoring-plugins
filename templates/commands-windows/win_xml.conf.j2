@@ -1,0 +1,63 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'xml' check from LinuxFabrik Monitoring Plugin:
+
+supported.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/xml
+*/
+
+object CheckCommand "_win_linuxfabrik_xml" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/xml.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_xml_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_xml_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_xml_always_ok$"
+            description = "Always return OK."
+        }
+        "--expect" = {
+            value = "$linuxfabrik_xml_expect$"
+            description = "String to expect in the xpath's location. If ommitted, just checks if the XPath exists."
+        }
+        "--namespace" = {
+            value = "$linuxfabrik_xml_namespace$"
+            description = "If your XPath expression uses namespace prefixes, you must define them in a prefix mapping. This parameter expects a mapping for the namespace prefix used in the XPath expression to namespace URI (repeatable). For example like so: --namespace='prefix1:https://schemas. xmlsoap.org/prefix1/' --namespace='prefix2:https://sch emas.xmlsoap.org/prefix2/'"
+        }
+        "--no-proxy" = {
+            set_if = "$linuxfabrik_xml_no_proxy$"
+            description = "Do not use a proxy. Default: False"
+        }
+        "--password" = {
+            value = "$linuxfabrik_xml_password$"
+            description = "Password (HTTP Basic Auth)."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_xml_timeout$"
+            description = "Network timeout in seconds. Default: 7 (seconds)"
+        }
+        "--url" = {
+            value = "$linuxfabrik_xml_url$"
+            description = "WSDL Endpoint URL. Default: None"
+        }
+        "--username" = {
+            value = "$linuxfabrik_xml_username$"
+            description = "Username (HTTP Basic Auth)."
+        }
+        "--xpath" = {
+            value = "$linuxfabrik_xml_xpath$"
+            description = "XPath to query. The result must point to a single value (attribute or node content). Lists/arrays are not supported."
+        }
+    }
+}

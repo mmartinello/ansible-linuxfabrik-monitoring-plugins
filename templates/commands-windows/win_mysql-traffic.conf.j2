@@ -1,0 +1,43 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'mysql-traffic' check from LinuxFabrik Monitoring Plugin:
+
+MySQL/MariaDB.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-traffic
+*/
+
+object CheckCommand "_win_linuxfabrik_mysql_traffic" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-traffic.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_mysql_traffic_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_mysql_traffic_version$"
+            description = "show program's version number and exit"
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_mysql_traffic_hostname$"
+            description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
+        }
+        "--password" = {
+            value = "$linuxfabrik_mysql_traffic_password$"
+            description = "Use the indicated password to authenticate the connection. Default:"
+        }
+        "--port" = {
+            value = "$linuxfabrik_mysql_traffic_port$"
+            description = "MySQL/MariaDB port. Default: 3306"
+        }
+        "--username" = {
+            value = "$linuxfabrik_mysql_traffic_username$"
+            description = "MySQL/MariaDB username. Default: root"
+        }
+    }
+}

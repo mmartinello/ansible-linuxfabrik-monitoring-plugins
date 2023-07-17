@@ -1,0 +1,51 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'fortios-sensor' check from LinuxFabrik Monitoring Plugin:
+
+Checks FortiOS sensor information in detail.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortios-sensor
+*/
+
+object CheckCommand "_win_linuxfabrik_fortios_sensor" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-sensor.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_fortios_sensor_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_fortios_sensor_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_fortios_sensor_always_ok$"
+            description = "Always returns OK."
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_fortios_sensor_hostname$"
+            description = "FortiOS-based Appliance address, optional including port ('192.168.1.1:443')."
+        }
+        "--insecure" = {
+            set_if = "$linuxfabrik_fortios_sensor_insecure$"
+            description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
+        }
+        "--no-proxy" = {
+            set_if = "$linuxfabrik_fortios_sensor_no_proxy$"
+            description = "Do not use a proxy. Default: False"
+        }
+        "--password" = {
+            value = "$linuxfabrik_fortios_sensor_password$"
+            description = "FortiOS REST API Single Access Token."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_fortios_sensor_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+    }
+}

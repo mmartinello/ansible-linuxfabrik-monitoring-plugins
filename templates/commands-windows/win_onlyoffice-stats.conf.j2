@@ -1,0 +1,39 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'onlyoffice-stats' check from LinuxFabrik Monitoring Plugin:
+
+Checks OnlyOffice statistics and license usage via HTTP.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/onlyoffice-stats
+*/
+
+object CheckCommand "_win_linuxfabrik_onlyoffice_stats" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/onlyoffice-stats.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_onlyoffice_stats_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_onlyoffice_stats_version$"
+            description = "show program's version number and exit"
+        }
+        "--test" = {
+            value = "$linuxfabrik_onlyoffice_stats_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_onlyoffice_stats_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--url" = {
+            value = "$linuxfabrik_onlyoffice_stats_url$"
+            description = "OnlyOffice API URL. Default: http://localhost"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'swap-usage' check from LinuxFabrik Monitoring Plugin:
+
+swap in percent.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/swap-usage
+*/
+
+object CheckCommand "_win_linuxfabrik_swap_usage" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/swap-usage.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_swap_usage_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_swap_usage_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_swap_usage_always_ok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_swap_usage_critical$"
+            description = "Set the critical threshold for swap usage (in percent). Default: 90"
+        }
+        "--warning" = {
+            value = "$linuxfabrik_swap_usage_warning$"
+            description = "Set the warning threshold for swap usage (in percent). Default: 70"
+        }
+    }
+}

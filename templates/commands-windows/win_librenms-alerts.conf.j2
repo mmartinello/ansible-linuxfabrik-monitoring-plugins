@@ -1,0 +1,69 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'librenms-alerts' check from LinuxFabrik Monitoring Plugin:
+
+API.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/librenms-alerts
+*/
+
+object CheckCommand "_win_linuxfabrik_librenms_alerts" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/librenms-alerts.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_librenms_alerts_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_librenms_alerts_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_librenms_alerts_always_ok$"
+            description = "Always returns OK."
+        }
+        "--device-group" = {
+            value = "$linuxfabrik_librenms_alerts_device_group$"
+            description = "Filter by LibreNMS Device Group."
+        }
+        "--device-hostname" = {
+            value = "$linuxfabrik_librenms_alerts_device_hostname$"
+            description = "Filter by LibreNMS Hostname (repeating)."
+            repeat_key = true
+        }
+        "--device-type" = {
+            value = "$linuxfabrik_librenms_alerts_device_type$"
+            description = "Filter by LibreNMS Device Type (repeating)."
+            repeat_key = true
+        }
+        "--insecure" = {
+            set_if = "$linuxfabrik_librenms_alerts_insecure$"
+            description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
+        }
+        "--lengthy" = {
+            set_if = "$linuxfabrik_librenms_alerts_lengthy$"
+            description = "Extended reporting."
+        }
+        "--no-proxy" = {
+            set_if = "$linuxfabrik_librenms_alerts_no_proxy$"
+            description = "Do not use a proxy. Default: False"
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_librenms_alerts_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--token" = {
+            value = "$linuxfabrik_librenms_alerts_token$"
+            description = "LibreNMS API token"
+        }
+        "--url" = {
+            value = "$linuxfabrik_librenms_alerts_url$"
+            description = "LibreNMS API URL. Default: http://localhost"
+        }
+    }
+}

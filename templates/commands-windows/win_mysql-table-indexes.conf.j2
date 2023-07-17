@@ -1,0 +1,47 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'mysql-table-indexes' check from LinuxFabrik Monitoring Plugin:
+
+Checks for missing indexes in MySQL/MariaDB tables.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-table-indexes
+*/
+
+object CheckCommand "_win_linuxfabrik_mysql_table_indexes" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-table-indexes.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_mysql_table_indexes_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_mysql_table_indexes_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_mysql_table_indexes_always_ok$"
+            description = "Always returns OK."
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_mysql_table_indexes_hostname$"
+            description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
+        }
+        "--password" = {
+            value = "$linuxfabrik_mysql_table_indexes_password$"
+            description = "Use the indicated password to authenticate the connection. Default:"
+        }
+        "--port" = {
+            value = "$linuxfabrik_mysql_table_indexes_port$"
+            description = "MySQL/MariaDB port. Default: 3306"
+        }
+        "--username" = {
+            value = "$linuxfabrik_mysql_table_indexes_username$"
+            description = "MySQL/MariaDB username. Default: root"
+        }
+    }
+}

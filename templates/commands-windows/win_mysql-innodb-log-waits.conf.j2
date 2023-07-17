@@ -1,0 +1,47 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'mysql-innodb-log-waits' check from LinuxFabrik Monitoring Plugin:
+
+flushed due to the log buffer being too small in MySQL/MariaDB.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-innodb-log-waits
+*/
+
+object CheckCommand "_win_linuxfabrik_mysql_innodb_log_waits" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-innodb-log-waits.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_mysql_innodb_log_waits_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_mysql_innodb_log_waits_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_mysql_innodb_log_waits_always_ok$"
+            description = "Always returns OK."
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_mysql_innodb_log_waits_hostname$"
+            description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
+        }
+        "--password" = {
+            value = "$linuxfabrik_mysql_innodb_log_waits_password$"
+            description = "Use the indicated password to authenticate the connection. Default:"
+        }
+        "--port" = {
+            value = "$linuxfabrik_mysql_innodb_log_waits_port$"
+            description = "MySQL/MariaDB port. Default: 3306"
+        }
+        "--username" = {
+            value = "$linuxfabrik_mysql_innodb_log_waits_username$"
+            description = "MySQL/MariaDB username. Default: root"
+        }
+    }
+}

@@ -7,7 +7,7 @@ linuxfabrik_monitoring_plugins_user: nagios
 linuxfabrik_monitoring_plugins_group: nagios
 
 # Command definitions destination directory
-linuxfabrik_monitoring_plugins_commands_dest_path: /usr/share/icinga2/include/linuxfabrik
+linuxfabrik_monitoring_plugins_commands_dest_path: /usr/share/icinga2/include
 
 # Include the command definitions destination directory
 linuxfabrik_monitoring_plugins_commands_include: true

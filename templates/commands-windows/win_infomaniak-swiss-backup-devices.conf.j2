@@ -1,0 +1,55 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'infomaniak-swiss-backup-devices' check from LinuxFabrik Monitoring Plugin:
+
+Infomaniak API.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/infomaniak-swiss-backup-devices
+*/
+
+object CheckCommand "_win_linuxfabrik_infomaniak_swiss_backup_devices" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/infomaniak-swiss-backup-devices.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_infomaniak_swiss_backup_devices_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_infomaniak_swiss_backup_devices_version$"
+            description = "show program's version number and exit"
+        }
+        "--account-id" = {
+            value = "$linuxfabrik_infomaniak_swiss_backup_devices_account_id$"
+            description = "Infomaniak Account-ID"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_infomaniak_swiss_backup_devices_always_ok$"
+            description = "Always returns OK."
+        }
+        "--critical" = {
+            value = "$linuxfabrik_infomaniak_swiss_backup_devices_critical$"
+            description = "Set the CRIT threshold as a percentage. Default: >= 95"
+        }
+        "--severity" = {
+            value = "$linuxfabrik_infomaniak_swiss_backup_devices_severity$"
+            description = "Severity for alerting other values. Default: warn"
+        }
+        "--token" = {
+            value = "$linuxfabrik_infomaniak_swiss_backup_devices_token$"
+            description = "Infomaniak API token"
+        }
+        "--test" = {
+            value = "$linuxfabrik_infomaniak_swiss_backup_devices_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--warning" = {
+            value = "$linuxfabrik_infomaniak_swiss_backup_devices_warning$"
+            description = "Set the WARN threshold as a percentage. Default: >= 90"
+        }
+    }
+}

@@ -1,0 +1,67 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'huawei-dorado-disk' check from LinuxFabrik Monitoring Plugin:
+
+system via the REST Interface, using the ``/disk`` endpoint.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei-dorado-disk
+*/
+
+object CheckCommand "_win_linuxfabrik_huawei_dorado_disk" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-disk.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_huawei_dorado_disk_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_huawei_dorado_disk_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_huawei_dorado_disk_always_ok$"
+            description = "Always returns OK."
+        }
+        "--cache-expire" = {
+            value = "$linuxfabrik_huawei_dorado_disk_cache_expire$"
+            description = "The amount of time after which the credential cache expires, in minutes. Default: 15"
+        }
+        "--device-id" = {
+            value = "$linuxfabrik_huawei_dorado_disk_device_id$"
+            description = "Huawei OceanStor Dorado API Device ID."
+        }
+        "--no-proxy" = {
+            set_if = "$linuxfabrik_huawei_dorado_disk_no_proxy$"
+            description = "Do not use a proxy. Default: False"
+        }
+        "--password" = {
+            value = "$linuxfabrik_huawei_dorado_disk_password$"
+            description = "Huawei OceanStor Dorado API Password."
+        }
+        "--scope" = {
+            value = "$linuxfabrik_huawei_dorado_disk_scope$"
+            description = "Huawei OceanStor Dorado API Scope."
+        }
+        "--test" = {
+            value = "$linuxfabrik_huawei_dorado_disk_test$"
+            description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_huawei_dorado_disk_timeout$"
+            description = "Network timeout in seconds. Default: 3 (seconds)"
+        }
+        "--url" = {
+            value = "$linuxfabrik_huawei_dorado_disk_url$"
+            description = "Huawei OceanStor Dorado API URL."
+        }
+        "--username" = {
+            value = "$linuxfabrik_huawei_dorado_disk_username$"
+            description = "Huawei OceanStor Dorado API Username."
+        }
+    }
+}

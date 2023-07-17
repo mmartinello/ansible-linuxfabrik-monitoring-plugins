@@ -1,0 +1,55 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'qts-version' check from LinuxFabrik Monitoring Plugin:
+
+This plugin lets you track if server updates are available.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-version
+*/
+
+object CheckCommand "_win_linuxfabrik_qts_version" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-version.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_qts_version_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_qts_version_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_qts_version_always_ok$"
+            description = "Always returns OK."
+        }
+        "--insecure" = {
+            set_if = "$linuxfabrik_qts_version_insecure$"
+            description = "This option explicitly allows to perform 'insecure' SSL connections. Default: False"
+        }
+        "--no-proxy" = {
+            set_if = "$linuxfabrik_qts_version_no_proxy$"
+            description = "Do not use a proxy. Default: False"
+        }
+        "--password" = {
+            value = "$linuxfabrik_qts_version_password$"
+            description = "QTS Password."
+        }
+        "--timeout" = {
+            value = "$linuxfabrik_qts_version_timeout$"
+            description = "Network timeout in seconds. Default: 6 (seconds)"
+        }
+        "--url" = {
+            value = "$linuxfabrik_qts_version_url$"
+            description = "QTS-based Appliance URL, for example https://192.168.1.1:8080."
+        }
+        "--username" = {
+            value = "$linuxfabrik_qts_version_username$"
+            description = "QTS User. Default: admin"
+        }
+    }
+}

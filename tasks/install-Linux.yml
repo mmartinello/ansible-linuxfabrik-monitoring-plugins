@@ -72,15 +72,13 @@
     owner: "{{ linuxfabrik_monitoring_plugins_user }}"
     group: "{{ linuxfabrik_monitoring_plugins_group }}"
 
-- name: Copy the command definitions files
+- name: Copy the command definitions unique file
   ansible.builtin.template:
-    src: "{{ item }}"
-    dest: "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}/{{ item | basename | regex_replace('\\.j2$', '') }}"
+    src: linuxfabrik-commands-linux.conf.j2
+    dest: "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}/linuxfabrik.conf"
     mode: "0644"
     owner: "{{ linuxfabrik_monitoring_plugins_user }}"
     group: "{{ linuxfabrik_monitoring_plugins_group }}"
-  with_fileglob:
-    - ../templates/plugin-commands-linux/*.j2
   notify: Reload Icinga2
 
 - name: Configure sudo

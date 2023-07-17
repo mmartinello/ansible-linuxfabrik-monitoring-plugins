@@ -1,0 +1,64 @@
+# {{ ansible_managed }}
+
+/*
+Commands and services for 'mysql-logfile' check from LinuxFabrik Monitoring Plugin:
+
+case the DB is down.
+
+(Windows version)
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-logfile
+*/
+
+object CheckCommand "_win_linuxfabrik_mysql_logfile" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-logfile.exe" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_mysql_logfile_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_mysql_logfile_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_mysql_logfile_always_ok$"
+            description = "Always returns OK."
+        }
+        "--cache-expire" = {
+            value = "$linuxfabrik_mysql_logfile_cache_expire$"
+            description = "The amount of time after which the cached data expires, in minutes. Default: 7200"
+        }
+        "--hostname" = {
+            value = "$linuxfabrik_mysql_logfile_hostname$"
+            description = "MySQL/MariaDB hostname. Default: 127.0.0.1"
+        }
+        "--ignore-pattern" = {
+            value = "$linuxfabrik_mysql_logfile_ignore_pattern$"
+            description = "Any line containing this pattern will be ignored (must be lowercase; repeating)."
+            repeat_key = true
+        }
+        "--ignore-regex" = {
+            value = "$linuxfabrik_mysql_logfile_ignore_regex$"
+            description = "Any line matching this python regex will be ignored."
+        }
+        "--password" = {
+            value = "$linuxfabrik_mysql_logfile_password$"
+            description = "Use the indicated password to authenticate the connection. Default:"
+        }
+        "--port" = {
+            value = "$linuxfabrik_mysql_logfile_port$"
+            description = "MySQL/MariaDB port. Default: 3306"
+        }
+        "--server-log" = {
+            value = "$linuxfabrik_mysql_logfile_server_log$"
+            description = "One of: Path to error log file (including filename); docker:CONTAINER; podman:CONTAINER; kubectl:CONTAINER; systemd:UNITNAME. If ommitted, this check tries to fetch the logfile location automatically."
+        }
+        "--username" = {
+            value = "$linuxfabrik_mysql_logfile_username$"
+            description = "MySQL/MariaDB username. Default: root"
+        }
+    }
+}
