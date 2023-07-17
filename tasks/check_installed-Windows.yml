@@ -1,0 +1,10 @@
+---
+- name: Check for the installed status file
+  ansible.windows.win_stat:
+    path: "{{ linuxfabrik_monitoring_status_file }}"
+  register: installed_status_file
+
+- name: Set variable
+  ansible.builtin.set_fact:
+    linuxfabrik_monitoring_plugins_installed: true
+  when: installed_status_file.stat.exists

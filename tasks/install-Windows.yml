@@ -1,0 +1,57 @@
+---
+- name: Remove existing installation if exists
+  ansible.windows.win_file:
+    path: "{{ linuxfabrik_monitoring_plugins_dest_path }}"
+    state: absent
+
+- name: Create a temporary file
+  ansible.windows.win_tempfile:
+    state: file
+    suffix: linuxfabrik_monitoring_plugins.zip
+  register: _temp_file
+
+- name: Download Linuxfabrik Monitoring Plugins
+  ansible.windows.win_get_url:
+    url: "{{ linuxfabrik_monitoring_plugins_url }}"
+    dest: "{{ _temp_file.path }}"
+
+- name: Create the destination directory
+  ansible.windows.win_file:
+    path: "{{ linuxfabrik_monitoring_plugins_dest_path }}"
+    state: directory
+    recurse: true
+    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
+    group: "{{ linuxfabrik_monitoring_plugins_group }}"
+
+- name: Extract the downloaded archive
+  community.windows.win_unzip:
+    src: "{{ _temp_file.path }}"
+    dest: "{{ linuxfabrik_monitoring_plugins_dest_path }}"
+    delete_archive: true
+
+- name: Create the command definitions destination directory
+  ansible.windows.win_file:
+    path: "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}"
+    state: directory
+    recurse: true
+
+- name: Copy the command definitions file
+  ansible.windows.win_template:
+    src: linuxfabrik-commands-windows.conf.j2
+    dest: "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}/linuxfabrik-commands.conf"
+  notify: Restart Icinga2 on Windows
+
+# FIXME: this does not work!
+# - name: Include the command definitions destination directory
+#  community.windows.win_lineinfile:
+#    path: "{{ linuxfabrik_monitoring_plugins_icinga_conf_file }}"
+#    regexp: "^(\\/\\/|#)?\\s*include_recursive (\"|'){{ linuxfabrik_monitoring_plugins_commands_dest_path }}(\"|')$"
+#    line: "include_recursive \"{{ linuxfabrik_monitoring_plugins_commands_dest_path }}\""
+#    state: present
+#  when: linuxfabrik_monitoring_plugins_commands_include
+#  notify: Restart Icinga2 on Windows
+
+- name: Create the installed status file
+  ansible.windows.win_file:
+    path: "{{ linuxfabrik_monitoring_status_file }}"
+    state: touch

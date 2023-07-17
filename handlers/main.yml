@@ -1,5 +1,10 @@
 ---
 - name: Reload Icinga2
-  service:
+  ansible.builtin.service:
     name: icinga2
     state: reloaded
+
+- name: Restart Icinga2 on Windows
+  ansible.windows.win_service:
+    name: icinga2
+    state: restarted

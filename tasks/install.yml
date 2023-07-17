@@ -3,5 +3,6 @@
   ansible.builtin.include_tasks: install-Linux.yml
   when: ansible_system == "Linux"
 
-# - include_tasks: install-Windows.yml
-#  when: ansible_os_family == "Windows"
+- name: Install LinuxFabrik Monitoring Plugins on Windows systems
+  ansible.builtin.include_tasks: install-Windows.yml
+  when: ansible_os_family == "Windows"
