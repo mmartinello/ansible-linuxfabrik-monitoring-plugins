@@ -1,0 +1,9 @@
+# {{ ansible_managed }}
+
+# Linuxfabrik host template
+# Uses _linuxfabrik_ping command as host alive check
+template Host "linuxfabrik-host" {
+  import "generic-host"
+
+  check_command = "_linuxfabrik_ping"
+}
