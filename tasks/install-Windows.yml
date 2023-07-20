@@ -41,6 +41,12 @@
     dest: "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}/linuxfabrik-commands.conf"
   notify: Restart Icinga2 on Windows
 
+- name: Copy the templates file
+  ansible.windows.win_template:
+    src: linuxfabrik-templates.conf.j2
+    dest: "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}/linuxfabrik-templates.conf"
+  notify: Restart Icinga2 on Windows
+
 # FIXME: this does not work!
 # - name: Include the command definitions destination directory
 #  community.windows.win_lineinfile:

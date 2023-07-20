@@ -85,6 +85,15 @@
   when: linuxfabrik_monitoring_plugins_install_windows_commands_on_linux
   notify: Reload Icinga2
 
+- name: Copy the template definitions file
+  ansible.builtin.template:
+    src: linuxfabrik-templates.conf.j2
+    dest: "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}/linuxfabrik-templates.conf"
+    mode: "0644"
+    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
+    group: "{{ linuxfabrik_monitoring_plugins_group }}"
+  notify: Reload Icinga2
+
 - name: Configure sudo
   ansible.builtin.template:
     src: linuxfabrik-sudoers.j2

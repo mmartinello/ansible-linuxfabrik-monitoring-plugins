@@ -24,6 +24,14 @@
     owner: "{{ linuxfabrik_monitoring_plugins_user }}"
     group: "{{ linuxfabrik_monitoring_plugins_group }}"
 
+- name: Create the icons destination directory
+  ansible.builtin.file:
+    path: "{{ linuxfabrik_monitoring_plugins_icingaweb2_icons_dir_path }}"
+    state: directory
+    mode: '0755'
+    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
+    group: "{{ linuxfabrik_monitoring_plugins_group }}"
+
 - name: Copy icons
   ansible.builtin.shell: "cp -a /tmp/linuxfabrik_monitoring_plugins_icons/* {{ linuxfabrik_monitoring_plugins_icingaweb2_icons_dir_path }}/"
   register: _output

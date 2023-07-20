@@ -6157,6 +6157,8 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ping
 */
 
 object CheckCommand "_linuxfabrik_ping" {
+    import "ipv4-or-ipv6"
+
     command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/ping" ]
 
     arguments = {
@@ -6185,6 +6187,8 @@ object CheckCommand "_linuxfabrik_ping" {
             description = "Specify a timeout, in seconds, before ping exits regardless of how many packets have been sent or received. Default: 5"
         }
     }
+
+    vars.linuxfabrik_ping_hostname = "$check_address$"
 }
 
 
