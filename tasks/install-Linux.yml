@@ -64,21 +64,25 @@
     path: /tmp/linuxfabrik_monitoring_plugins.tar
     state: absent
 
-- name: Create the command definitions destination directory
-  ansible.builtin.file:
-    path: "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}"
-    state: directory
-    recurse: true
-    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
-    group: "{{ linuxfabrik_monitoring_plugins_group }}"
-
-- name: Copy the command definitions unique file
+- name: Copy the command definitions file
   ansible.builtin.template:
     src: linuxfabrik-commands-linux.conf.j2
-    dest: "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}/linuxfabrik.conf"
+    dest: "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}/linuxfabrik-commands.conf"
     mode: "0644"
     owner: "{{ linuxfabrik_monitoring_plugins_user }}"
     group: "{{ linuxfabrik_monitoring_plugins_group }}"
+  notify: Reload Icinga2
+
+- name: Install Windows command definitions on Linux system
+  ansible.builtin.template:
+    src: linuxfabrik-commands-windows.conf.j2
+    dest: "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}/windows-linuxfabrik-commands.conf"
+    mode: "0644"
+    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
+    group: "{{ linuxfabrik_monitoring_plugins_group }}"
+  vars:
+    linuxfabrik_monitoring_plugins_dest_path: 'C:\Program Files\ICINGA2\linuxfabrik'
+  when: linuxfabrik_monitoring_plugins_install_windows_commands_on_linux
   notify: Reload Icinga2
 
 - name: Configure sudo
@@ -88,15 +92,6 @@
     mode: "0644"
     owner: root
     group: root
-
-- name: Include the command definitions destination directory
-  ansible.builtin.lineinfile:
-    path: "{{ linuxfabrik_monitoring_plugins_icinga_conf_file }}"
-    regexp: '^(\/\/)?\s*include_recursive "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}"'
-    line: 'include_recursive "{{ linuxfabrik_monitoring_plugins_commands_dest_path }}"'
-    state: present
-  when: linuxfabrik_monitoring_plugins_commands_include
-  notify: Reload Icinga2
 
 - name: Create the installed status file
   ansible.builtin.file:
