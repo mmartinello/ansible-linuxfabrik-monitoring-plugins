@@ -10,7 +10,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/apache
 */
 
 object CheckCommand "_win_linuxfabrik_apache_httpd_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/apache-httpd-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\apache-httpd-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -53,7 +53,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/axenit
 */
 
 object CheckCommand "_win_linuxfabrik_axenita_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/axenita-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\axenita-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -96,7 +96,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/countd
 */
 
 object CheckCommand "_win_linuxfabrik_countdown" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/countdown.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\countdown.exe" ]
 
     arguments = {
         "--help" = {
@@ -132,7 +132,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/cpu-us
 */
 
 object CheckCommand "_win_linuxfabrik_cpu_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/cpu-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\cpu-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -175,7 +175,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/csv-va
 */
 
 object CheckCommand "_win_linuxfabrik_csv_values" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/csv-values.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\csv-values.exe" ]
 
     arguments = {
         "--help" = {
@@ -278,7 +278,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/dhcp-s
 */
 
 object CheckCommand "_win_linuxfabrik_dhcp_scope_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/dhcp-scope-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\dhcp-scope-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -345,7 +345,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/diacos
 */
 
 object CheckCommand "_win_linuxfabrik_diacos" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/diacos.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\diacos.exe" ]
 
     arguments = {
         "--help" = {
@@ -440,7 +440,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/disk-i
 */
 
 object CheckCommand "_win_linuxfabrik_disk_io" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/disk-io.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\disk-io.exe" ]
 
     arguments = {
         "--help" = {
@@ -488,7 +488,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/disk-s
 */
 
 object CheckCommand "_win_linuxfabrik_disk_smart" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/disk-smart.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\disk-smart.exe" ]
 
     arguments = {
         "--help" = {
@@ -531,7 +531,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/disk-u
 */
 
 object CheckCommand "_win_linuxfabrik_disk_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/disk-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\disk-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -575,7 +575,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/dns
 */
 
 object CheckCommand "_win_linuxfabrik_dns" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/dns.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\dns.exe" ]
 
     arguments = {
         "--help" = {
@@ -626,7 +626,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/dummy
 */
 
 object CheckCommand "_win_linuxfabrik_dummy" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/dummy.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\dummy.exe" ]
 
     arguments = {
         "--help" = {
@@ -669,7 +669,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/feed
 */
 
 object CheckCommand "_win_linuxfabrik_feed" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/feed.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\feed.exe" ]
 
     arguments = {
         "--help" = {
@@ -748,7 +748,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-a
 */
 
 object CheckCommand "_win_linuxfabrik_file_age" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-age.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\file-age.exe" ]
 
     arguments = {
         "--help" = {
@@ -831,7 +831,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-c
 */
 
 object CheckCommand "_win_linuxfabrik_file_count" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-count.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\file-count.exe" ]
 
     arguments = {
         "--help" = {
@@ -906,7 +906,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-s
 */
 
 object CheckCommand "_win_linuxfabrik_file_size" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-size.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\file-size.exe" ]
 
     arguments = {
         "--help" = {
@@ -969,7 +969,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_win_linuxfabrik_fortios_cpu_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-cpu-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\fortios-cpu-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -1032,7 +1032,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_win_linuxfabrik_fortios_firewall_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-firewall-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\fortios-firewall-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -1083,7 +1083,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_win_linuxfabrik_fortios_ha_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-ha-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\fortios-ha-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -1138,7 +1138,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_win_linuxfabrik_fortios_memory_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-memory-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\fortios-memory-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -1197,7 +1197,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_win_linuxfabrik_fortios_network_io" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-network-io.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\fortios-network-io.exe" ]
 
     arguments = {
         "--help" = {
@@ -1260,7 +1260,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_win_linuxfabrik_fortios_sensor" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-sensor.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\fortios-sensor.exe" ]
 
     arguments = {
         "--help" = {
@@ -1311,7 +1311,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_win_linuxfabrik_fortios_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-version.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\fortios-version.exe" ]
 
     arguments = {
         "--help" = {
@@ -1362,7 +1362,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/haprox
 */
 
 object CheckCommand "_win_linuxfabrik_haproxy_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/haproxy-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\haproxy-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -1425,7 +1425,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_win_linuxfabrik_huawei_dorado_backup_power" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-backup-power.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\huawei-dorado-backup-power.exe" ]
 
     arguments = {
         "--help" = {
@@ -1492,7 +1492,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_win_linuxfabrik_huawei_dorado_controller" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-controller.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\huawei-dorado-controller.exe" ]
 
     arguments = {
         "--help" = {
@@ -1559,7 +1559,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_win_linuxfabrik_huawei_dorado_disk" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-disk.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\huawei-dorado-disk.exe" ]
 
     arguments = {
         "--help" = {
@@ -1626,7 +1626,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_win_linuxfabrik_huawei_dorado_enclosure" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-enclosure.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\huawei-dorado-enclosure.exe" ]
 
     arguments = {
         "--help" = {
@@ -1693,7 +1693,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_win_linuxfabrik_huawei_dorado_fan" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-fan.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\huawei-dorado-fan.exe" ]
 
     arguments = {
         "--help" = {
@@ -1760,7 +1760,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_win_linuxfabrik_huawei_dorado_host" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-host.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\huawei-dorado-host.exe" ]
 
     arguments = {
         "--help" = {
@@ -1827,7 +1827,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_win_linuxfabrik_huawei_dorado_hypermetrodomain" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-hypermetrodomain.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\huawei-dorado-hypermetrodomain.exe" ]
 
     arguments = {
         "--help" = {
@@ -1894,7 +1894,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_win_linuxfabrik_huawei_dorado_hypermetropair" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-hypermetropair.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\huawei-dorado-hypermetropair.exe" ]
 
     arguments = {
         "--help" = {
@@ -1961,7 +1961,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_win_linuxfabrik_huawei_dorado_interface" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-interface.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\huawei-dorado-interface.exe" ]
 
     arguments = {
         "--help" = {
@@ -2028,7 +2028,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_win_linuxfabrik_huawei_dorado_power" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-power.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\huawei-dorado-power.exe" ]
 
     arguments = {
         "--help" = {
@@ -2095,7 +2095,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_win_linuxfabrik_huawei_dorado_system" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-system.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\huawei-dorado-system.exe" ]
 
     arguments = {
         "--help" = {
@@ -2170,7 +2170,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/infoma
 */
 
 object CheckCommand "_win_linuxfabrik_infomaniak_events" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/infomaniak-events.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\infomaniak-events.exe" ]
 
     arguments = {
         "--help" = {
@@ -2209,7 +2209,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/infoma
 */
 
 object CheckCommand "_win_linuxfabrik_infomaniak_swiss_backup_devices" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/infomaniak-swiss-backup-devices.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\infomaniak-swiss-backup-devices.exe" ]
 
     arguments = {
         "--help" = {
@@ -2264,7 +2264,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/infoma
 */
 
 object CheckCommand "_win_linuxfabrik_infomaniak_swiss_backup_products" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/infomaniak-swiss-backup-products.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\infomaniak-swiss-backup-products.exe" ]
 
     arguments = {
         "--help" = {
@@ -2319,7 +2319,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/jitsi-
 */
 
 object CheckCommand "_win_linuxfabrik_jitsi_videobridge_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/jitsi-videobridge-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\jitsi-videobridge-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -2378,7 +2378,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/jitsi-
 */
 
 object CheckCommand "_win_linuxfabrik_jitsi_videobridge_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/jitsi-videobridge-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\jitsi-videobridge-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -2433,7 +2433,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/json-v
 */
 
 object CheckCommand "_win_linuxfabrik_json_values" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/json-values.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\json-values.exe" ]
 
     arguments = {
         "--help" = {
@@ -2504,7 +2504,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/kemp-s
 */
 
 object CheckCommand "_win_linuxfabrik_kemp_services" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/kemp-services.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\kemp-services.exe" ]
 
     arguments = {
         "--help" = {
@@ -2575,7 +2575,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/libren
 */
 
 object CheckCommand "_win_linuxfabrik_librenms_alerts" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/librenms-alerts.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\librenms-alerts.exe" ]
 
     arguments = {
         "--help" = {
@@ -2644,7 +2644,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/libren
 */
 
 object CheckCommand "_win_linuxfabrik_librenms_health" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/librenms-health.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\librenms-health.exe" ]
 
     arguments = {
         "--help" = {
@@ -2709,7 +2709,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/libren
 */
 
 object CheckCommand "_win_linuxfabrik_librenms_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/librenms-version.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\librenms-version.exe" ]
 
     arguments = {
         "--help" = {
@@ -2756,7 +2756,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/logfil
 */
 
 object CheckCommand "_win_linuxfabrik_logfile" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/logfile.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\logfile.exe" ]
 
     arguments = {
         "--help" = {
@@ -2851,7 +2851,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/matomo
 */
 
 object CheckCommand "_win_linuxfabrik_matomo_reporting" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/matomo-reporting.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\matomo-reporting.exe" ]
 
     arguments = {
         "--help" = {
@@ -2919,7 +2919,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/matomo
 */
 
 object CheckCommand "_win_linuxfabrik_matomo_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/matomo-version.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\matomo-version.exe" ]
 
     arguments = {
         "--help" = {
@@ -2958,7 +2958,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/memory
 */
 
 object CheckCommand "_win_linuxfabrik_memory_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/memory-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\memory-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -2997,7 +2997,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/metaba
 */
 
 object CheckCommand "_win_linuxfabrik_metabase_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/metabase-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\metabase-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -3048,7 +3048,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mod-qo
 */
 
 object CheckCommand "_win_linuxfabrik_mod_qos_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mod-qos-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mod-qos-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -3087,7 +3087,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_aria" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-aria.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-aria.exe" ]
 
     arguments = {
         "--help" = {
@@ -3134,7 +3134,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_binlog_cache" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-binlog-cache.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-binlog-cache.exe" ]
 
     arguments = {
         "--help" = {
@@ -3181,7 +3181,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_connections" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-connections.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-connections.exe" ]
 
     arguments = {
         "--help" = {
@@ -3236,7 +3236,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_database_metrics" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-database-metrics.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-database-metrics.exe" ]
 
     arguments = {
         "--help" = {
@@ -3287,7 +3287,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_innodb_buffer_pool_instances" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-innodb-buffer-pool-instances.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-innodb-buffer-pool-instances.exe" ]
 
     arguments = {
         "--help" = {
@@ -3334,7 +3334,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_innodb_buffer_pool_size" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-innodb-buffer-pool-size.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-innodb-buffer-pool-size.exe" ]
 
     arguments = {
         "--help" = {
@@ -3381,7 +3381,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_innodb_log_waits" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-innodb-log-waits.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-innodb-log-waits.exe" ]
 
     arguments = {
         "--help" = {
@@ -3428,7 +3428,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_joins" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-joins.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-joins.exe" ]
 
     arguments = {
         "--help" = {
@@ -3475,7 +3475,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_logfile" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-logfile.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-logfile.exe" ]
 
     arguments = {
         "--help" = {
@@ -3539,7 +3539,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_memory" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-memory.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-memory.exe" ]
 
     arguments = {
         "--help" = {
@@ -3586,7 +3586,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_open_files" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-open-files.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-open-files.exe" ]
 
     arguments = {
         "--help" = {
@@ -3633,7 +3633,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_perf_metrics" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-perf-metrics.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-perf-metrics.exe" ]
 
     arguments = {
         "--help" = {
@@ -3680,7 +3680,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_replica_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-replica-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-replica-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -3731,7 +3731,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_slow_queries" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-slow-queries.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-slow-queries.exe" ]
 
     arguments = {
         "--help" = {
@@ -3778,7 +3778,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_sorts" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-sorts.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-sorts.exe" ]
 
     arguments = {
         "--help" = {
@@ -3825,7 +3825,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_storage_engines" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-storage-engines.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-storage-engines.exe" ]
 
     arguments = {
         "--help" = {
@@ -3876,7 +3876,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_system" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-system.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-system.exe" ]
 
     arguments = {
         "--help" = {
@@ -3911,7 +3911,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_table_cache" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-table-cache.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-table-cache.exe" ]
 
     arguments = {
         "--help" = {
@@ -3958,7 +3958,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_table_definition_cache" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-table-definition-cache.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-table-definition-cache.exe" ]
 
     arguments = {
         "--help" = {
@@ -4005,7 +4005,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_table_indexes" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-table-indexes.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-table-indexes.exe" ]
 
     arguments = {
         "--help" = {
@@ -4052,7 +4052,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_table_locks" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-table-locks.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-table-locks.exe" ]
 
     arguments = {
         "--help" = {
@@ -4099,7 +4099,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_temp_tables" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-temp-tables.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-temp-tables.exe" ]
 
     arguments = {
         "--help" = {
@@ -4146,7 +4146,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_thread_cache" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-thread-cache.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-thread-cache.exe" ]
 
     arguments = {
         "--help" = {
@@ -4193,7 +4193,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_traffic" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-traffic.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-traffic.exe" ]
 
     arguments = {
         "--help" = {
@@ -4236,7 +4236,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_win_linuxfabrik_mysql_user_security" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-user-security.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\mysql-user-security.exe" ]
 
     arguments = {
         "--help" = {
@@ -4287,7 +4287,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/networ
 */
 
 object CheckCommand "_win_linuxfabrik_network_connections" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/network-connections.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\network-connections.exe" ]
 
     arguments = {
         "--help" = {
@@ -4332,7 +4332,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/networ
 */
 
 object CheckCommand "_win_linuxfabrik_network_port_tcp" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/network-port-tcp.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\network-port-tcp.exe" ]
 
     arguments = {
         "--help" = {
@@ -4383,7 +4383,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nextcl
 */
 
 object CheckCommand "_win_linuxfabrik_nextcloud_security_scan" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nextcloud-security-scan.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\nextcloud-security-scan.exe" ]
 
     arguments = {
         "--help" = {
@@ -4422,7 +4422,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nextcl
 */
 
 object CheckCommand "_win_linuxfabrik_nextcloud_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nextcloud-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\nextcloud-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -4469,7 +4469,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nextcl
 */
 
 object CheckCommand "_win_linuxfabrik_nextcloud_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nextcloud-version.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\nextcloud-version.exe" ]
 
     arguments = {
         "--help" = {
@@ -4504,7 +4504,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nginx-
 */
 
 object CheckCommand "_win_linuxfabrik_nginx_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nginx-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\nginx-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -4551,7 +4551,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_win_linuxfabrik_nodebb_cache" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-cache.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\nodebb-cache.exe" ]
 
     arguments = {
         "--help" = {
@@ -4614,7 +4614,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_win_linuxfabrik_nodebb_database" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-database.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\nodebb-database.exe" ]
 
     arguments = {
         "--help" = {
@@ -4677,7 +4677,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_win_linuxfabrik_nodebb_errors" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-errors.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\nodebb-errors.exe" ]
 
     arguments = {
         "--help" = {
@@ -4732,7 +4732,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_win_linuxfabrik_nodebb_events" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-events.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\nodebb-events.exe" ]
 
     arguments = {
         "--help" = {
@@ -4779,7 +4779,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_win_linuxfabrik_nodebb_groups" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-groups.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\nodebb-groups.exe" ]
 
     arguments = {
         "--help" = {
@@ -4826,7 +4826,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_win_linuxfabrik_nodebb_info" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-info.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\nodebb-info.exe" ]
 
     arguments = {
         "--help" = {
@@ -4885,7 +4885,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_win_linuxfabrik_nodebb_users" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-users.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\nodebb-users.exe" ]
 
     arguments = {
         "--help" = {
@@ -4940,7 +4940,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_win_linuxfabrik_nodebb_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-version.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\nodebb-version.exe" ]
 
     arguments = {
         "--help" = {
@@ -4991,7 +4991,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/onlyof
 */
 
 object CheckCommand "_win_linuxfabrik_onlyoffice_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/onlyoffice-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\onlyoffice-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -5030,7 +5030,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/path-r
 */
 
 object CheckCommand "_win_linuxfabrik_path_rw_test" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/path-rw-test.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\path-rw-test.exe" ]
 
     arguments = {
         "--help" = {
@@ -5070,7 +5070,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-fp
 */
 
 object CheckCommand "_win_linuxfabrik_php_fpm_ping" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-fpm-ping.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\php-fpm-ping.exe" ]
 
     arguments = {
         "--help" = {
@@ -5117,7 +5117,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-fp
 */
 
 object CheckCommand "_win_linuxfabrik_php_fpm_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-fpm-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\php-fpm-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -5180,7 +5180,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-st
 */
 
 object CheckCommand "_win_linuxfabrik_php_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\php-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -5237,7 +5237,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-ve
 */
 
 object CheckCommand "_win_linuxfabrik_php_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-version.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\php-version.exe" ]
 
     arguments = {
         "--help" = {
@@ -5272,7 +5272,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/pip-up
 */
 
 object CheckCommand "_win_linuxfabrik_pip_updates" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/pip-updates.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\pip-updates.exe" ]
 
     arguments = {
         "--help" = {
@@ -5319,7 +5319,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/procs
 */
 
 object CheckCommand "_win_linuxfabrik_procs" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/procs.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\procs.exe" ]
 
     arguments = {
         "--help" = {
@@ -5402,7 +5402,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-cp
 */
 
 object CheckCommand "_win_linuxfabrik_qts_cpu_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-cpu-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\qts-cpu-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -5469,7 +5469,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-di
 */
 
 object CheckCommand "_win_linuxfabrik_qts_disk_smart" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-disk-smart.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\qts-disk-smart.exe" ]
 
     arguments = {
         "--help" = {
@@ -5524,7 +5524,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-me
 */
 
 object CheckCommand "_win_linuxfabrik_qts_memory_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-memory-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\qts-memory-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -5587,7 +5587,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-te
 */
 
 object CheckCommand "_win_linuxfabrik_qts_temperatures" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-temperatures.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\qts-temperatures.exe" ]
 
     arguments = {
         "--help" = {
@@ -5650,7 +5650,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-up
 */
 
 object CheckCommand "_win_linuxfabrik_qts_uptime" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-uptime.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\qts-uptime.exe" ]
 
     arguments = {
         "--help" = {
@@ -5701,7 +5701,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-ve
 */
 
 object CheckCommand "_win_linuxfabrik_qts_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-version.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\qts-version.exe" ]
 
     arguments = {
         "--help" = {
@@ -5756,7 +5756,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/redfis
 */
 
 object CheckCommand "_win_linuxfabrik_redfish_drives" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/redfish-drives.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\redfish-drives.exe" ]
 
     arguments = {
         "--help" = {
@@ -5799,7 +5799,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/redfis
 */
 
 object CheckCommand "_win_linuxfabrik_redfish_sel" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/redfish-sel.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\redfish-sel.exe" ]
 
     arguments = {
         "--help" = {
@@ -5842,7 +5842,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/redfis
 */
 
 object CheckCommand "_win_linuxfabrik_redfish_sensor" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/redfish-sensor.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\redfish-sensor.exe" ]
 
     arguments = {
         "--help" = {
@@ -5885,7 +5885,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/restic
 */
 
 object CheckCommand "_win_linuxfabrik_restic_check" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/restic-check.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\restic-check.exe" ]
 
     arguments = {
         "--help" = {
@@ -5924,7 +5924,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/restic
 */
 
 object CheckCommand "_win_linuxfabrik_restic_snapshots" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/restic-snapshots.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\restic-snapshots.exe" ]
 
     arguments = {
         "--help" = {
@@ -5991,7 +5991,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/restic
 */
 
 object CheckCommand "_win_linuxfabrik_restic_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/restic-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\restic-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -6046,7 +6046,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/rocket
 */
 
 object CheckCommand "_win_linuxfabrik_rocketchat_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/rocketchat-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\rocketchat-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -6085,7 +6085,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/rocket
 */
 
 object CheckCommand "_win_linuxfabrik_rocketchat_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/rocketchat-version.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\rocketchat-version.exe" ]
 
     arguments = {
         "--help" = {
@@ -6132,7 +6132,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/sap-op
 */
 
 object CheckCommand "_win_linuxfabrik_sap_open_concur_com" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/sap-open-concur-com.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\sap-open-concur-com.exe" ]
 
     arguments = {
         "--help" = {
@@ -6183,7 +6183,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/schedu
 */
 
 object CheckCommand "_win_linuxfabrik_scheduled_task" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/scheduled-task.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\scheduled-task.exe" ]
 
     arguments = {
         "--help" = {
@@ -6223,7 +6223,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/servic
 */
 
 object CheckCommand "_win_linuxfabrik_service" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/service.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\service.exe" ]
 
     arguments = {
         "--help" = {
@@ -6275,7 +6275,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_win_linuxfabrik_starface_account_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-account-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\starface-account-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -6326,7 +6326,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_win_linuxfabrik_starface_backup_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-backup-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\starface-backup-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -6389,7 +6389,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_win_linuxfabrik_starface_channel_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-channel-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\starface-channel-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -6452,7 +6452,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_win_linuxfabrik_starface_database_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-database-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\starface-database-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -6503,7 +6503,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_win_linuxfabrik_starface_java_memory_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-java-memory-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\starface-java-memory-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -6566,7 +6566,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_win_linuxfabrik_starface_peer_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-peer-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\starface-peer-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -6617,7 +6617,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_win_linuxfabrik_starface_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\starface-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -6680,7 +6680,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/swap-u
 */
 
 object CheckCommand "_win_linuxfabrik_swap_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/swap-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\swap-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -6719,7 +6719,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/top3-p
 */
 
 object CheckCommand "_win_linuxfabrik_top3_processes_which_caused_the_most_io" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/top3-processes-which-caused-the-most-io.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\top3-processes-which-caused-the-most-io.exe" ]
 
     arguments = {
         "--help" = {
@@ -6746,7 +6746,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/update
 */
 
 object CheckCommand "_win_linuxfabrik_updates" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/updates.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\updates.exe" ]
 
     arguments = {
         "--help" = {
@@ -6785,7 +6785,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/uptime
 */
 
 object CheckCommand "_win_linuxfabrik_uptime" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/uptime.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\uptime.exe" ]
 
     arguments = {
         "--help" = {
@@ -6824,7 +6824,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/users
 */
 
 object CheckCommand "_win_linuxfabrik_users" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/users.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\users.exe" ]
 
     arguments = {
         "--help" = {
@@ -6859,7 +6859,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/veeam-
 */
 
 object CheckCommand "_win_linuxfabrik_veeam_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/veeam-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\veeam-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -6918,7 +6918,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_win_linuxfabrik_wildfly_deployment_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-deployment-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\wildfly-deployment-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -6982,7 +6982,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_win_linuxfabrik_wildfly_gc_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-gc-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\wildfly-gc-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -7037,7 +7037,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_win_linuxfabrik_wildfly_memory_pool_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-memory-pool-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\wildfly-memory-pool-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -7096,7 +7096,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_win_linuxfabrik_wildfly_memory_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-memory-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\wildfly-memory-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -7163,7 +7163,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_win_linuxfabrik_wildfly_non_xa_datasource_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-non-xa-datasource-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\wildfly-non-xa-datasource-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -7235,7 +7235,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_win_linuxfabrik_wildfly_server_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-server-status.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\wildfly-server-status.exe" ]
 
     arguments = {
         "--help" = {
@@ -7294,7 +7294,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_win_linuxfabrik_wildfly_thread_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-thread-usage.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\wildfly-thread-usage.exe" ]
 
     arguments = {
         "--help" = {
@@ -7361,7 +7361,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_win_linuxfabrik_wildfly_uptime" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-uptime.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\wildfly-uptime.exe" ]
 
     arguments = {
         "--help" = {
@@ -7428,7 +7428,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_win_linuxfabrik_wildfly_xa_datasource_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-xa-datasource-stats.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\wildfly-xa-datasource-stats.exe" ]
 
     arguments = {
         "--help" = {
@@ -7500,7 +7500,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wordpr
 */
 
 object CheckCommand "_win_linuxfabrik_wordpress_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wordpress-version.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\wordpress-version.exe" ]
 
     arguments = {
         "--help" = {
@@ -7539,7 +7539,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/xml
 */
 
 object CheckCommand "_win_linuxfabrik_xml" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/xml.exe" ]
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path | replace('\\', '\\\\') }}\\xml.exe" ]
 
     arguments = {
         "--help" = {
