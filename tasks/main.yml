@@ -1,4 +1,9 @@
 ---
+- name: Check if system is 64 bit
+  ansible.builtin.fail:
+    msg: LinuxFabrik Monitoring Plugins supports only 64 bit systems!
+  when: ansible_userspace_bits != 64
+
 - name: Gather OS system specific variables
   ansible.builtin.include_vars: "{{ ansible_system }}.yml"
 
