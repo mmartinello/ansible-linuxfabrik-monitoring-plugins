@@ -1,0 +1,4 @@
+---
+- name: Uninstall LinuxFabrik Monitoring Plugins on Linux systems
+  ansible.builtin.include_tasks: purge-Linux.yml
+  when: ansible_system == "Linux"
