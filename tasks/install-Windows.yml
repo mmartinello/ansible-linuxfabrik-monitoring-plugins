@@ -10,6 +10,14 @@
     suffix: linuxfabrik_monitoring_plugins.zip
   register: _temp_file
 
+- name: Set the download file name
+  ansible.builtin.set_fact:
+    _linuxfabrik_monitoring_plugins_file: "linuxfabrik-monitoring-plugins-{{ linuxfabrik_monitoring_plugins_version }}.zip"
+
+- name: Set the download URL
+  ansible.builtin.set_fact:
+    _linuxfabrik_monitoring_plugins_url: "https://download.linuxfabrik.ch/monitoring-plugins/windows/{{ _linuxfabrik_monitoring_plugins_file }}"
+
 - name: Download Linuxfabrik Monitoring Plugins
   ansible.windows.win_get_url:
     url: "{{ linuxfabrik_monitoring_plugins_url }}"

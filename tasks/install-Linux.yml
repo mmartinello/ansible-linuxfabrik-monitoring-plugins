@@ -16,6 +16,14 @@
   environment:
     PIP_BREAK_SYSTEM_PACKAGES: 1
 
+- name: Set the download file name
+  ansible.builtin.set_fact:
+    _linuxfabrik_monitoring_plugins_file: "{{ 'linuxfabrik-monitoring-plugins.tar' if linuxfabrik_monitoring_plugins_version == 'latest' else 'linuxfabrik-monitoring-plugins-' ~ linuxfabrik_monitoring_plugins_version ~ '.tar' }}"
+
+- name: Set the download URL
+  ansible.builtin.set_fact:
+    _linuxfabrik_monitoring_plugins_url: "https://download.linuxfabrik.ch/monitoring-plugins/tar/{{ _linuxfabrik_monitoring_plugins_file }}"
+
 - name: Download Linuxfabrik Monitoring Plugins
   ansible.builtin.get_url:
     url: "{{ linuxfabrik_monitoring_plugins_url }}"
