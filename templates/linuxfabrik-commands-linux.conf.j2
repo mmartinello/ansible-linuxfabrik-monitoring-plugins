@@ -1804,6 +1804,51 @@ object CheckCommand "_linuxfabrik_getent" {
 
 
 /*
+Commands and services for 'grafana-version' check from LinuxFabrik Monitoring Plugin:
+
+errors or no match.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/grafana-version
+*/
+
+object CheckCommand "_linuxfabrik_grafana_version" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/grafana-version" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_grafana_version_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_grafana_version_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_grafana_version_always_ok$"
+            description = "Always returns OK."
+        }
+        "--check-major" = {
+            set_if = "$linuxfabrik_grafana_version_check_major$"
+            description = "Alert me when there is a new major release available, even if the current version of my product is not EOL. Example: Notify when I run v26 (not yet EOL) and v27 is available. Default: False"
+        }
+        "--check-minor" = {
+            set_if = "$linuxfabrik_grafana_version_check_minor$"
+            description = "Alert me when there is a new major.minor release available, even if the current version of my product is not EOL. Example: Notify when I run v26.2 (not yet EOL) and v26.3 is available. Default: False"
+        }
+        "--check-patch" = {
+            set_if = "$linuxfabrik_grafana_version_check_patch$"
+            description = "Alert me when there is a new major.minor.patch release available, even if the current version of my product is not EOL. Example: Notify when I run v26.2.7 (not yet EOL) and v26.2.8 is available. Default: False"
+        }
+        "--offset-eol" = {
+            value = "$linuxfabrik_grafana_version_offset_eol$"
+            description = "Alert me n days before ('-30') or after an EOL date ('30' or '+30'). Default: -30 days"
+        }
+    }
+}
+
+
+/*
 Commands and services for 'haproxy-status' check from LinuxFabrik Monitoring Plugin:
 
 HAProxy server, current request rates, response times, and more.
@@ -4963,6 +5008,51 @@ object CheckCommand "_linuxfabrik_mysql_traffic" {
 
 
 /*
+Commands and services for 'mysql-version' check from LinuxFabrik Monitoring Plugin:
+
+errors or no match.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-version
+*/
+
+object CheckCommand "_linuxfabrik_mysql_version" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-version" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_mysql_version_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_mysql_version_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_mysql_version_always_ok$"
+            description = "Always returns OK."
+        }
+        "--check-major" = {
+            set_if = "$linuxfabrik_mysql_version_check_major$"
+            description = "Alert me when there is a new major release available, even if the current version of my product is not EOL. Example: Notify when I run v26 (not yet EOL) and v27 is available. Default: False"
+        }
+        "--check-minor" = {
+            set_if = "$linuxfabrik_mysql_version_check_minor$"
+            description = "Alert me when there is a new major.minor release available, even if the current version of my product is not EOL. Example: Notify when I run v26.2 (not yet EOL) and v26.3 is available. Default: False"
+        }
+        "--check-patch" = {
+            set_if = "$linuxfabrik_mysql_version_check_patch$"
+            description = "Alert me when there is a new major.minor.patch release available, even if the current version of my product is not EOL. Example: Notify when I run v26.2.7 (not yet EOL) and v26.2.8 is available. Default: False"
+        }
+        "--offset-eol" = {
+            value = "$linuxfabrik_mysql_version_offset_eol$"
+            description = "Alert me n days before ('-30') or after an EOL date ('30' or '+30'). Default: -30 days"
+        }
+    }
+}
+
+
+/*
 Commands and services for 'mysql-user-security' check from LinuxFabrik Monitoring Plugin:
 
 Check user's security in MySQL/MariaDB.
@@ -6289,6 +6379,51 @@ object CheckCommand "_linuxfabrik_pip_updates" {
         "--virtualenv" = {
             value = "$linuxfabrik_pip_updates_virtualenv$"
             description = "Path of the virtualenv that will be activated before checking for updates. For example: '/opt/sphinx- venv/bin/activate'."
+        }
+    }
+}
+
+
+/*
+Commands and services for 'postfix-version' check from LinuxFabrik Monitoring Plugin:
+
+Tracks if Postfix is EOL.
+
+Code at:
+https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/postfix-version
+*/
+
+object CheckCommand "_linuxfabrik_postfix_version" {
+    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/postfix-version" ]
+
+    arguments = {
+        "--help" = {
+            set_if = "$linuxfabrik_postfix_version_help$"
+            description = "show this help message and exit"
+        }
+        "--version" = {
+            set_if = "$linuxfabrik_postfix_version_version$"
+            description = "show program's version number and exit"
+        }
+        "--always-ok" = {
+            set_if = "$linuxfabrik_postfix_version_always_ok$"
+            description = "Always returns OK."
+        }
+        "--check-major" = {
+            set_if = "$linuxfabrik_postfix_version_check_major$"
+            description = "Alert me when there is a new major release available, even if the current version of my product is not EOL. Example: Notify when I run v26 (not yet EOL) and v27 is available. Default: False"
+        }
+        "--check-minor" = {
+            set_if = "$linuxfabrik_postfix_version_check_minor$"
+            description = "Alert me when there is a new major.minor release available, even if the current version of my product is not EOL. Example: Notify when I run v26.2 (not yet EOL) and v26.3 is available. Default: False"
+        }
+        "--check-patch" = {
+            set_if = "$linuxfabrik_postfix_version_check_patch$"
+            description = "Alert me when there is a new major.minor.patch release available, even if the current version of my product is not EOL. Example: Notify when I run v26.2.7 (not yet EOL) and v26.2.8 is available. Default: False"
+        }
+        "--offset-eol" = {
+            value = "$linuxfabrik_postfix_version_offset_eol$"
+            description = "Alert me n days before ('-30') or after an EOL date ('30' or '+30'). Default: -30 days"
         }
     }
 }
