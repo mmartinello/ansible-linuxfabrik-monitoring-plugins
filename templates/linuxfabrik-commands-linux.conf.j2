@@ -623,7 +623,7 @@ object CheckCommand "_linuxfabrik_disk_usage" {
         }
         "--critical" = {
             value = "$linuxfabrik_disk_usage_critical$"
-            description = "Critical threshold, of the form '<number>[unit][method]', where unit is one of `%|K|M|G|T|P` and method is one of `USED|FREE`. If 'unit' is omitted, `%` is assumed. `K` means `kibibyte` etc. If "method" is omitted, `USED` is assumed. `USED` means 'number ore more', `FREE` means 'number or less'. Examples: `95` = alert at 95% usage or more. `9.5M` = alert when 9.5 MiB or more is used. Other self-explanatory examples are `95%USED`, `5%FREE`, `9.5GFREE`, `1400GUSED`. Default: 95%USED"
+            description = "Critical threshold, of the form '<number>[unit][method]', where unit is one of '%|K|M|G|T|P' and method is one of 'USED|FREE'. If 'unit' is omitted, '%' is assumed. 'K' means 'kibibyte' etc. If 'method' is omitted, 'USED' is assumed. 'USED' means 'number ore more', 'FREE' means 'number or less'. Examples: '95' = alert at 95% usage or more. '9.5M' = alert when 9.5 MiB or more is used. Other self-explanatory examples are '95%USED', '5%FREE', '9.5GFREE', '1400GUSED'. Default: 95%USED"
         }
         "--warning" = {
             value = "$linuxfabrik_disk_usage_warning$"
