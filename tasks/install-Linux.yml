@@ -26,12 +26,20 @@
 
 - name: Download Linuxfabrik Monitoring Plugins
   ansible.builtin.get_url:
-    url: "{{ linuxfabrik_monitoring_plugins_url }}"
+    url: "{{ _linuxfabrik_monitoring_plugins_url }}"
     dest: /tmp/linuxfabrik_monitoring_plugins.tar
     owner: "{{ linuxfabrik_monitoring_plugins_user }}"
     group: "{{ linuxfabrik_monitoring_plugins_group }}"
     force: true
     mode: "0640"
+
+- name: Remove the temporary stuffs
+  ansible.builtin.file:
+    path: /tmp/linuxfabrik_monitoring_plugins
+    state: absent
+  with_items:
+    - /tmp/linuxfabrik_monitoring_plugins.tar
+    - /tmp/linuxfabrik_monitoring_plugins
 
 - name: Create the temporary directory
   ansible.builtin.file:
