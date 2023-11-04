@@ -623,16 +623,27 @@ object CheckCommand "_linuxfabrik_disk_usage" {
         }
         "--critical" = {
             value = "$linuxfabrik_disk_usage_critical$"
-            description = "Set the critical threshold partition usage percentage. Default: 95"
-        }
-        "--ignore" = {
-            value = "$linuxfabrik_disk_usage_ignore$"
-            description = "Mountpoint to be ignored (repeating). The mountpoint is ignored if it starts with the specified value. Example: '/boot' ignores '/boot' as well as '/boot/efi'. On Windows, use drive letters without backslash ('Y:' or 'Y'). Default: []"
-            repeat_key = true
+            description = "Critical threshold, of the form '<number>[unit][method]', where unit is one of `%|K|M|G|T|P` and method is one of `USED|FREE`. If 'unit' is omitted, `%` is assumed. `K` means `kibibyte` etc. If "method" is omitted, `USED` is assumed. `USED` means 'number ore more', `FREE` means 'number or less'. Examples: `95` = alert at 95% usage or more. `9.5M` = alert when 9.5 MiB or more is used. Other self-explanatory examples are `95%USED`, `5%FREE`, `9.5GFREE`, `1400GUSED`. Default: 95%USED"
         }
         "--warning" = {
             value = "$linuxfabrik_disk_usage_warning$"
-            description = "Set the warning threshold partition usage percentage. Default: 90"
+            description = "Any line matching this pattern (case-insensitive) will count as a exclude. The mountpoint is excluded if it contains the specified value. Example: 'boot' excludes '/boot' as well as '/boot/efi'. Can be specified multiple times. On Windows, use drive letters without backslash ('Y:' or 'Y'). Includes are matched before excludes."
+        }
+        "--exclude-pattern" = {
+            value = "$linuxfabrik_disk_usage_exclude_pattern$"
+            description = "Any line matching this pattern (case-insensitive) will count as a exclude. The mountpoint is excluded if it contains the specified value. Example: 'boot' excludes '/boot' as well as '/boot/efi'. Can be specified multiple times. On Windows, use drive letters without backslash ('Y:' or 'Y'). Includes are matched before excludes."
+        }
+        "--exclude-regex" = {
+            value = "$linuxfabrik_disk_usage_exclude_regex$"
+            description = "Any line matching this python regex (case-insensitive) will count as a exclude. Can be specified multiple times. On Windows, use drive letters without backslash ('Y:' or 'Y'). Includes are matched before excludes."
+        }
+        "--include-pattern" = {
+            value = "$linuxfabrik_disk_usage_include_pattern$"
+            description = "Any line matching this pattern (case-insensitive) will count as a include. The mountpoint is included if it contains the specified value. Example: 'boot' includes '/boot' as well as '/boot/efi'. Can be specified multiple times. On Windows, use drive letters without backslash ('Y:' or 'Y'). Includes are matched before excludes."
+        }
+        "--include-regex" = {
+            value = "$linuxfabrik_disk_usage_include_regex$"
+            description = "Any line matching this python regex (case-insensitive) will count as a include. Can be specified multiple times. On Windows, use drive letters without backslash ('Y:' or 'Y'). Includes are matched before excludes."
         }
     }
 }
@@ -8143,31 +8154,6 @@ object CheckCommand "_linuxfabrik_systemd_units_failed" {
         "--test" = {
             value = "$linuxfabrik_systemd_units_failed_test$"
             description = "For unit tests. Needs 'path-to-stdout-file,path-to-stderr- file,expected-retc'."
-        }
-    }
-}
-
-
-/*
-Commands and services for 'top3-processes-which-caused-the-most-io' check from LinuxFabrik Monitoring Plugin:
-
-Displays the top 3 processes which cause the most IO.
-
-Code at:
-https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/top3-processes-which-caused-the-most-io
-*/
-
-object CheckCommand "_linuxfabrik_top3_processes_which_caused_the_most_io" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/top3-processes-which-caused-the-most-io" ]
-
-    arguments = {
-        "--help" = {
-            set_if = "$linuxfabrik_top3_processes_which_caused_the_most_io_help$"
-            description = "show this help message and exit"
-        }
-        "--version" = {
-            set_if = "$linuxfabrik_top3_processes_which_caused_the_most_io_version$"
-            description = "show program's version number and exit"
         }
     }
 }
