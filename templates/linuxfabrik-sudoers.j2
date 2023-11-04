@@ -1,30 +1,34 @@
 # {{ ansible_managed }}
 
+Cmnd_Alias NAGIOS = {{ linuxfabrik_monitoring_plugins_dest_path }}/about-me,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/borgbackup,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/disk-smart,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/disk-usage,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/dmesg,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/docker-info,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/docker-stats,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/fail2ban,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/file-age,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/file-size,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/ipmi-sel,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/ipmi-sensor,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/journald-query,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/journald-usage,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/kvm-vm,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/logfile,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-logfile,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/needs-restarting,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/network-bonding,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/nextcloud-version,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/openvpn-client-list,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/path-rw-test,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/php-status,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/restic-check,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/restic-snapshots,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/restic-stats,\
+                    {{ linuxfabrik_monitoring_plugins_dest_path }}/strongswan-connections
+
 Defaults:{{ linuxfabrik_monitoring_plugins_user }} !requiretty
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/about-me
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/borgbackup
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/disk-smart
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/disk-usage
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/dmesg
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/docker-info
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/docker-stats
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/fail2ban
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/file-age
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/file-descriptors
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/file-size
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/ipmi-sel
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/ipmi-sensor
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/journald-query
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/journald-usage
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/kvm-vm
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/logfile
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-logfile
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/needs-restarting
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/network-bonding
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/nextcloud-version
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/openvpn-client-list
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/path-rw-test
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/php-status
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/restic-check
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/restic-snapshots
-{{ linuxfabrik_monitoring_plugins_user }}    ALL = NOPASSWD: {{ linuxfabrik_monitoring_plugins_dest_path }}/restic-stats
+Defaults!NAGIOS !syslog
+
+{{ linuxfabrik_monitoring_plugins_user }} ALL = NOPASSWD: NAGIOS
