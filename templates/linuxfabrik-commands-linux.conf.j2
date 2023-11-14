@@ -8,7 +8,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/about-
 */
 
 object CheckCommand "_linuxfabrik_about_me" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/about-me" ]
+    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/about-me" ]
 
     arguments = {
         "--help" = {
@@ -8104,7 +8104,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/strong
 */
 
 object CheckCommand "_linuxfabrik_strongswan_connections" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/strongswan-connections" ]
+    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/strongswan-connections" ]
 
     arguments = {
         "--help" = {
