@@ -32,3 +32,6 @@ linuxfabrik_monitoring_plugins_icingaweb2_icons_dir_path: /usr/share/icingaweb2/
 
 # Install Windows command definitions on Linux system
 linuxfabrik_monitoring_plugins_install_windows_commands_on_linux: false
+
+# Remove the libselinux.so.1 file from the installation dir
+linuxfabrik_monitoring_plugins_remove_libselinux_so: true

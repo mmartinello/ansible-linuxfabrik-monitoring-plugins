@@ -70,6 +70,12 @@
   register: command
   changed_when: command.rc == 0
 
+- name: Remove the broken libselinux1.so.1 file
+  ansible.builtin.file:
+    path: "{{ linuxfabrik_monitoring_plugins_dest_path }}/libselinux.so.1"
+    state: absent
+  when: linuxfabrik_monitoring_plugins_remove_libselinux_so
+
 - name: Remove the temporary directory
   ansible.builtin.file:
     path: /tmp/linuxfabrik_monitoring_plugins
