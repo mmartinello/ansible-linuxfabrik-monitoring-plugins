@@ -1,6 +1,6 @@
 ---
 # Plugins version to be installed
-linuxfabrik_monitoring_plugins_version: 2023051201
+linuxfabrik_monitoring_plugins_version: 2023112901
 
 # Plugins destination path
 linuxfabrik_monitoring_plugins_dest_path: /usr/lib64/nagios/plugins/linuxfabrik
