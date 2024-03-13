@@ -1,90 +1,24 @@
 ---
-- name: Remove existing installation if exists
-  ansible.builtin.file:
-    path: "{{ linuxfabrik_monitoring_plugins_dest_path }}"
-    state: absent
+- name: Unsupported install method
+  ansible.builtin.fail:
+    msg: "Unsupported install method: {{ linuxfabrik_monitoring_plugins_install_method }}"
+  when: linuxfabrik_monitoring_plugins_install_method not in ['package', 'tar']
 
-- name: Install required packages
-  ansible.builtin.package:
-    name: "{{ linuxfabrik_monitoring_plugins_required_packages }}"
-    state: present
+- name: Install LinuxFabrik Monitoring Plugins using APT
+  ansible.builtin.include_tasks: install-Linux-Debian.yml
+  when:
+    - ansible_os_family in ['Debian', 'Ubuntu']
+    - linuxfabrik_monitoring_plugins_install_method == "package"
 
-- name: Install required PIP packages
-  ansible.builtin.pip:
-    name: "{{ linuxfabrik_monitoring_plugins_required_pip_packages }}"
-    state: present
-  environment:
-    PIP_BREAK_SYSTEM_PACKAGES: 1
+- name: Install LinuxFabrik Monitoring Plugins using TAR
+  ansible.builtin.include_tasks: install-Linux-tar.yml
+  when: linuxfabrik_monitoring_plugins_install_method == "tar"
 
-- name: Set the download file name
-  ansible.builtin.set_fact:
-    _linuxfabrik_monitoring_plugins_file: "{{ 'linuxfabrik-monitoring-plugins.tar' if linuxfabrik_monitoring_plugins_version == 'latest' else 'linuxfabrik-monitoring-plugins-' ~ linuxfabrik_monitoring_plugins_version ~ '.tar' }}"
-
-- name: Set the download URL
-  ansible.builtin.set_fact:
-    _linuxfabrik_monitoring_plugins_url: "https://download.linuxfabrik.ch/monitoring-plugins/tar/{{ _linuxfabrik_monitoring_plugins_file }}"
-
-- name: Download Linuxfabrik Monitoring Plugins
-  ansible.builtin.get_url:
-    url: "{{ _linuxfabrik_monitoring_plugins_url }}"
-    dest: /tmp/linuxfabrik_monitoring_plugins.tar
-    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
-    group: "{{ linuxfabrik_monitoring_plugins_group }}"
-    force: true
-    mode: "0640"
-
-- name: Remove the temporary stuffs
-  ansible.builtin.file:
-    path: /tmp/linuxfabrik_monitoring_plugins
-    state: absent
-  with_items:
-    - /tmp/linuxfabrik_monitoring_plugins.tar
-    - /tmp/linuxfabrik_monitoring_plugins
-
-- name: Create the temporary directory
-  ansible.builtin.file:
-    path: /tmp/linuxfabrik_monitoring_plugins
-    state: directory
-    mode: "0750"
-    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
-    group: "{{ linuxfabrik_monitoring_plugins_group }}"
-
-- name: Extract the downloaded archive
-  ansible.builtin.unarchive:
-    src: /tmp/linuxfabrik_monitoring_plugins.tar
-    dest: /tmp/linuxfabrik_monitoring_plugins
-    remote_src: true
-    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
-    group: "{{ linuxfabrik_monitoring_plugins_group }}"
-
-- name: Create the destination directory
-  ansible.builtin.file:
-    path: "{{ linuxfabrik_monitoring_plugins_dest_path }}"
-    state: directory
-    recurse: true
-    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
-    group: "{{ linuxfabrik_monitoring_plugins_group }}"
-
-- name: Copy plugins to the destination directory
-  ansible.builtin.shell: "cp -a /tmp/linuxfabrik_monitoring_plugins/usr/lib64/nagios/plugins/* {{ linuxfabrik_monitoring_plugins_dest_path }}/"
-  register: command
-  changed_when: command.rc == 0
-
-- name: Remove the broken libselinux1.so.1 file
-  ansible.builtin.file:
-    path: "{{ linuxfabrik_monitoring_plugins_dest_path }}/libselinux.so.1"
-    state: absent
-  when: linuxfabrik_monitoring_plugins_remove_libselinux_so
-
-- name: Remove the temporary directory
-  ansible.builtin.file:
-    path: /tmp/linuxfabrik_monitoring_plugins
-    state: absent
-
-- name: Remove the downloaded archive
-  ansible.builtin.file:
-    path: /tmp/linuxfabrik_monitoring_plugins.tar
-    state: absent
+- name: Define the installation dir constant
+  ansible.builtin.lineinfile:
+    path: /etc/icinga2/constants.conf
+    line: "const LinuxfabrikMonitoringPluginsDir = \"{{ linuxfabrik_monitoring_plugins_dest_path }}\""
+  notify: Reload Icinga2
 
 - name: Copy the command definitions file
   ansible.builtin.template:

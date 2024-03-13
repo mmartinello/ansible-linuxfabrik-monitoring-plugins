@@ -1,0 +1,26 @@
+---
+- name: Install required packages
+  ansible.builtin.apt:
+    name:
+      - apt-transport-https
+      - gpg
+
+- name: Add Linuxfabrik Monitoring Plugins Repository Key
+  ansible.builtin.apt_key:
+    url: https://repo.linuxfabrik.ch/linuxfabrik.key
+    state: present
+
+- name: Add Linuxfabrik Monitoring Plugins APT Repository
+  ansible.builtin.apt_repository:
+    repo: "deb https://repo.linuxfabrik.ch/monitoring-plugins/debian/ {{ ansible_distribution_release }}-release main"
+    state: present
+    filename: linuxfabrik-monitoring-plugins
+
+- name: Install Linuxfabrik Monitoring Plugins
+  ansible.builtin.apt:
+    name: linuxfabrik-monitoring-plugins
+    state: present
+
+- name: Force set the installation dir variable
+  ansible.builtin.set_fact:
+    linuxfabrik_monitoring_plugins_dest_path: /usr/lib64/nagios/plugins/linuxfabrik

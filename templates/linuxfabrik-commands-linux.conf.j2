@@ -8,7 +8,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/about-
 */
 
 object CheckCommand "_linuxfabrik_about_me" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/about-me" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/about-me" ]
 
     arguments = {
         "--help" = {
@@ -37,7 +37,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/apache
 */
 
 object CheckCommand "_linuxfabrik_apache_httpd_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/apache-httpd-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/apache-httpd-status" ]
 
     arguments = {
         "--help" = {
@@ -78,7 +78,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/axenit
 */
 
 object CheckCommand "_linuxfabrik_axenita_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/axenita-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/axenita-stats" ]
 
     arguments = {
         "--help" = {
@@ -119,7 +119,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/borgba
 */
 
 object CheckCommand "_linuxfabrik_borgbackup" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/borgbackup" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/borgbackup" ]
 
     arguments = {
         "--help" = {
@@ -152,7 +152,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/countd
 */
 
 object CheckCommand "_linuxfabrik_countdown" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/countdown" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/countdown" ]
 
     arguments = {
         "--help" = {
@@ -186,7 +186,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/cpu-us
 */
 
 object CheckCommand "_linuxfabrik_cpu_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/cpu-usage" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/cpu-usage" ]
 
     arguments = {
         "--help" = {
@@ -227,7 +227,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/crypto
 */
 
 object CheckCommand "_linuxfabrik_crypto_policy" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/crypto-policy" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/crypto-policy" ]
 
     arguments = {
         "--help" = {
@@ -260,7 +260,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/csv-va
 */
 
 object CheckCommand "_linuxfabrik_csv_values" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/csv-values" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/csv-values" ]
 
     arguments = {
         "--help" = {
@@ -361,7 +361,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/dhcp-s
 */
 
 object CheckCommand "_linuxfabrik_dhcp_scope_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/dhcp-scope-usage" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/dhcp-scope-usage" ]
 
     arguments = {
         "--help" = {
@@ -426,7 +426,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/diacos
 */
 
 object CheckCommand "_linuxfabrik_diacos" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/diacos" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/diacos" ]
 
     arguments = {
         "--help" = {
@@ -519,7 +519,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/disk-i
 */
 
 object CheckCommand "_linuxfabrik_disk_io" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/disk-io" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/disk-io" ]
 
     arguments = {
         "--help" = {
@@ -565,7 +565,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/disk-s
 */
 
 object CheckCommand "_linuxfabrik_disk_smart" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/disk-smart" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/disk-smart" ]
 
     arguments = {
         "--help" = {
@@ -606,7 +606,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/disk-u
 */
 
 object CheckCommand "_linuxfabrik_disk_usage" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/disk-usage" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/disk-usage" ]
 
     arguments = {
         "--help" = {
@@ -659,7 +659,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/dmesg
 */
 
 object CheckCommand "_linuxfabrik_dmesg" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/dmesg" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/dmesg" ]
 
     arguments = {
         "--help" = {
@@ -701,7 +701,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/dns
 */
 
 object CheckCommand "_linuxfabrik_dns" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/dns" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/dns" ]
 
     arguments = {
         "--help" = {
@@ -750,7 +750,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/docker
 */
 
 object CheckCommand "_linuxfabrik_docker_info" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/docker-info" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/docker-info" ]
 
     arguments = {
         "--help" = {
@@ -783,7 +783,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/docker
 */
 
 object CheckCommand "_linuxfabrik_docker_stats" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/docker-stats" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/docker-stats" ]
 
     arguments = {
         "--help" = {
@@ -836,7 +836,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/dummy
 */
 
 object CheckCommand "_linuxfabrik_dummy" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/dummy" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/dummy" ]
 
     arguments = {
         "--help" = {
@@ -877,7 +877,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/exampl
 */
 
 object CheckCommand "_linuxfabrik_example" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/example" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/example" ]
 
     arguments = {
         "--help" = {
@@ -902,7 +902,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fail2b
 */
 
 object CheckCommand "_linuxfabrik_fail2ban" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/fail2ban" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/fail2ban" ]
 
     arguments = {
         "--help" = {
@@ -939,7 +939,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/feed
 */
 
 object CheckCommand "_linuxfabrik_feed" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/feed" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/feed" ]
 
     arguments = {
         "--help" = {
@@ -1016,7 +1016,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-a
 */
 
 object CheckCommand "_linuxfabrik_file_age" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-age" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/file-age" ]
 
     arguments = {
         "--help" = {
@@ -1097,7 +1097,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-c
 */
 
 object CheckCommand "_linuxfabrik_file_count" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-count" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/file-count" ]
 
     arguments = {
         "--help" = {
@@ -1170,7 +1170,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-d
 */
 
 object CheckCommand "_linuxfabrik_file_descriptors" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-descriptors" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/file-descriptors" ]
 
     arguments = {
         "--help" = {
@@ -1207,7 +1207,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-o
 */
 
 object CheckCommand "_linuxfabrik_file_ownership" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-ownership" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/file-ownership" ]
 
     arguments = {
         "--help" = {
@@ -1236,7 +1236,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/file-s
 */
 
 object CheckCommand "_linuxfabrik_file_size" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/file-size" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/file-size" ]
 
     arguments = {
         "--help" = {
@@ -1297,7 +1297,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_linuxfabrik_fortios_cpu_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-cpu-usage" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/fortios-cpu-usage" ]
 
     arguments = {
         "--help" = {
@@ -1358,7 +1358,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_linuxfabrik_fortios_firewall_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-firewall-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/fortios-firewall-stats" ]
 
     arguments = {
         "--help" = {
@@ -1407,7 +1407,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_linuxfabrik_fortios_ha_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-ha-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/fortios-ha-stats" ]
 
     arguments = {
         "--help" = {
@@ -1460,7 +1460,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_linuxfabrik_fortios_memory_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-memory-usage" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/fortios-memory-usage" ]
 
     arguments = {
         "--help" = {
@@ -1517,7 +1517,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_linuxfabrik_fortios_network_io" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-network-io" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/fortios-network-io" ]
 
     arguments = {
         "--help" = {
@@ -1578,7 +1578,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_linuxfabrik_fortios_sensor" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-sensor" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/fortios-sensor" ]
 
     arguments = {
         "--help" = {
@@ -1627,7 +1627,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fortio
 */
 
 object CheckCommand "_linuxfabrik_fortios_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fortios-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/fortios-version" ]
 
     arguments = {
         "--help" = {
@@ -1676,7 +1676,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fs-ino
 */
 
 object CheckCommand "_linuxfabrik_fs_inodes" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fs-inodes" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/fs-inodes" ]
 
     arguments = {
         "--help" = {
@@ -1717,7 +1717,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fs-ro
 */
 
 object CheckCommand "_linuxfabrik_fs_ro" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fs-ro" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/fs-ro" ]
 
     arguments = {
         "--help" = {
@@ -1754,7 +1754,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/fs-xfs
 */
 
 object CheckCommand "_linuxfabrik_fs_xfs_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/fs-xfs-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/fs-xfs-stats" ]
 
     arguments = {
         "--help" = {
@@ -1779,7 +1779,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/getent
 */
 
 object CheckCommand "_linuxfabrik_getent" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/getent" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/getent" ]
 
     arguments = {
         "--help" = {
@@ -1813,7 +1813,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/grafan
 */
 
 object CheckCommand "_linuxfabrik_grafana_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/grafana-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/grafana-version" ]
 
     arguments = {
         "--help" = {
@@ -1858,7 +1858,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/haprox
 */
 
 object CheckCommand "_linuxfabrik_haproxy_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/haproxy-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/haproxy-status" ]
 
     arguments = {
         "--help" = {
@@ -1919,7 +1919,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_linuxfabrik_huawei_dorado_backup_power" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-backup-power" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/huawei-dorado-backup-power" ]
 
     arguments = {
         "--help" = {
@@ -1984,7 +1984,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_linuxfabrik_huawei_dorado_controller" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-controller" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/huawei-dorado-controller" ]
 
     arguments = {
         "--help" = {
@@ -2049,7 +2049,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_linuxfabrik_huawei_dorado_disk" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-disk" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/huawei-dorado-disk" ]
 
     arguments = {
         "--help" = {
@@ -2114,7 +2114,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_linuxfabrik_huawei_dorado_enclosure" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-enclosure" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/huawei-dorado-enclosure" ]
 
     arguments = {
         "--help" = {
@@ -2179,7 +2179,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_linuxfabrik_huawei_dorado_fan" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-fan" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/huawei-dorado-fan" ]
 
     arguments = {
         "--help" = {
@@ -2244,7 +2244,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_linuxfabrik_huawei_dorado_host" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-host" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/huawei-dorado-host" ]
 
     arguments = {
         "--help" = {
@@ -2309,7 +2309,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_linuxfabrik_huawei_dorado_hypermetrodomain" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-hypermetrodomain" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/huawei-dorado-hypermetrodomain" ]
 
     arguments = {
         "--help" = {
@@ -2374,7 +2374,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_linuxfabrik_huawei_dorado_hypermetropair" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-hypermetropair" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/huawei-dorado-hypermetropair" ]
 
     arguments = {
         "--help" = {
@@ -2439,7 +2439,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_linuxfabrik_huawei_dorado_interface" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-interface" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/huawei-dorado-interface" ]
 
     arguments = {
         "--help" = {
@@ -2504,7 +2504,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_linuxfabrik_huawei_dorado_power" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-power" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/huawei-dorado-power" ]
 
     arguments = {
         "--help" = {
@@ -2569,7 +2569,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/huawei
 */
 
 object CheckCommand "_linuxfabrik_huawei_dorado_system" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/huawei-dorado-system" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/huawei-dorado-system" ]
 
     arguments = {
         "--help" = {
@@ -2642,7 +2642,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/infoma
 */
 
 object CheckCommand "_linuxfabrik_infomaniak_events" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/infomaniak-events" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/infomaniak-events" ]
 
     arguments = {
         "--help" = {
@@ -2679,7 +2679,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/infoma
 */
 
 object CheckCommand "_linuxfabrik_infomaniak_swiss_backup_devices" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/infomaniak-swiss-backup-devices" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/infomaniak-swiss-backup-devices" ]
 
     arguments = {
         "--help" = {
@@ -2732,7 +2732,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/infoma
 */
 
 object CheckCommand "_linuxfabrik_infomaniak_swiss_backup_products" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/infomaniak-swiss-backup-products" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/infomaniak-swiss-backup-products" ]
 
     arguments = {
         "--help" = {
@@ -2785,7 +2785,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ipmi-s
 */
 
 object CheckCommand "_linuxfabrik_ipmi_sel" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/ipmi-sel" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/ipmi-sel" ]
 
     arguments = {
         "--help" = {
@@ -2838,7 +2838,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ipmi-s
 */
 
 object CheckCommand "_linuxfabrik_ipmi_sensor" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/ipmi-sensor" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/ipmi-sensor" ]
 
     arguments = {
         "--help" = {
@@ -2891,7 +2891,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/jitsi-
 */
 
 object CheckCommand "_linuxfabrik_jitsi_videobridge_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/jitsi-videobridge-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/jitsi-videobridge-stats" ]
 
     arguments = {
         "--help" = {
@@ -2948,7 +2948,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/jitsi-
 */
 
 object CheckCommand "_linuxfabrik_jitsi_videobridge_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/jitsi-videobridge-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/jitsi-videobridge-status" ]
 
     arguments = {
         "--help" = {
@@ -3001,7 +3001,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/journa
 */
 
 object CheckCommand "_linuxfabrik_journald_query" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/journald-query" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/journald-query" ]
 
     arguments = {
         "--help" = {
@@ -3070,7 +3070,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/journa
 */
 
 object CheckCommand "_linuxfabrik_journald_usage" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/journald-usage" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/journald-usage" ]
 
     arguments = {
         "--help" = {
@@ -3107,7 +3107,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/json-v
 */
 
 object CheckCommand "_linuxfabrik_json_values" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/json-values" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/json-values" ]
 
     arguments = {
         "--help" = {
@@ -3176,7 +3176,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/kemp-s
 */
 
 object CheckCommand "_linuxfabrik_kemp_services" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/kemp-services" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/kemp-services" ]
 
     arguments = {
         "--help" = {
@@ -3245,7 +3245,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/keyclo
 */
 
 object CheckCommand "_linuxfabrik_keycloak_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/keycloak-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/keycloak-version" ]
 
     arguments = {
         "--help" = {
@@ -3282,7 +3282,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/kvm-vm
 */
 
 object CheckCommand "_linuxfabrik_kvm_vm" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/kvm-vm" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/kvm-vm" ]
 
     arguments = {
         "--help" = {
@@ -3311,7 +3311,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/libren
 */
 
 object CheckCommand "_linuxfabrik_librenms_alerts" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/librenms-alerts" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/librenms-alerts" ]
 
     arguments = {
         "--help" = {
@@ -3378,7 +3378,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/libren
 */
 
 object CheckCommand "_linuxfabrik_librenms_health" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/librenms-health" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/librenms-health" ]
 
     arguments = {
         "--help" = {
@@ -3441,7 +3441,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/libren
 */
 
 object CheckCommand "_linuxfabrik_librenms_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/librenms-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/librenms-version" ]
 
     arguments = {
         "--help" = {
@@ -3486,7 +3486,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/load
 */
 
 object CheckCommand "_linuxfabrik_load" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/load" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/load" ]
 
     arguments = {
         "--help" = {
@@ -3523,7 +3523,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/logfil
 */
 
 object CheckCommand "_linuxfabrik_logfile" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/logfile" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/logfile" ]
 
     arguments = {
         "--help" = {
@@ -3616,7 +3616,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mailq
 */
 
 object CheckCommand "_linuxfabrik_mailq" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mailq" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mailq" ]
 
     arguments = {
         "--help" = {
@@ -3657,7 +3657,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/matomo
 */
 
 object CheckCommand "_linuxfabrik_matomo_reporting" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/matomo-reporting" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/matomo-reporting" ]
 
     arguments = {
         "--help" = {
@@ -3723,7 +3723,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/matomo
 */
 
 object CheckCommand "_linuxfabrik_matomo_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/matomo-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/matomo-version" ]
 
     arguments = {
         "--help" = {
@@ -3760,7 +3760,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/memory
 */
 
 object CheckCommand "_linuxfabrik_memory_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/memory-usage" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/memory-usage" ]
 
     arguments = {
         "--help" = {
@@ -3797,7 +3797,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/metaba
 */
 
 object CheckCommand "_linuxfabrik_metabase_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/metabase-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/metabase-stats" ]
 
     arguments = {
         "--help" = {
@@ -3846,7 +3846,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mod-qo
 */
 
 object CheckCommand "_linuxfabrik_mod_qos_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mod-qos-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mod-qos-stats" ]
 
     arguments = {
         "--help" = {
@@ -3883,7 +3883,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mydump
 */
 
 object CheckCommand "_linuxfabrik_mydumper_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mydumper-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mydumper-version" ]
 
     arguments = {
         "--help" = {
@@ -3916,7 +3916,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_aria" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-aria" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-aria" ]
 
     arguments = {
         "--help" = {
@@ -3961,7 +3961,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_binlog_cache" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-binlog-cache" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-binlog-cache" ]
 
     arguments = {
         "--help" = {
@@ -4006,7 +4006,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_connections" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-connections" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-connections" ]
 
     arguments = {
         "--help" = {
@@ -4059,7 +4059,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_database_metrics" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-database-metrics" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-database-metrics" ]
 
     arguments = {
         "--help" = {
@@ -4108,7 +4108,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_innodb_buffer_pool_instances" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-innodb-buffer-pool-instances" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-innodb-buffer-pool-instances" ]
 
     arguments = {
         "--help" = {
@@ -4153,7 +4153,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_innodb_buffer_pool_size" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-innodb-buffer-pool-size" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-innodb-buffer-pool-size" ]
 
     arguments = {
         "--help" = {
@@ -4198,7 +4198,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_innodb_log_waits" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-innodb-log-waits" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-innodb-log-waits" ]
 
     arguments = {
         "--help" = {
@@ -4243,7 +4243,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_joins" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-joins" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-joins" ]
 
     arguments = {
         "--help" = {
@@ -4288,7 +4288,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_logfile" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-logfile" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/mysql-logfile" ]
 
     arguments = {
         "--help" = {
@@ -4350,7 +4350,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_memory" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-memory" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-memory" ]
 
     arguments = {
         "--help" = {
@@ -4395,7 +4395,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_open_files" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-open-files" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-open-files" ]
 
     arguments = {
         "--help" = {
@@ -4440,7 +4440,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_perf_metrics" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-perf-metrics" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-perf-metrics" ]
 
     arguments = {
         "--help" = {
@@ -4485,7 +4485,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_replica_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-replica-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-replica-status" ]
 
     arguments = {
         "--help" = {
@@ -4534,7 +4534,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_slow_queries" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-slow-queries" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-slow-queries" ]
 
     arguments = {
         "--help" = {
@@ -4579,7 +4579,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_sorts" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-sorts" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-sorts" ]
 
     arguments = {
         "--help" = {
@@ -4624,7 +4624,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_storage_engines" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-storage-engines" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-storage-engines" ]
 
     arguments = {
         "--help" = {
@@ -4673,7 +4673,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_system" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-system" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-system" ]
 
     arguments = {
         "--help" = {
@@ -4706,7 +4706,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_table_cache" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-table-cache" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-table-cache" ]
 
     arguments = {
         "--help" = {
@@ -4751,7 +4751,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_table_definition_cache" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-table-definition-cache" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-table-definition-cache" ]
 
     arguments = {
         "--help" = {
@@ -4796,7 +4796,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_table_indexes" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-table-indexes" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-table-indexes" ]
 
     arguments = {
         "--help" = {
@@ -4841,7 +4841,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_table_locks" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-table-locks" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-table-locks" ]
 
     arguments = {
         "--help" = {
@@ -4886,7 +4886,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_temp_tables" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-temp-tables" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-temp-tables" ]
 
     arguments = {
         "--help" = {
@@ -4931,7 +4931,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_thread_cache" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-thread-cache" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-thread-cache" ]
 
     arguments = {
         "--help" = {
@@ -4976,7 +4976,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_traffic" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-traffic" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-traffic" ]
 
     arguments = {
         "--help" = {
@@ -5017,7 +5017,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-version" ]
 
     arguments = {
         "--help" = {
@@ -5062,7 +5062,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/mysql-
 */
 
 object CheckCommand "_linuxfabrik_mysql_user_security" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/mysql-user-security" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/mysql-user-security" ]
 
     arguments = {
         "--help" = {
@@ -5111,7 +5111,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/needs-
 */
 
 object CheckCommand "_linuxfabrik_needs_restarting" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/needs-restarting" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/needs-restarting" ]
 
     arguments = {
         "--help" = {
@@ -5136,7 +5136,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/networ
 */
 
 object CheckCommand "_linuxfabrik_network_bonding" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/network-bonding" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/network-bonding" ]
 
     arguments = {
         "--help" = {
@@ -5169,7 +5169,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/networ
 */
 
 object CheckCommand "_linuxfabrik_network_connections" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/network-connections" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/network-connections" ]
 
     arguments = {
         "--help" = {
@@ -5212,7 +5212,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/networ
 */
 
 object CheckCommand "_linuxfabrik_network_io" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/network-io" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/network-io" ]
 
     arguments = {
         "--help" = {
@@ -5258,7 +5258,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/networ
 */
 
 object CheckCommand "_linuxfabrik_network_port_tcp" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/network-port-tcp" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/network-port-tcp" ]
 
     arguments = {
         "--help" = {
@@ -5307,7 +5307,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nextcl
 */
 
 object CheckCommand "_linuxfabrik_nextcloud_security_scan" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nextcloud-security-scan" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/nextcloud-security-scan" ]
 
     arguments = {
         "--help" = {
@@ -5344,7 +5344,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nextcl
 */
 
 object CheckCommand "_linuxfabrik_nextcloud_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nextcloud-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/nextcloud-stats" ]
 
     arguments = {
         "--help" = {
@@ -5389,7 +5389,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nextcl
 */
 
 object CheckCommand "_linuxfabrik_nextcloud_version" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/nextcloud-version" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/nextcloud-version" ]
 
     arguments = {
         "--help" = {
@@ -5422,7 +5422,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nginx-
 */
 
 object CheckCommand "_linuxfabrik_nginx_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nginx-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/nginx-status" ]
 
     arguments = {
         "--help" = {
@@ -5467,7 +5467,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_cache" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-cache" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/nodebb-cache" ]
 
     arguments = {
         "--help" = {
@@ -5528,7 +5528,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_database" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-database" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/nodebb-database" ]
 
     arguments = {
         "--help" = {
@@ -5589,7 +5589,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_errors" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-errors" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/nodebb-errors" ]
 
     arguments = {
         "--help" = {
@@ -5642,7 +5642,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_events" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-events" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/nodebb-events" ]
 
     arguments = {
         "--help" = {
@@ -5687,7 +5687,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_groups" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-groups" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/nodebb-groups" ]
 
     arguments = {
         "--help" = {
@@ -5732,7 +5732,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_info" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-info" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/nodebb-info" ]
 
     arguments = {
         "--help" = {
@@ -5789,7 +5789,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_users" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-users" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/nodebb-users" ]
 
     arguments = {
         "--help" = {
@@ -5842,7 +5842,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/nodebb
 */
 
 object CheckCommand "_linuxfabrik_nodebb_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/nodebb-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/nodebb-version" ]
 
     arguments = {
         "--help" = {
@@ -5891,7 +5891,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ntp-ch
 */
 
 object CheckCommand "_linuxfabrik_ntp_chronyd" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/ntp-chronyd" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/ntp-chronyd" ]
 
     arguments = {
         "--help" = {
@@ -5928,7 +5928,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ntp-nt
 */
 
 object CheckCommand "_linuxfabrik_ntp_ntpd" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/ntp-ntpd" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/ntp-ntpd" ]
 
     arguments = {
         "--help" = {
@@ -5965,7 +5965,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ntp-sy
 */
 
 object CheckCommand "_linuxfabrik_ntp_systemd_timesyncd" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/ntp-systemd-timesyncd" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/ntp-systemd-timesyncd" ]
 
     arguments = {
         "--help" = {
@@ -5994,7 +5994,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/onlyof
 */
 
 object CheckCommand "_linuxfabrik_onlyoffice_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/onlyoffice-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/onlyoffice-stats" ]
 
     arguments = {
         "--help" = {
@@ -6031,7 +6031,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/openvp
 */
 
 object CheckCommand "_linuxfabrik_openvpn_client_list" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/openvpn-client-list" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/openvpn-client-list" ]
 
     arguments = {
         "--help" = {
@@ -6072,7 +6072,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/path-r
 */
 
 object CheckCommand "_linuxfabrik_path_rw_test" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/path-rw-test" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/path-rw-test" ]
 
     arguments = {
         "--help" = {
@@ -6110,7 +6110,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-fp
 */
 
 object CheckCommand "_linuxfabrik_php_fpm_ping" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-fpm-ping" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/php-fpm-ping" ]
 
     arguments = {
         "--help" = {
@@ -6155,7 +6155,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-fp
 */
 
 object CheckCommand "_linuxfabrik_php_fpm_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-fpm-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/php-fpm-status" ]
 
     arguments = {
         "--help" = {
@@ -6216,7 +6216,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-st
 */
 
 object CheckCommand "_linuxfabrik_php_status" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-status" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/php-status" ]
 
     arguments = {
         "--help" = {
@@ -6271,7 +6271,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/php-ve
 */
 
 object CheckCommand "_linuxfabrik_php_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/php-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/php-version" ]
 
     arguments = {
         "--help" = {
@@ -6306,7 +6306,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/ping
 object CheckCommand "_linuxfabrik_ping" {
     import "ipv4-or-ipv6"
 
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/ping" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/ping" ]
 
     arguments = {
         "--help" = {
@@ -6349,7 +6349,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/pip-up
 */
 
 object CheckCommand "_linuxfabrik_pip_updates" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/pip-updates" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/pip-updates" ]
 
     arguments = {
         "--help" = {
@@ -6394,7 +6394,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/postfi
 */
 
 object CheckCommand "_linuxfabrik_postfix_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/postfix-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/postfix-version" ]
 
     arguments = {
         "--help" = {
@@ -6439,7 +6439,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/procs
 */
 
 object CheckCommand "_linuxfabrik_procs" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/procs" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/procs" ]
 
     arguments = {
         "--help" = {
@@ -6520,7 +6520,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-cp
 */
 
 object CheckCommand "_linuxfabrik_qts_cpu_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-cpu-usage" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/qts-cpu-usage" ]
 
     arguments = {
         "--help" = {
@@ -6585,7 +6585,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-di
 */
 
 object CheckCommand "_linuxfabrik_qts_disk_smart" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-disk-smart" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/qts-disk-smart" ]
 
     arguments = {
         "--help" = {
@@ -6638,7 +6638,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-me
 */
 
 object CheckCommand "_linuxfabrik_qts_memory_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-memory-usage" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/qts-memory-usage" ]
 
     arguments = {
         "--help" = {
@@ -6699,7 +6699,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-te
 */
 
 object CheckCommand "_linuxfabrik_qts_temperatures" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-temperatures" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/qts-temperatures" ]
 
     arguments = {
         "--help" = {
@@ -6760,7 +6760,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-up
 */
 
 object CheckCommand "_linuxfabrik_qts_uptime" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-uptime" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/qts-uptime" ]
 
     arguments = {
         "--help" = {
@@ -6809,7 +6809,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/qts-ve
 */
 
 object CheckCommand "_linuxfabrik_qts_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/qts-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/qts-version" ]
 
     arguments = {
         "--help" = {
@@ -6862,7 +6862,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/redfis
 */
 
 object CheckCommand "_linuxfabrik_redfish_drives" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/redfish-drives" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/redfish-drives" ]
 
     arguments = {
         "--help" = {
@@ -6903,7 +6903,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/redfis
 */
 
 object CheckCommand "_linuxfabrik_redfish_sel" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/redfish-sel" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/redfish-sel" ]
 
     arguments = {
         "--help" = {
@@ -6944,7 +6944,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/redfis
 */
 
 object CheckCommand "_linuxfabrik_redfish_sensor" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/redfish-sensor" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/redfish-sensor" ]
 
     arguments = {
         "--help" = {
@@ -6986,7 +6986,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/redis-
 
 object CheckCommand "_linuxfabrik_redis_status" {
     import "ipv4-or-ipv6"
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/redis-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/redis-status" ]
 
     arguments = {
         "--help" = {
@@ -7066,7 +7066,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/redis-
 
 object CheckCommand "_linuxfabrik_redis_version" {
     import "ipv4-or-ipv6"
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/redis-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/redis-version" ]
 
     arguments = {
         "--help" = {
@@ -7113,7 +7113,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/restic
 */
 
 object CheckCommand "_linuxfabrik_restic_check" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/restic-check" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/restic-check" ]
 
     arguments = {
         "--help" = {
@@ -7150,7 +7150,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/restic
 */
 
 object CheckCommand "_linuxfabrik_restic_snapshots" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/restic-snapshots" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/restic-snapshots" ]
 
     arguments = {
         "--help" = {
@@ -7215,7 +7215,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/restic
 */
 
 object CheckCommand "_linuxfabrik_restic_stats" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/restic-stats" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/restic-stats" ]
 
     arguments = {
         "--help" = {
@@ -7268,7 +7268,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/rocket
 */
 
 object CheckCommand "_linuxfabrik_rocketchat_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/rocketchat-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/rocketchat-stats" ]
 
     arguments = {
         "--help" = {
@@ -7305,7 +7305,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/rocket
 */
 
 object CheckCommand "_linuxfabrik_rocketchat_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/rocketchat-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/rocketchat-version" ]
 
     arguments = {
         "--help" = {
@@ -7350,7 +7350,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/rpm-la
 */
 
 object CheckCommand "_linuxfabrik_rpm_lastactivity" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/rpm-lastactivity" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/rpm-lastactivity" ]
 
     arguments = {
         "--help" = {
@@ -7383,7 +7383,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/sap-op
 */
 
 object CheckCommand "_linuxfabrik_sap_open_concur_com" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/sap-open-concur-com" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/sap-open-concur-com" ]
 
     arguments = {
         "--help" = {
@@ -7432,7 +7432,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/schedu
 */
 
 object CheckCommand "_linuxfabrik_scheduled_task" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/scheduled-task" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/scheduled-task" ]
 
     arguments = {
         "--help" = {
@@ -7470,7 +7470,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/selinu
 */
 
 object CheckCommand "_linuxfabrik_selinux_mode" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/selinux-mode" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/selinux-mode" ]
 
     arguments = {
         "--help" = {
@@ -7503,7 +7503,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/sensor
 */
 
 object CheckCommand "_linuxfabrik_sensors_battery" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/sensors-battery" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/sensors-battery" ]
 
     arguments = {
         "--help" = {
@@ -7540,7 +7540,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/sensor
 */
 
 object CheckCommand "_linuxfabrik_sensors_fans" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/sensors-fans" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/sensors-fans" ]
 
     arguments = {
         "--help" = {
@@ -7577,7 +7577,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/sensor
 */
 
 object CheckCommand "_linuxfabrik_sensors_temperatures" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/sensors-temperatures" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/sensors-temperatures" ]
 
     arguments = {
         "--help" = {
@@ -7606,7 +7606,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/servic
 */
 
 object CheckCommand "_linuxfabrik_service" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/service" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/service" ]
 
     arguments = {
         "--help" = {
@@ -7656,7 +7656,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/snmp
 */
 
 object CheckCommand "_linuxfabrik_snmp" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/snmp" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/snmp" ]
 
     arguments = {
         "--help" = {
@@ -7761,7 +7761,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_linuxfabrik_starface_account_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-account-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/starface-account-stats" ]
 
     arguments = {
         "--help" = {
@@ -7810,7 +7810,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_linuxfabrik_starface_backup_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-backup-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/starface-backup-status" ]
 
     arguments = {
         "--help" = {
@@ -7871,7 +7871,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_linuxfabrik_starface_channel_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-channel-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/starface-channel-status" ]
 
     arguments = {
         "--help" = {
@@ -7932,7 +7932,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_linuxfabrik_starface_database_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-database-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/starface-database-stats" ]
 
     arguments = {
         "--help" = {
@@ -7981,7 +7981,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_linuxfabrik_starface_java_memory_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-java-memory-usage" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/starface-java-memory-usage" ]
 
     arguments = {
         "--help" = {
@@ -8042,7 +8042,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_linuxfabrik_starface_peer_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-peer-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/starface-peer-stats" ]
 
     arguments = {
         "--help" = {
@@ -8091,7 +8091,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/starfa
 */
 
 object CheckCommand "_linuxfabrik_starface_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/starface-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/starface-status" ]
 
     arguments = {
         "--help" = {
@@ -8152,7 +8152,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/strong
 */
 
 object CheckCommand "_linuxfabrik_strongswan_connections" {
-    command = [ "sudo", "{{ linuxfabrik_monitoring_plugins_dest_path }}/strongswan-connections" ]
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/strongswan-connections" ]
 
     arguments = {
         "--help" = {
@@ -8193,7 +8193,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/swap-u
 */
 
 object CheckCommand "_linuxfabrik_swap_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/swap-usage" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/swap-usage" ]
 
     arguments = {
         "--help" = {
@@ -8230,7 +8230,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/system
 */
 
 object CheckCommand "_linuxfabrik_systemd_timedate_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/systemd-timedate-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/systemd-timedate-status" ]
 
     arguments = {
         "--help" = {
@@ -8263,7 +8263,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/system
 */
 
 object CheckCommand "_linuxfabrik_systemd_unit" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/systemd-unit" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/systemd-unit" ]
 
     arguments = {
         "--help" = {
@@ -8314,7 +8314,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/system
 */
 
 object CheckCommand "_linuxfabrik_systemd_units_failed" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/systemd-units-failed" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/systemd-units-failed" ]
 
     arguments = {
         "--help" = {
@@ -8352,7 +8352,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/tuned-
 */
 
 object CheckCommand "_linuxfabrik_tuned_profile" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/tuned-profile" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/tuned-profile" ]
 
     arguments = {
         "--help" = {
@@ -8385,7 +8385,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/update
 */
 
 object CheckCommand "_linuxfabrik_updates" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/updates" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/updates" ]
 
     arguments = {
         "--help" = {
@@ -8422,7 +8422,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/uptime
 */
 
 object CheckCommand "_linuxfabrik_uptime" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/uptime" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/uptime" ]
 
     arguments = {
         "--help" = {
@@ -8459,7 +8459,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/users
 */
 
 object CheckCommand "_linuxfabrik_users" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/users" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/users" ]
 
     arguments = {
         "--help" = {
@@ -8492,7 +8492,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/veeam-
 */
 
 object CheckCommand "_linuxfabrik_veeam_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/veeam-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/veeam-status" ]
 
     arguments = {
         "--help" = {
@@ -8549,7 +8549,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_linuxfabrik_wildfly_deployment_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-deployment-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/wildfly-deployment-status" ]
 
     arguments = {
         "--help" = {
@@ -8611,7 +8611,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_linuxfabrik_wildfly_gc_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-gc-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/wildfly-gc-status" ]
 
     arguments = {
         "--help" = {
@@ -8664,7 +8664,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_linuxfabrik_wildfly_memory_pool_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-memory-pool-usage" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/wildfly-memory-pool-usage" ]
 
     arguments = {
         "--help" = {
@@ -8721,7 +8721,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_linuxfabrik_wildfly_memory_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-memory-usage" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/wildfly-memory-usage" ]
 
     arguments = {
         "--help" = {
@@ -8786,7 +8786,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_linuxfabrik_wildfly_non_xa_datasource_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-non-xa-datasource-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/wildfly-non-xa-datasource-stats" ]
 
     arguments = {
         "--help" = {
@@ -8856,7 +8856,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_linuxfabrik_wildfly_server_status" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-server-status" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/wildfly-server-status" ]
 
     arguments = {
         "--help" = {
@@ -8913,7 +8913,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_linuxfabrik_wildfly_thread_usage" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-thread-usage" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/wildfly-thread-usage" ]
 
     arguments = {
         "--help" = {
@@ -8978,7 +8978,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_linuxfabrik_wildfly_uptime" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-uptime" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/wildfly-uptime" ]
 
     arguments = {
         "--help" = {
@@ -9043,7 +9043,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wildfl
 */
 
 object CheckCommand "_linuxfabrik_wildfly_xa_datasource_stats" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wildfly-xa-datasource-stats" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/wildfly-xa-datasource-stats" ]
 
     arguments = {
         "--help" = {
@@ -9113,7 +9113,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/wordpr
 */
 
 object CheckCommand "_linuxfabrik_wordpress_version" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/wordpress-version" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/wordpress-version" ]
 
     arguments = {
         "--help" = {
@@ -9150,7 +9150,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/xca-ce
 */
 
 object CheckCommand "_linuxfabrik_xca_cert" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/xca-cert" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/xca-cert" ]
 
     arguments = {
         "--help" = {
@@ -9203,7 +9203,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/xml
 */
 
 object CheckCommand "_linuxfabrik_xml" {
-    command = [ "{{ linuxfabrik_monitoring_plugins_dest_path }}/xml" ]
+    command = [ LinuxfabrikMonitoringPluginsDir + "/xml" ]
 
     arguments = {
         "--help" = {

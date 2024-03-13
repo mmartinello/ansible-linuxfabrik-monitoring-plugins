@@ -1,4 +1,7 @@
 ---
+# Install method: 'package' or 'tar'
+linuxfabrik_monitoring_plugins_install_method: package
+
 # Plugins version to be installed
 linuxfabrik_monitoring_plugins_version: 2023112901
 
