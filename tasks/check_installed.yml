@@ -1,8 +1,0 @@
----
-- name: Check if LinuxFabrik is already installed on Linux systems
-  ansible.builtin.include_tasks: check_installed-Linux.yml
-  when: ansible_system == "Linux"
-
-- name: Check if LinuxFabrik is already installed on Linux systems
-  ansible.builtin.include_tasks: check_installed-Windows.yml
-  when: ansible_os_family == "Windows"

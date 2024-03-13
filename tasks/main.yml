@@ -15,17 +15,11 @@
       paths:
         - vars
 
-- name: Check if LinuxFabrik Monitoring Plugins are already installed
-  ansible.builtin.include_tasks: check_installed.yml
-  when: not linuxfabrik_monitoring_plugins_reinstall
-
 - name: Install LinuxFabrik Monitoring Plugins
   ansible.builtin.include_tasks: install.yml
-  when: not linuxfabrik_monitoring_plugins_installed
 
 - name: Install plugin icons
   ansible.builtin.include_tasks: icons.yml
-  when: linuxfabrik_monitoring_plugins_icons_install
 
 - name: Uninstall LinuxFabrik Monitoring Plugins
   ansible.builtin.include_tasks: purge.yml

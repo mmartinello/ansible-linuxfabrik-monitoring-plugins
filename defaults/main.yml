@@ -21,12 +21,6 @@ linuxfabrik_monitoring_plugins_commands_include: true
 # File in which include the command definitions destination directory
 linuxfabrik_monitoring_plugins_icinga_conf_file: /etc/icinga2/icinga2.conf
 
-# Linuxfabrik Monitoring Plugins installed: if true do not (re)install
-linuxfabrik_monitoring_plugins_installed: false
-
-# Reinstall Linuxfabrik Monitoring Plugins
-linuxfabrik_monitoring_plugins_reinstall: false
-
 # Install icons
 linuxfabrik_monitoring_plugins_icons_install: false
 
