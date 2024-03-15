@@ -6,7 +6,7 @@ linuxfabrik_monitoring_plugins_install_method: package
 linuxfabrik_monitoring_plugins_version: 2023112901
 
 # Plugins destination path
-linuxfabrik_monitoring_plugins_dest_path: /usr/lib64/nagios/plugins/linuxfabrik
+linuxfabrik_monitoring_plugins_dest_path: /usr/lib64/nagios/plugins
 
 # Plugins user and group owners
 linuxfabrik_monitoring_plugins_user: nagios
