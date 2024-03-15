@@ -58,11 +58,3 @@
     mode: "0644"
     owner: root
     group: root
-
-- name: Create the installed status file
-  ansible.builtin.file:
-    path: /etc/icinga2/.linuxfabrik-monitoring-plugins.installed
-    state: touch
-    mode: "0644"
-    owner: "{{ linuxfabrik_monitoring_plugins_user }}"
-    group: "{{ linuxfabrik_monitoring_plugins_group }}"

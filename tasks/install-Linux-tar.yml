@@ -1,4 +1,9 @@
 ---
+- name: Check if linuxfabrik_monitoring_plugins_dest_path is configured
+  ansible.builtin.fail:
+    msg: linuxfabrik_monitoring_plugins_dest_path is not configured, please configure it before continue!
+  when: linuxfabrik_monitoring_plugins_dest_path == '/usr/lib64/nagios/plugins'
+
 - name: Remove existing installation if exists
   ansible.builtin.file:
     path: "{{ linuxfabrik_monitoring_plugins_dest_path }}"

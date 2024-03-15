@@ -64,8 +64,3 @@
 #    state: present
 #  when: linuxfabrik_monitoring_plugins_commands_include
 #  notify: Restart Icinga2 on Windows
-
-- name: Create the installed status file
-  ansible.windows.win_file:
-    path: "{{ linuxfabrik_monitoring_status_file }}"
-    state: touch

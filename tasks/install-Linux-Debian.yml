@@ -20,7 +20,3 @@
   ansible.builtin.apt:
     name: linuxfabrik-monitoring-plugins
     state: present
-
-- name: Force set the installation dir variable
-  ansible.builtin.set_fact:
-    linuxfabrik_monitoring_plugins_dest_path: /usr/lib64/nagios/plugins/linuxfabrik

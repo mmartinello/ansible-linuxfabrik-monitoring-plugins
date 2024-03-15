@@ -1,8 +1,6 @@
 ---
 linuxfabrik_monitoring_plugins_url: https://download.linuxfabrik.ch/monitoring-plugins/windows/latest.zip
 
-linuxfabrik_monitoring_status_file: 'C:\ProgramData\icinga2\etc\icinga2\.linuxfabrik-monitoring-plugins.installed'
-
 linuxfabrik_monitoring_plugins_dest_path: 'C:\Program Files\ICINGA2\linuxfabrik'
 
 linuxfabrik_monitoring_plugins_commands_dest_path: C:\ProgramData\icinga2\etc\icinga2\services.d
