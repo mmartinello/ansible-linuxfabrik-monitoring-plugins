@@ -17,6 +17,7 @@
 - name: Define the installation dir constant
   ansible.builtin.lineinfile:
     path: /etc/icinga2/constants.conf
+    regexp: 'const LinuxfabrikMonitoringPluginsDir\s*='
     line: "const LinuxfabrikMonitoringPluginsDir = \"{{ linuxfabrik_monitoring_plugins_dest_path }}\""
   notify: Reload Icinga2
 
