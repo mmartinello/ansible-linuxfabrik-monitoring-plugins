@@ -5,6 +5,10 @@
       - apt-transport-https
       - gpg
 
+- name: Force set the 'linuxfabrik_monitoring_plugins_dest_path' variable
+  ansible.builtin.set_fact:
+    linuxfabrik_monitoring_plugins_dest_path: /usr/lib64/nagios/plugins
+
 - name: Add Linuxfabrik Monitoring Plugins Repository Key
   ansible.builtin.apt_key:
     url: https://repo.linuxfabrik.ch/linuxfabrik.key
