@@ -16,7 +16,7 @@
 
 - name: Add Linuxfabrik Monitoring Plugins APT Repository
   ansible.builtin.apt_repository:
-    repo: "deb https://repo.linuxfabrik.ch/monitoring-plugins/debian/ {{ ansible_distribution_release }}-release main"
+    repo: "deb https://repo.linuxfabrik.ch/monitoring-plugins/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }}-release main"
     state: present
     filename: linuxfabrik-monitoring-plugins
 
