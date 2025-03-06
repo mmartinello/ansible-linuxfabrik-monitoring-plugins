@@ -1,0 +1,13 @@
+---
+linuxfabrik_monitoring_plugins_required_packages:
+  - python36u-pip
+  - python36u-pymysql
+  - yum-utils
+
+linuxfabrik_monitoring_plugins_required_pip_packages:
+  - beautifulsoup4
+  - smbprotocol
+  - vici
+
+linuxfabrik_monitoring_plugins_user: icinga
+linuxfabrik_monitoring_plugins_group: icinga
