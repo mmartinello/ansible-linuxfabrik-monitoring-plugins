@@ -20,6 +20,7 @@
 
 - name: Install plugin icons
   ansible.builtin.include_tasks: icons.yml
+  when: linuxfabrik_monitoring_plugins_icons_install
 
 - name: Uninstall LinuxFabrik Monitoring Plugins
   ansible.builtin.include_tasks: purge.yml
