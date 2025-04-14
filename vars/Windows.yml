@@ -1,5 +1,6 @@
 ---
-linuxfabrik_monitoring_plugins_url: https://download.linuxfabrik.ch/monitoring-plugins/windows/latest.zip
+#linuxfabrik_monitoring_plugins_url: https://download.linuxfabrik.ch/monitoring-plugins/windows/latest.zip
+linuxfabrik_monitoring_plugins_url: https://download.linuxfabrik.ch/monitoring-plugins/lfmp-1.2.0.11-1.signed-compiled.windows.x86_64.zip
 
 linuxfabrik_monitoring_plugins_dest_path: 'C:\Program Files\ICINGA2\linuxfabrik'
 
