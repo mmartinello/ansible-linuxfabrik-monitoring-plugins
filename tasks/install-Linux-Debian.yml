@@ -9,18 +9,30 @@
   ansible.builtin.set_fact:
     linuxfabrik_monitoring_plugins_dest_path: /usr/lib64/nagios/plugins
 
-- name: Add Linuxfabrik Monitoring Plugins Repository Key
-  ansible.builtin.apt_key:
-    url: https://repo.linuxfabrik.ch/linuxfabrik.key
-    state: present
+- name: Ensure the apt keyrings directory exists
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root
+
+- name: Download the Linuxfabrik Monitoring Plugins APT Repository Key
+  ansible.builtin.get_url:
+    url: https://repo.linuxfabrik.ch/linuxfabrik.asc
+    dest: /etc/apt/keyrings/linuxfabrik.asc
+    mode: '0644'
+    owner: root
+    group: root
 
 - name: Add Linuxfabrik Monitoring Plugins APT Repository
   ansible.builtin.apt_repository:
-    repo: "deb https://repo.linuxfabrik.ch/monitoring-plugins/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }}-release main"
+    repo: "deb [signed-by=/etc/apt/keyrings/linuxfabrik.asc] https://repo.linuxfabrik.ch/monitoring-plugins/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }}-release main"
     state: present
     filename: linuxfabrik-monitoring-plugins
 
 - name: Install Linuxfabrik Monitoring Plugins
   ansible.builtin.apt:
     name: linuxfabrik-monitoring-plugins
+    update_cache: true
     state: present
