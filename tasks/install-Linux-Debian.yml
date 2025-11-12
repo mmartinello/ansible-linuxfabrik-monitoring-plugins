@@ -19,7 +19,7 @@
 
 - name: Download the Linuxfabrik Monitoring Plugins APT Repository Key
   ansible.builtin.get_url:
-    url: https://repo.linuxfabrik.ch/linuxfabrik.asc
+    url: https://repo.linuxfabrik.ch/linuxfabrik.key
     dest: /etc/apt/keyrings/linuxfabrik.asc
     mode: '0644'
     owner: root
