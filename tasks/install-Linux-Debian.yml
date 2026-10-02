@@ -35,4 +35,4 @@
   ansible.builtin.apt:
     name: linuxfabrik-monitoring-plugins
     update_cache: true
-    state: present
+    state: "{{ 'latest' if linuxfabrik_monitoring_plugins_upgrade else 'present' }}"
