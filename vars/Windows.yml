@@ -1,9 +1,9 @@
 ---
-#linuxfabrik_monitoring_plugins_url: https://download.linuxfabrik.ch/monitoring-plugins/lfmp-1.2.0.11-1.signed-compiled.windows.x86_64.zip
-
 # Plugins download URL
-linuxfabrik_monitoring_plugins_filename: "lfmp-{{ linuxfabrik_monitoring_plugins_version }}.signed-compiled.windows.x86_64.zip"
-linuxfabrik_monitoring_plugins_url: https://download.linuxfabrik.ch/monitoring-plugins/windows/{{ linuxfabrik_monitoring_plugins_filename }}
+# (the package release suffix '-1' is added if not given, e.g. 8.0.0 -> 8.0.0-1)
+_linuxfabrik_monitoring_plugins_win_version: "{{ linuxfabrik_monitoring_plugins_version if linuxfabrik_monitoring_plugins_version == 'latest' or '-' in linuxfabrik_monitoring_plugins_version else linuxfabrik_monitoring_plugins_version ~ '-1' }}"
+linuxfabrik_monitoring_plugins_filename: "lfmp-{{ _linuxfabrik_monitoring_plugins_win_version }}.signed-compiled.windows.x86_64.zip"
+linuxfabrik_monitoring_plugins_url: https://download.linuxfabrik.ch/monitoring-plugins/{{ linuxfabrik_monitoring_plugins_filename }}
 
 linuxfabrik_monitoring_plugins_dest_path: 'C:\Program Files\ICINGA2\linuxfabrik'
 

@@ -50,7 +50,7 @@
 
 - name: Install Linuxfabrik Monitoring Plugins
   ansible.builtin.apt:
-    name: "{{ 'linuxfabrik-monitoring-plugins' if linuxfabrik_monitoring_plugins_version == 'latest' else 'linuxfabrik-monitoring-plugins=' ~ linuxfabrik_monitoring_plugins_version ~ '-*' }}"
+    name: "{{ 'linuxfabrik-monitoring-plugins' if linuxfabrik_monitoring_plugins_version == 'latest' else 'linuxfabrik-monitoring-plugins=' ~ linuxfabrik_monitoring_plugins_version ~ ('' if '-' in linuxfabrik_monitoring_plugins_version else '-*') }}"
     update_cache: true
     allow_downgrade: "{{ linuxfabrik_monitoring_plugins_version != 'latest' }}"
     state: "{{ 'latest' if linuxfabrik_monitoring_plugins_upgrade and linuxfabrik_monitoring_plugins_version == 'latest' else 'present' }}"

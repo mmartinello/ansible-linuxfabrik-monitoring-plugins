@@ -3,7 +3,8 @@
 linuxfabrik_monitoring_plugins_install_method: package
 
 # Plugins version to be installed
-# ('latest' for the latest version or a specific version)
+# ('latest' for the latest version or a specific version, e.g. '8.0.0' or
+# '8.0.0-1': if the package release is omitted, '-1' is used on Windows)
 linuxfabrik_monitoring_plugins_version: latest
 
 # Plugins destination path
