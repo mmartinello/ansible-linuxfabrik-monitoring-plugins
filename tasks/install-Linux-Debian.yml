@@ -31,8 +31,26 @@
     state: present
     filename: linuxfabrik-monitoring-plugins
 
-- name: Install Linuxfabrik Monitoring Plugins
+- name: Gather the installed packages
+  ansible.builtin.package_facts:
+    manager: apt
+  when: linuxfabrik_monitoring_plugins_upgrade
+
+# Old releases used date based versions (e.g. 2024060401) that dpkg considers
+# newer than the current semantic versions (e.g. 8.0.0), so they can't be
+# upgraded and must be removed first
+- name: Remove Linuxfabrik Monitoring Plugins installed with a date based version
   ansible.builtin.apt:
     name: linuxfabrik-monitoring-plugins
+    state: absent
+  when:
+    - linuxfabrik_monitoring_plugins_upgrade
+    - "'linuxfabrik-monitoring-plugins' in ansible_facts.packages"
+    - ansible_facts.packages['linuxfabrik-monitoring-plugins'] | selectattr('version', 'match', '^\\d{10}(-|$)') | list | length > 0
+
+- name: Install Linuxfabrik Monitoring Plugins
+  ansible.builtin.apt:
+    name: "{{ 'linuxfabrik-monitoring-plugins' if linuxfabrik_monitoring_plugins_version == 'latest' else 'linuxfabrik-monitoring-plugins=' ~ linuxfabrik_monitoring_plugins_version ~ '-*' }}"
     update_cache: true
-    state: "{{ 'latest' if linuxfabrik_monitoring_plugins_upgrade else 'present' }}"
+    allow_downgrade: "{{ linuxfabrik_monitoring_plugins_version != 'latest' }}"
+    state: "{{ 'latest' if linuxfabrik_monitoring_plugins_upgrade and linuxfabrik_monitoring_plugins_version == 'latest' else 'present' }}"

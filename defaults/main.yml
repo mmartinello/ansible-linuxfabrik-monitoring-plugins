@@ -35,4 +35,6 @@ linuxfabrik_monitoring_plugins_install_windows_commands_on_linux: false
 linuxfabrik_monitoring_plugins_remove_libselinux_so: true
 
 # Upgrade Linuxfabrik Monitoring Plugins
+# (with the 'package' install method, an installed old date based version,
+# e.g. 2024060401, is removed before installing the new one)
 linuxfabrik_monitoring_plugins_upgrade: false
