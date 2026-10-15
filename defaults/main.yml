@@ -3,7 +3,8 @@
 linuxfabrik_monitoring_plugins_install_method: package
 
 # Plugins version to be installed
-linuxfabrik_monitoring_plugins_version: 2023112901
+# ('latest' for the latest version or a specific version)
+linuxfabrik_monitoring_plugins_version: latest
 
 # Plugins destination path
 linuxfabrik_monitoring_plugins_dest_path: /usr/lib64/nagios/plugins
