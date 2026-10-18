@@ -565,14 +565,7 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/disk-s
 */
 
 object CheckCommand "_linuxfabrik_disk_smart" {
-{% raw %}
-    command = {{
-        if (macro("$linuxfabrik_disk_smart_ignore_wear$") == true) {
-            return [ "sudo", LinuxfabrikMonitoringPluginsDir + "/disk-smart-no-wear" ]
-        }
-        return [ "sudo", LinuxfabrikMonitoringPluginsDir + "/disk-smart" ]
-    }}
-{% endraw %}
+    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/$linuxfabrik_disk_smart_plugin$" ]
 
     arguments = {
         "--help" = {
@@ -602,6 +595,14 @@ object CheckCommand "_linuxfabrik_disk_smart" {
     }
 
     vars.linuxfabrik_disk_smart_ignore_wear = false
+{% raw %}
+    vars.linuxfabrik_disk_smart_plugin = {{
+        if (macro("$linuxfabrik_disk_smart_ignore_wear$") == true) {
+            return "disk-smart-no-wear"
+        }
+        return "disk-smart"
+    }}
+{% endraw %}
 }
 
 
