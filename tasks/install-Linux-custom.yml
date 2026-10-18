@@ -1,0 +1,8 @@
+---
+- name: Install disk-smart-no-wear command
+  ansible.builtin.template:
+    src: disk-smart-no-wear.j2
+    dest: "{{ linuxfabrik_monitoring_plugins_dest_path }}/disk-smart-no-wear"
+    mode: "0755"
+    owner: root
+    group: root

@@ -58,3 +58,6 @@
     mode: "0644"
     owner: root
     group: root
+
+- name: Install custom commands
+  ansible.builtin.include_tasks: install-Linux-custom.yml

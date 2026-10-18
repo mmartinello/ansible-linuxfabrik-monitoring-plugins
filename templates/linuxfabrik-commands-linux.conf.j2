@@ -565,7 +565,14 @@ https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/disk-s
 */
 
 object CheckCommand "_linuxfabrik_disk_smart" {
-    command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/disk-smart" ]
+{% raw %}
+    command = {{
+        if (macro("$linuxfabrik_disk_smart_ignore_wear$") == true) {
+            return [ "sudo", LinuxfabrikMonitoringPluginsDir + "/disk-smart-no-wear" ]
+        }
+        return [ "sudo", LinuxfabrikMonitoringPluginsDir + "/disk-smart" ]
+    }}
+{% endraw %}
 
     arguments = {
         "--help" = {
@@ -593,6 +600,8 @@ object CheckCommand "_linuxfabrik_disk_smart" {
             description = "For unit tests. Needs 'path-to-stdout-file,path-to-stderr- file,expected-retc'."
         }
     }
+
+    vars.linuxfabrik_disk_smart_ignore_wear = false
 }
 
 

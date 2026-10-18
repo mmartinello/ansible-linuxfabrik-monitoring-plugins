@@ -1,0 +1,136 @@
+#!/usr/bin/env python3
+# {{ ansible_managed }}
+
+import re
+import subprocess
+import sys
+
+PLUGIN = "{{ linuxfabrik_monitoring_plugins_dest_path }}/disk-smart"
+
+WEAR_PATTERNS = (
+    re.compile(
+        r'^\s+- Statistics: Drive is reporting surface errors '
+        r'\("(?:Percentage Used Endurance Indicator|Utilization Usage Rate)"\)\.'
+    ),
+    re.compile(
+        r'^\s+- Statistics: Drive is past its estimated lifespan\.$'
+    ),
+)
+
+def is_wear_message(line):
+    return any(pattern.search(line) for pattern in WEAR_PATTERNS)
+
+
+def main():
+    try:
+        result = subprocess.run(
+            [PLUGIN, *sys.argv[1:]],
+            capture_output=True,
+            text=True,
+            timeout=120,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        print(f"UNKNOWN - disk-smart execution failed: {exc}")
+        return 3
+
+    if result.returncode not in (0, 1, 2, 3):
+        print("UNKNOWN - Unexpected plugin exit code")
+        return 3
+
+    # Preserve critical and unknown results.
+    if result.returncode in (2, 3):
+        sys.stdout.write(result.stdout)
+        sys.stderr.write(result.stderr)
+        return result.returncode
+
+    status, separator, perfdata = result.stdout.partition("|")
+    lines = status.splitlines()
+
+    if not lines:
+        sys.stdout.write(result.stdout)
+        sys.stderr.write(result.stderr)
+        return result.returncode
+
+    filtered = []
+    removed = 0
+    current_disk = None
+    disk_lines = []
+
+    def flush_disk():
+        nonlocal disk_lines
+
+        if not disk_lines:
+            return
+
+        header = disk_lines[0]
+        messages = disk_lines[1:]
+
+        kept = [line for line in messages if not is_wear_message(line)]
+
+        if len(kept) < len(messages):
+            if not kept:
+                header = header.replace(" [WARNING]", "")
+            disk_lines = [header] + kept
+
+        filtered.extend(disk_lines)
+        disk_lines = []
+
+    filtered.append(lines[0])
+
+    for line in lines[1:]:
+        if line.startswith("* /dev/"):
+            flush_disk()
+            disk_lines = [line]
+        elif disk_lines:
+            disk_lines.append(line)
+        else:
+            filtered.append(line)
+
+        if is_wear_message(line):
+            removed += 1
+
+    flush_disk()
+
+    # No recognized wear messages: preserve original output.
+    if removed == 0:
+        sys.stdout.write(result.stdout)
+        sys.stderr.write(result.stderr)
+        return result.returncode
+
+    # Detect remaining problems.
+    remaining = any(
+        "[WARNING]" in line
+        or "[CRITICAL]" in line
+        or re.match(r"^\s+- ", line)
+        for line in filtered[1:]
+    )
+
+    if result.returncode == 1 and not remaining:
+        if "There are warnings." not in filtered[0]:
+            sys.stdout.write(result.stdout)
+            sys.stderr.write(result.stderr)
+            return result.returncode
+
+        filtered[0] = filtered[0].replace(
+            "There are warnings.",
+            "All are healthy (SSD wear warnings ignored)."
+        )
+        exit_code = 0
+    else:
+        exit_code = result.returncode
+
+    output = "\n".join(filtered)
+
+    if separator:
+        output += "|" + perfdata
+    elif result.stdout.endswith("\n"):
+        output += "\n"
+
+    sys.stdout.write(output)
+    sys.stderr.write(result.stderr)
+
+    return exit_code
+
+
+if __name__ == "__main__":
+    sys.exit(main())
