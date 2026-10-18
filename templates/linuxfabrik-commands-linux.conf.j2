@@ -658,6 +658,32 @@ Code at:
 https://github.com/Linuxfabrik/monitoring-plugins/tree/main/check-plugins/dmesg
 */
 
+// Exclusions for linuxfabrik_dmesg
+const LinuxfabrikDmesgIgnore = [
+  // Default Linuxfabrik exclusions
+  " Asking for cache data failed",
+  " Assuming drive cache: write through",
+  " brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac43455-sdio for chip BCM4345/6",
+  " brcmfmac: brcmf_c_preinit_dcmds: Firmware: BCM4345/6",
+  " CIFS VFS: Free previous auth_key.response = ",
+  " cpufreq: __cpufreq_add_dev: ->get() failed",
+  " ERST: Failed to get Error Log Address Range.",
+  " i8042: No controller found",
+  " Ignoring unsafe software power cap!",
+  " ioctl error in smb2_get_dfs_refer rc=-5",
+  " kvm_set_msr_common: MSR_IA32_DEBUGCTLMSR ",
+  " No Caching mode page found",
+  " SMBus Host Controller not enabled!",
+  " tsc: Fast TSC calibration failed",
+  " unhandled rdmsr: ",
+  " unhandled wrmsr: ",
+  " vcpu0 disabled perfctr wrmsr",
+
+  // Custom additional exclusions
+  "Failed to query local AF_VSOCK CID",
+  "systemd-ssh-generator failed with exit status 1"
+]
+
 object CheckCommand "_linuxfabrik_dmesg" {
     command = [ "sudo", LinuxfabrikMonitoringPluginsDir + "/dmesg" ]
 
@@ -688,6 +714,8 @@ object CheckCommand "_linuxfabrik_dmesg" {
             description = "For unit tests. Needs 'path-to-stdout-file,path-to- stderr-file,expected-retc'."
         }
     }
+
+    vars.linuxfabrik_dmesg_ignore = LinuxfabrikDmesgIgnore
 }
 
 
