@@ -18,9 +18,11 @@
 - name: Install LinuxFabrik Monitoring Plugins
   ansible.builtin.include_tasks: install.yml
 
-- name: Install plugin icons
-  ansible.builtin.include_tasks: icons.yml
-  when: linuxfabrik_monitoring_plugins_icons_install
+# FIXME: icons tar archive is no longer available
+# (https://download.linuxfabrik.ch/monitoring-plugins/icons/icons.tar.gz)
+#- name: Install plugin icons
+#  ansible.builtin.include_tasks: icons.yml
+#  when: linuxfabrik_monitoring_plugins_icons_install
 
 - name: Uninstall LinuxFabrik Monitoring Plugins
   ansible.builtin.include_tasks: purge.yml
